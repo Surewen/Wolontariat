@@ -1,0 +1,17 @@
+﻿#ulMenu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.liMenu {
+    display:inline;
+    float: left;
+}
+
+.aMenu {
+    display:block;
+
+    padding: 8px;
+}

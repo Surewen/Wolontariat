@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Template.master.cs" Inherits="Wolontariat.Template" %>
+
+<!DOCTYPE html>
+<link rel="stylesheet" runat="server" media="screen" href="/css/Template.css" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Wolontariat</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+
+    <ul id="ulMenu">
+        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
+        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
+        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
+        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
+    </ul>
+
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+
+
+
+
+</body>
+</html>
