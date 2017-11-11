@@ -11,6 +11,19 @@
 
 <body>
 
+    <ul class="ulSidePanel">
+        <li class="logo">LOGO</li>
+        <li class="sidePanel">SIDE PANEL</li>
+        <li class="sidePanel">SIDE PANEL</li>
+        <li class="sidePanel">SIDE PANEL</li>
+        <li class="sidePanel">SIDE PANEL</li>
+        <li class="sidePanel">SIDE PANEL</li>
+        <li class="sidePanel">SIDE PANEL</li>
+        <li class="sidePanel">SIDE PANEL</li>
+    </ul>
+
+
+
     <ul id="ulMenu">
         <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
         <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
