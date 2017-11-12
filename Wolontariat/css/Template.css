@@ -1,5 +1,5 @@
 ﻿/*TOP PANEL*/
-#ulMenu {
+.ulMenu {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -29,7 +29,6 @@
 .aMenu {
     display:block;
     color: white;
-    padding: 8px;
     text-decoration: none;
     text-align: center;
     padding: 20px 30px;
@@ -38,24 +37,28 @@
     .aMenu:hover {
         background-color: #050606;
     }
-/*SIDE PANEL*/
 
+/*SPACE UNDER TOP PANEL*/
+.ulMenuspace{
+    height: 50px;
+    width: auto;
+}
+
+/*WELCOME IMAGE*/
+.welcomePanel{
+    width: 100%;
+    height: auto;
+}
+
+/*SIDE PANEL*/
 .ulSidePanel{
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: auto;
     background-color: #181F1C;
-
-    position: fixed;
+    width:15%;
 }
-
-.logo{
-    display:block;
-    float: left;
-    border-right: 2px solid #60712F;
-}
-
 
 
 

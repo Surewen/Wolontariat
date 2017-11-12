@@ -5,14 +5,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Wolontariat</title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
 </head>
 
 <body>
 
+    <ul class="ulMenu">
+        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
+        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
+        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
+        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
+        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
+        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
+        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
+    </ul>
+
+    <div class="ulMenuspace"></div>
+
+    <img class="welcomePanel" src="/res/img/welcome.bmp" />
+
     <ul class="ulSidePanel">
-        <li class="logo">LOGO</li>
         <li class="sidePanel">SIDE PANEL</li>
         <li class="sidePanel">SIDE PANEL</li>
         <li class="sidePanel">SIDE PANEL</li>
@@ -22,17 +33,10 @@
         <li class="sidePanel">SIDE PANEL</li>
     </ul>
 
-
-
-    <ul id="ulMenu">
-        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
-        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
-        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
-        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
-        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
-        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
-        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
-    </ul>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
     <form id="form1" runat="server">
     <div>
