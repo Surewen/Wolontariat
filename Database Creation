@@ -1,0 +1,10 @@
+CREATE TABLE users(
+  id INTEGER PRIMARY KEY, 
+  pesel integer, 
+  email VARCHAR(30),
+  name VARCHAR(20),
+  surname VARCHAR(20),
+  birth_date DATE,
+  sex VARCHAR(10),
+  type VARCHAR(20)
+);
