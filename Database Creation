@@ -8,3 +8,20 @@ CREATE TABLE users(
   sex VARCHAR(10),
   type VARCHAR(20)
 );
+
+CREATE TABLE newsletter(
+  id INTEGER PRIMARY KEY,
+  to_email VARCHAR(20),
+  from_email VARCHAR(20),
+  title VARCHAR(40),
+  message VARCHAR(250),
+  post_date DATETIME
+);
+
+CREATE TABLE announcement(
+  id INTEGER PRIMARY KEY,
+  post_date DATETIME,
+  created_by VARCHAR(20),
+  current_status VARCHAR(10),
+  content VARCHAR(1000)
+);
