@@ -15,7 +15,7 @@
         <li class="liMenu"><a class="aMenu" href="Announcements.aspx">Ogłoszenia</a></li>
         <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
         <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
-        <li class="liMenu"><a class="aMenu" href="Home.aspx">Zaloguj się</a></li>
+        <li class="liMenu"><a class="aMenu" href="Login.aspx">Zaloguj się</a></li>
         <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
     </ul>
 
