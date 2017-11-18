@@ -10,9 +10,9 @@
 <body>
 
     <ul class="ulMenu">
-        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
-        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
-        <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
+        <li class="liMenu"><a class="aMenu" href="Home.aspx">Strona główna</a></li>
+        <li class="liMenu"><a class="aMenu" href="Events.aspx">Wydarzenia</a></li>
+        <li class="liMenu"><a class="aMenu" href="Announcements.aspx">Ogłoszenia</a></li>
         <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
         <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
         <li class="liMenu"><a class="aMenu" href="Home.aspx">Home</a></li>
