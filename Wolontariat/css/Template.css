@@ -50,17 +50,36 @@
     height: auto;
 }
 
-/*SIDE PANEL*/
-.ulSidePanel{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: auto;
-    background-color: #181F1C;
-    width:15%;
+/*CONTENT COLUMNS*/
+.column {
+    float: left;
+    width: 33%;
+    padding: 0.1%;
+    height: 300px; /* Remove later. */
 }
 
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
+@media (max-width: 800px) {/*RESPONSIVITY*/
+    .column {
+        width: 100%;
+    }
+    .ulMenu {
+        width: 100%;
+        position: inherit;
+    }
+    .liMenu {
+        width: 100%;
+    }
+    .ulMenuspace {
+        height: 0px;
+    }
+
+}
 
 
 

@@ -23,28 +23,22 @@
 
     <img class="welcomePanel" src="/res/img/welcome.bmp" />
 
-    <ul class="ulSidePanel">
-        <li class="sidePanel">SIDE PANEL</li>
-        <li class="sidePanel">SIDE PANEL</li>
-        <li class="sidePanel">SIDE PANEL</li>
-        <li class="sidePanel">SIDE PANEL</li>
-        <li class="sidePanel">SIDE PANEL</li>
-        <li class="sidePanel">SIDE PANEL</li>
-        <li class="sidePanel">SIDE PANEL</li>
-    </ul>
-
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
-    <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    <div class="row">
+        <div class="column" style="background-color:#aaa;">Column</div>
+        <div class="column" style="background-color:#bbb;">    
+            <form id="form1" runat="server">
+                <div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
-        </asp:ContentPlaceHolder>
+                    </asp:ContentPlaceHolder>
+                </div>
+            </form>
+
+        </div>
+        <div class="column" style="background-color:#ccc;">Column</div>
     </div>
-    </form>
+
+
 
 
 
