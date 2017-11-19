@@ -58,7 +58,7 @@
     float: left;
     width: 33%;
     padding: 0.1%;
-    height: 300px; /* Remove later. */
+    height: 800px; /* Remove later. */
 }
 
 .row:after {
@@ -67,7 +67,33 @@
     clear: both;
 }
 
+/*COOKIE INFORMATION*/
+#cookie-consent{
+    list-style-type: none;
+    margin: 0;
+    padding: 0.2%;
+    overflow: hidden;
+    background-color: #181F1C;
+    border: 2px solid #60712F;
 
+    color: white;
+    text-decoration: none;
+    text-align: center;
+
+    position: fixed;
+    bottom: 0;
+    width: 15%;
+}
+
+#consent{
+    float: right;
+    width: 45%;
+}
+
+#learn-more{
+    float:left;
+    width: 45%;
+}
 
 
 
@@ -94,14 +120,8 @@
     .ulMenuspace {
         height: 0px;
     }
+    #cookie-consent {
+        width: 100%;
+    }
 
 }
-
-
-
-
-
-
-
-
-
