@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="Announcements.aspx" />
     <Content Include="css\Login.css" />
+    <Content Include="css\Register.css" />
     <Content Include="Events.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />

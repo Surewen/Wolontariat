@@ -14,8 +14,8 @@
             <p id="profile-name" class="profile-name-card"></p>
                 <form class="form-signin">
                     <span id="reauth-email" class="reauth-email"></span>
-                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus" />
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required" />
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="required" autofocus="autofocus" />
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Hasło" required="required" />
                     <div id="remember" class="checkbox">
                         <label>
                             <input type="checkbox" value="remember-me" /> Remember me
@@ -28,7 +28,6 @@
                 </a>
         </div>
     </div>
-
 
 </body>
 </html>
