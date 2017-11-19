@@ -2,13 +2,13 @@
 
 <!DOCTYPE html>
 <link rel="stylesheet" runat="server" media="screen" href="/css/Template.css" />
-<script src="//code.jquery.com/jquery.min.js" type="text/javascript"></script>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Wolontariat</title>
 </head>
 
 <body>
+    <form id="form1" runat="server">
 
     <ul class="ulMenu">
         <li class="liMenu"><a class="aMenu" href="Home.aspx">Strona główna</a></li>
@@ -19,7 +19,6 @@
         <li class="liMenu"><a class="aMenu" href="Login.aspx">Zaloguj się</a></li>
         <li class="liMenu"><a class="aMenu" href="Register.aspx">Zarejestruj się</a></li>
     </ul>
-
     <div class="ulMenuspace"></div>
 
     <img class="welcomePanel" src="/res/img/welcome.bmp" />
@@ -27,13 +26,12 @@
     <div class="row">
         <div class="column" style="background-color:#aaa;">Column</div>
         <div class="column" style="background-color:#bbb;">    
-            <form id="form1" runat="server">
                 <div>
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
                     </asp:ContentPlaceHolder>
                 </div>
-            </form>
+
 
         </div>
         <div class="column" style="background-color:#ccc;">Column</div>
@@ -48,13 +46,13 @@
 
 
 
-
-    <div id="cookie-consent">
-        <div class="container">
-            Ta strona korzysta z Cookies w celu personalizacji i łatwości dotępu. Przeglądając stronę akceptujesz politykę Cookies.<br />
-            <button class="btn btn-xs btn-green" id="learn-more">Dowiedz się więcej</button>
-            <button class="btn btn-xs btn-green" id="consent">Ok</button>
-    </div>
-</div>
+        <div id="cookieConsent" runat="server">
+            <div class="container" runat="server">
+                Ta strona korzysta z Cookies w celu personalizacji i łatwości dotępu. Przeglądając stronę akceptujesz politykę Cookies.<br />
+                    <a href="http://ec.europa.eu/ipg/basics/legal/cookies/index_en.htm" class="btn btn-xs btn-green" id="learn-more">Dowiedz się więcej</a>
+                <asp:Button class="btn btn-xs btn-green" id="consent" OnClick="Accept_Cookies" runat="server" Text="Ok" />
+            </div>
+        </div>
+    </form>
 </body>
 </html>

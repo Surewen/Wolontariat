@@ -68,7 +68,7 @@
 }
 
 /*COOKIE INFORMATION*/
-#cookie-consent{
+#cookieConsent{
     list-style-type: none;
     margin: 0;
     padding: 0.2%;
@@ -93,6 +93,7 @@
 #learn-more{
     float:left;
     width: 45%;
+    color: dodgerblue;
 }
 
 
