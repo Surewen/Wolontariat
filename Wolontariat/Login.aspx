@@ -21,10 +21,10 @@
                             <input type="checkbox" value="remember-me" /> Remember me
                         </label>
                     </div>
-                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Zaloguj się</button>
                 </form>
                 <a href="#" class="forgot-password">
-                    Forgot the password?
+                    Zapomniałeś hasła?
                 </a>
         </div>
     </div>
