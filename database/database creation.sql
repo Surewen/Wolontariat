@@ -1,7 +1,7 @@
 CREATE TABLE users(
-  id INTEGER PRIMARY KEY, 
+  id INTEGER PRIMARY KEY AUTO_INCREMENT, 
   nickname VARCHAR(20) NOT NULL,
-  pesel INTEGER NOT NULL, 
+  pesel VARCHAR(11) NOT NULL, 
   email VARCHAR(30) NOT NULL,
   telephone VARCHAR(9),
   name VARCHAR(20) NOT NULL,
@@ -42,5 +42,3 @@ CREATE TABLE invitations(
   post_date DATETIME NOT NULL,
   FOREIGN KEY (announcement_id) REFERENCES announcements(id)
 );
-
-
