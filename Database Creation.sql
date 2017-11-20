@@ -1,45 +1,46 @@
 CREATE TABLE users(
   id INTEGER PRIMARY KEY, 
-  nickname NOT NULL VARCHAR(20) ,
-  pesel NOT NULL INTEGER, 
-  email NOT NULL VARCHAR(30),
+  nickname VARCHAR(20) NOT NULL,
+  pesel INTEGER NOT NULL, 
+  email VARCHAR(30) NOT NULL,
   telephone VARCHAR(9),
-  name NOT NULL VARCHAR(20),
-  surname NOT NULL VARCHAR(20),
-  birth_date NOT NULL DATE,
-  sex NOT NULL VARCHAR(10),
-  type NOT NULL VARCHAR(20)
+  name VARCHAR(20) NOT NULL,
+  surname VARCHAR(20) NOT NULL,
+  birth_date DATE NOT NULL,
+  sex VARCHAR(10) NOT NULL,
+  type VARCHAR(20) NOT NULL
 );
 
 
 CREATE TABLE newsletters(
   id INTEGER PRIMARY KEY,
-  to_email NOT NULL VARCHAR(20),
-  from_email NOT NULL VARCHAR(20),
-  title NOT NULL VARCHAR(40),
-  content NOT NULL VARCHAR(250),
-  post_date NOT NULL DATETIME
+  to_email VARCHAR(20) NOT NULL,
+  from_email VARCHAR(20) NOT NULL,
+  title VARCHAR(40) NOT NULL,
+  content VARCHAR(250) NOT NULL,
+  post_date DATETIME NOT NULL
 );
 
 
 CREATE TABLE announcements(
   id INTEGER PRIMARY KEY,
-  post_date NOT NULL DATETIME,
-  created_by NOT NULL VARCHAR(20),
-  current_status NOT NULL VARCHAR(10),
-  type NOT NULL VARCHAR(20),
-  content NOT NULL VARCHAR(1000)
+  post_date DATETIME NOT NULL,
+  created_by VARCHAR(20) NOT NULL,
+  current_status VARCHAR(10) NOT NULL,
+  type VARCHAR(20) NOT NULL,
+  content VARCHAR(1000) NOT NULL
 );
 
 
 CREATE TABLE invitations(
   id INTEGER PRIMARY KEY,
-  announcement_id INTEGER FOREIGN KEY REFERENCES announcements(id),
-  to_email NOT NULL VARCHAR(20),
-  from_email NOT NULL VARCHAR(20),
-  title NOT NULL VARCHAR(40),
-  content NOT NULL VARCHAR(250),
-  post_date NOT NULL DATETIME
+  announcement_id INTEGER,
+  to_email VARCHAR(20) NOT NULL,
+  from_email VARCHAR(20) NOT NULL,
+  title VARCHAR(40) NOT NULL,
+  content VARCHAR(250) NOT NULL,
+  post_date DATETIME NOT NULL,
+  FOREIGN KEY (announcement_id) REFERENCES announcements(id)
 );
 
 
