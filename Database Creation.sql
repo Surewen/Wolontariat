@@ -34,7 +34,7 @@ CREATE TABLE announcements(
 
 CREATE TABLE invitations(
   id INTEGER PRIMARY KEY,
-  announcement_id INTEGER,
+  announcement_id INTEGER NOT NULL,
   to_email VARCHAR(20) NOT NULL,
   from_email VARCHAR(20) NOT NULL,
   title VARCHAR(40) NOT NULL,
