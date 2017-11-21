@@ -1,6 +1,7 @@
 CREATE TABLE users(
   id INTEGER PRIMARY KEY AUTO_INCREMENT, 
   nickname VARCHAR(20) NOT NULL,
+  password VARCHAR(30) NOT NULL,
   pesel VARCHAR(11) NOT NULL, 
   email VARCHAR(30) NOT NULL,
   telephone VARCHAR(9),
@@ -14,7 +15,7 @@ CREATE TABLE users(
 
 CREATE TABLE newsletters(
   id INTEGER PRIMARY KEY,
-  to_email VARCHAR(20) NOT NULL,
+  to_type VARCHAR(20) NOT NULL,
   from_email VARCHAR(20) NOT NULL,
   title VARCHAR(40) NOT NULL,
   content VARCHAR(250) NOT NULL,
