@@ -102,7 +102,6 @@ namespace Wolontariat
             count = int.Parse(cmd.ExecuteScalar() + "");
 
             return count;
-
         }
     }
 }

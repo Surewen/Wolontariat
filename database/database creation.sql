@@ -14,7 +14,7 @@ CREATE TABLE users(
 
 
 CREATE TABLE newsletters(
-  id INTEGER PRIMARY KEY,
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
   to_type VARCHAR(20) NOT NULL,
   from_email VARCHAR(20) NOT NULL,
   title VARCHAR(40) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE newsletters(
 
 
 CREATE TABLE announcements(
-  id INTEGER PRIMARY KEY,
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
   post_date DATETIME NOT NULL,
   created_by VARCHAR(20) NOT NULL,
   current_status VARCHAR(10) NOT NULL,
@@ -33,13 +33,23 @@ CREATE TABLE announcements(
 );
 
 
+CREATE TABLE events(
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  created_by VARCHAR(20) NOT NULL,
+  post_date DATETIME NOT NULL,
+  due_date DATETIME NOT NULL,
+  title VARCHAR(40) NOT NULL,
+  content VARCHAR(250) NOT NULL
+);
+
+
 CREATE TABLE invitations(
-  id INTEGER PRIMARY KEY,
-  announcement_id INTEGER NOT NULL,
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  event_id INTEGER NOT NULL,
   to_email VARCHAR(20) NOT NULL,
   from_email VARCHAR(20) NOT NULL,
   title VARCHAR(40) NOT NULL,
   content VARCHAR(250) NOT NULL,
   post_date DATETIME NOT NULL,
-  FOREIGN KEY (announcement_id) REFERENCES announcements(id)
+  FOREIGN KEY (event_id) REFERENCES events(id)
 );
