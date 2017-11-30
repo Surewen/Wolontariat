@@ -13,5 +13,10 @@ namespace Wolontariat
         {
 
         }
+
+        protected void Add(object sender, EventArgs e)
+        {
+
+        }
     }
 }
