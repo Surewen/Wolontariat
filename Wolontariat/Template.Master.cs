@@ -9,6 +9,8 @@ namespace Wolontariat
 {
     public partial class Template : System.Web.UI.MasterPage
     {
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //CHECK COOKIES CONSENT
@@ -17,14 +19,12 @@ namespace Wolontariat
                 cookieConsent.Visible = false;
             }
         }
-
-
-
-
-
-
-
-
+        
+        /// <summary>
+        /// procedura odpowiadająća za wyświetlenie wiadomości o cookie i dodanie cookie jeśli zostanie zaakceptowanie
+        /// </summary>
+        /// <param name="sender"> obiekt przesyłany z formularza</param>
+        /// <param name="e"></param>
         protected void Accept_Cookies(object sender, EventArgs e)
         {
             HttpCookie cookie_consent = new HttpCookie("CookieConsent");
