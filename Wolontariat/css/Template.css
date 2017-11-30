@@ -61,6 +61,17 @@
     height: 800px; /* Remove later. */
 }
 
+#leftColumn {
+    width: 25%;
+}
+#middleColumn {
+    width: 59%;
+}
+#rightColumn {
+    width: 15%;
+}
+
+
 .row:after {
     content: "";
     display: table;

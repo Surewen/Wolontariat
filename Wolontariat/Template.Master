@@ -24,18 +24,18 @@
     <img class="welcomePanel" src="/res/img/welcome.bmp" />
 
     <div class="row">
-        <div class="column" style="background-color:#aaa;">
+        <div id="leftColumn" class="column" style="background-color:#aaa;">
             Column
             <asp:PlaceHolder ID = "user_list" runat="server" />
         </div>
-        <div class="column" style="background-color:#bbb;">    
+        <div id="middleColumn" class="column" style="background-color:#bbb;">    
                 <div>
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 
                     </asp:ContentPlaceHolder>
                 </div>
         </div>
-        <div class="column" style="background-color:#ccc;">
+        <div id="rightColumn" class="column" style="background-color:#ccc;">
             Column
 
         </div>
