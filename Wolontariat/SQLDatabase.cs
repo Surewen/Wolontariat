@@ -34,12 +34,12 @@ namespace Wolontariat
         {
             string query =
                 "INSERT INTO events VALUES " +
-                "(NULL, \""
-                + autor + "\",  CONVERT(DATETIME,'"
+                "(\'"
+                + autor + "\',  CONVERT(DATETIME,'"
                 + add_data + "', 102), CONVERT(DATETIME,'"
-                + due_data + "', 102), \""
-                + title + "\", \""
-                + content + "\");";
+                + due_data + "', 102), \'"
+                + title + "\', \'"
+                + content + "\');";
 
 
             SqlCommand cmd = new SqlCommand(query, connection);
