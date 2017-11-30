@@ -77,7 +77,6 @@
     <Content Include="packages.config" />
     <Content Include="css\Template.css" />
     <Content Include="Register.aspx" />
-    <Content Include="Register2.aspx" />
     <Content Include="Template.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -97,7 +96,6 @@
     <Compile Include="Announcements.aspx.designer.cs">
       <DependentUpon>Announcements.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Database.cs" />
     <Compile Include="Events.aspx.cs">
       <DependentUpon>Events.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -126,13 +124,6 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Register2.aspx.cs">
-      <DependentUpon>Register2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Register2.aspx.designer.cs">
-      <DependentUpon>Register2.aspx</DependentUpon>
     </Compile>
     <Compile Include="SQLDatabase.cs" />
     <Compile Include="Template.Master.cs">
