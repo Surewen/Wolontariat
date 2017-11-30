@@ -11,6 +11,9 @@ namespace Wolontariat
     {
         private SqlConnection connection;
 
+        /// <summary>
+        /// inicjalizacja połączzenia
+        /// </summary>
         public SQLDatabase()
         {
             Init();
@@ -21,15 +24,28 @@ namespace Wolontariat
             connection = new SqlConnection("Data Source=pww-server.database.windows.net;Initial Catalog=pww-database;User ID=wolontariusz;Password=Admini1.");
         }
 
+        /// <summary>
+        /// otwarcie połączenia z bazą danych
+        /// </summary>
         public void Connect()
         {
             connection.Open();
         }
+        /// <summary>
+        /// zakończenie połączenia z bazą danych
+        /// </summary>
         public void Disconnect()
         {
             connection.Close();
         }
-
+        /// <summary>
+        /// procedura polegająca na dodawniu wydarzeń do bazy danych
+        /// </summary>
+        /// <param name="autor"> kto założył wydarzenie</param>
+        /// <param name="add_data"> data dodania</param>
+        /// <param name="due_data"> data wydarzenia</param>
+        /// <param name="title">nazwa wydarzenia</param>
+        /// <param name="content">tresc wydarzenia</param>
         public void InstertEvents(String autor, String add_data, String due_data, String title, String content)
         {
             string query =
@@ -46,7 +62,19 @@ namespace Wolontariat
 
             cmd.ExecuteNonQuery();
         }
-
+        /// <summary>
+        /// procedura dodawająca użytkowników do bazy danych
+        /// </summary>
+        /// <param name="nickname"> nazwa użytkonika</param>
+        /// <param name="password">hasło</param>
+        /// <param name="pesel">pesel</param>
+        /// <param name="email">adres email</param>
+        /// <param name="telephone">telefon kontaktowy</param>
+        /// <param name="name">Imię</param>
+        /// <param name="surname">Nazwisko</param>
+        /// <param name="birthdate">Data urodzenia</param>
+        /// <param name="sex">Płeć</param>
+        /// <param name="type">typ użytkownika(potrzebujący wolontariusz)</param>
         public void InsertUser(String nickname, String password, String pesel, String email, String telephone, String name, String surname, String birthdate, String sex, String type)
         {
             string query =
@@ -67,6 +95,10 @@ namespace Wolontariat
 
             cmd.ExecuteNonQuery();
         }
+        /// <summary>
+        /// listowanie tabli użytkowników
+        /// </summary>
+        /// <returns>zwraca litę użytkowników</returns>
         public List<String>[] ListUsers()
         {
             string query = "SELECT * FROM users;";
@@ -101,6 +133,11 @@ namespace Wolontariat
 
             return list;
         }
+
+        /// <summary>
+        /// zliczanie użytkowników
+        /// </summary>
+        /// <returns>zwraca ilość użytkowników</returns>
         public int CountUsers()
         {
             string query = "SELECT Count(*) FROM users;";
