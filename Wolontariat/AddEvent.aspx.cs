@@ -18,7 +18,7 @@ namespace Wolontariat
         {
             SQLDatabase db = new SQLDatabase();
             db.Connect();
-            
+            db.InstertEvents(autor.Value, add_date.Value, due_data.Value,title.Value, content.Value);
             db.Disconnect();
         }
     }

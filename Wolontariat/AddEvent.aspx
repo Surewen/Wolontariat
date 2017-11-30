@@ -20,6 +20,8 @@
             <br />
             Data dodania:<br />
         <input type="text" id="add_date"  class="form-control" required="required" autofocus="autofocus" runat="server" placeholder="dd.mm.rrrr"/>
+
+            <br /> 
             Autor:
             <br />
            <input type="text" id="autor"  class="form-control" required="required" autofocus="autofocus" runat="server"/>
