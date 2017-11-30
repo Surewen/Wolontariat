@@ -30,6 +30,23 @@ namespace Wolontariat
             connection.Close();
         }
 
+        public void InstertEvents(String autor, String add_date, String due_data, String title, String content)
+        {
+            string query =
+                "INSERT INTO events VALUES " +
+                "(NULL, \""
+                + autor + "\",  TO_DATE('"
+                + add_date + "', 'DD-MM-YYYY'), TO_DATE('"
+                + due_data + "', 'DD-MM-YYYY'), \""
+                + title + "\", \""
+                + content + "\");";
+
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.ExecuteNonQuery();
+        }
+
         public void InsertUser(String nickname, String password, String pesel, String email, String telephone, String name, String surname, String birthdate, String sex, String type)
         {
             string query =
@@ -41,8 +58,8 @@ namespace Wolontariat
                 + email + "\", \""
                 + telephone + "\", \""
                 + name + "\", \""
-                + surname + "\", TO_DATE('"
-                + birthdate + "', 'DD-MM-YYYY'), \""
+                + surname + "\", CONVERT(DATETIME,'"
+                + birthdate + "', 102), \""
                 + sex + "\", \""
                 + type + "\");";
 

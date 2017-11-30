@@ -76,7 +76,9 @@ body, html {
 .form-signin #repeatPassword,
 .form-signin #name,
 .form-signin #surname,
-.form-signin #date {
+.form-signin #date,
+.form-signin #pesel,
+.form-signin #telephone {
     direction: ltr;
     height: 44px;
     font-size: 16px;
