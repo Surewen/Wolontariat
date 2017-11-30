@@ -18,9 +18,11 @@
             <br />
         <input type="text" id="due_data"  class="form-control" required="required" autofocus="autofocus" runat="server" placeholder="dd.mm.rrrr"/>
             <br />
+            Data dodania:<br />
+        <input type="text" id="add_date"  class="form-control" required="required" autofocus="autofocus" runat="server" placeholder="dd.mm.rrrr"/>
             Autor:
             <br />
-           <input id="autor" type="text" />
+           <input type="text" id="autor"  class="form-control" required="required" autofocus="autofocus" runat="server"/>
             <br /> 
 
         <asp:Button CssClass="btn btn-rg btn-register" type="submit" OnClick="Add" runat="server" text="Dodaj"/>

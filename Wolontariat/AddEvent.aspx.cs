@@ -16,7 +16,10 @@ namespace Wolontariat
 
         protected void Add(object sender, EventArgs e)
         {
-
+            SQLDatabase db = new SQLDatabase();
+            db.Connect();
+            
+            db.Disconnect();
         }
     }
 }
