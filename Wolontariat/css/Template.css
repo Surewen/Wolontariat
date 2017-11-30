@@ -56,7 +56,7 @@
 /*CONTENT COLUMNS*/
 .column {
     float: left;
-    width: 33%;
+    width: 10%;
     padding: 0.1%;
     height: 800px; /* Remove later. */
 }

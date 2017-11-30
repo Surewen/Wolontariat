@@ -8,25 +8,29 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="container" runat="server">
         <div class="card card-container">
             <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
             <p id="profile-name" class="profile-name-card"></p>
+
+
                 <form class="form-signin">
                     <span id="reauth-email" class="reauth-email"></span>
-                    <input type="email" id="nickname" class="form-control" placeholder="Nazwa użytkownika" required="required" autofocus="autofocus" />
+                    <input type="text" id="nickname" class="form-control" placeholder="Nazwa użytkownika" required="required" autofocus="autofocus" />
                     <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="required" autofocus="autofocus" />
                     <input type="password" id="inputPassword" class="form-control" placeholder="Hasło" required="required" />
                     <input type="password" id="repeatPassword" class="form-control" placeholder="Powrórz hasło" required="required" />
                     <input type="text" id="name" class="form-control" placeholder="Imię" required="required" />
                     <input type="text" id="surname" class="form-control" placeholder="Nazwisko" required="required" />
+                    <input type="text" id="pesel" class="form-control" placeholder="Pesel" required="required" />
                     Data urodzenia:
                     <input type="date" name="birthDate"><br />
                     Typ użytkownika:<br />
                     <label><input type="radio" id="volounteer" name="userType"  required="required" />Wolontariusz</label><br />
                     <input type="radio" id="needy" name="userType" required="required" />Potrzebujący<br /><br />
-                    <button class="btn btn-rg btn-register" type="submit">Register</button>
+                    <button class="btn btn-rg btn-register" OnClick="RegisterUser" runat="server">Register</button>
                 </form>
+            
         </div>
     </div>
 
