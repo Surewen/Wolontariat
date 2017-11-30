@@ -13,5 +13,10 @@ namespace Wolontariat
         {
 
         }
+
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+            inputEmail.Value = nickname.Value;
+        }
     }
 }
