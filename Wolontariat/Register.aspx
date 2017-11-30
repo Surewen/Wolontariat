@@ -16,16 +16,23 @@
                     <span id="reauth-email" class="reauth-email"></span>
                     <input type="text" id="nickname" class="form-control" placeholder="Nazwa użytkownika" required="required" autofocus="autofocus" runat="server"/>
                     <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="required" autofocus="autofocus" runat="server"/>
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Hasło" required="required" />
-                    <input type="password" id="repeatPassword" class="form-control" placeholder="Powrórz hasło" required="required" />
-                    <input type="text" id="name" class="form-control" placeholder="Imię" required="required" />
-                    <input type="text" id="surname" class="form-control" placeholder="Nazwisko" required="required" />
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Hasło" required="required" runat="server"/>
+                    <input type="password" id="repeatPassword" class="form-control" placeholder="Powrórz hasło" required="required" runat="server"/>
+                    <input type="text" id="name" class="form-control" placeholder="Imię" required="required" runat="server"/>
+                    <input type="text" id="surname" class="form-control" placeholder="Nazwisko" required="required" runat="server"/>
+                    <input type="text" id="pesel" class="form-control" placeholder="PESEL" required="required" runat="server"/>
+                    <input type="text" id="telephone" class="form-control" placeholder="Telefon" required="required" runat="server"/>
+
                     Data urodzenia:
-                    <input type="date" name="birthDate"><br />
+                    <input type="date" name="birthDate" runat="server" value=""><br />
+                    Płeć:<br />
+                    <label><input type="radio" id="male" name="userSex"  required="required" runat="server"/>Mężczyzna</label><br />
+                    <input type="radio" id="female" name="userSex" required="required" runat="server"/>Kobieta<br /><br />
                     Typ użytkownika:<br />
-                    <label><input type="radio" id="volounteer" name="userType"  required="required" />Wolontariusz</label><br />
-                    <input type="radio" id="needy" name="userType" required="required" />Potrzebujący<br /><br />
-                    <asp:Button CssClass="btn btn-rg btn-register" type="submit" OnClick="Unnamed_Click" runat="server" text="Zarejestruj"/>
+                    <label><input type="radio" id="volounteer" name="userType"  required="required" runat="server"/>Wolontariusz</label><br />
+                    <input type="radio" id="needy" name="userType" required="required" runat="server"/>Potrzebujący<br /><br />
+                    <asp:Button CssClass="btn btn-rg btn-register" type="submit" OnClick="Register_User" runat="server" text="Zarejestruj"/>
+
                 </form>
         </div>
     </div>

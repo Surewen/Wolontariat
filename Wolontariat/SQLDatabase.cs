@@ -41,8 +41,8 @@ namespace Wolontariat
                 + email + "\", \""
                 + telephone + "\", \""
                 + name + "\", \""
-                + surname + "\", TO_DATE('"
-                + birthdate + "', 'DD-MM-YYYY'), \""
+                + surname + "\", CONVERT(DATETIME,'"
+                + birthdate + "', 102), \""
                 + sex + "\", \""
                 + type + "\");";
 
