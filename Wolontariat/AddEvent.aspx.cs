@@ -14,6 +14,12 @@ namespace Wolontariat
 
         }
 
+
+        ///<summary>procedura pobierająca dane z formularza odpowiadającego dodawaniu wydarzeń a następnie
+        ///wywołująca procedure dodania do bazy danych</summary>
+        /// <param name="sender">obiekt wysyłany z formularza dodawania wydarzenia</param>
+        /// <param name="e"></param>
+        ///<param "db"> obiekt klasy zarządzającej za bazą danych</param>
         protected void Add(object sender, EventArgs e)
         {
             SQLDatabase db = new SQLDatabase();

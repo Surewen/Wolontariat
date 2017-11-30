@@ -29,6 +29,7 @@
             <asp:Parameter Name="title" Type="String"></asp:Parameter>
             <asp:Parameter Name="content" Type="String"></asp:Parameter>
         </InsertParameters>
+        
         <UpdateParameters>
             <asp:Parameter Name="created_by" Type="String"></asp:Parameter>
             <asp:Parameter Name="post_date" Type="DateTime"></asp:Parameter>
