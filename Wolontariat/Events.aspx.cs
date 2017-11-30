@@ -15,7 +15,10 @@ namespace Wolontariat
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            SQLDatabase db = new SQLDatabase();
+            db.Connect();
+           
+            db.Disconnect();
 
         }
 
