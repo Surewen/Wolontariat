@@ -1,7 +1,7 @@
 INSERT INTO users(nickname, password, pesel, email, telephone, name, surname, birth_date, sex, type) VALUES
 ('Birdie', 'haslo123','96012504195', 'marshall.olson31@example.com', '495839482', 'Robert', 'Kowalski', CONVERT(DATETIME, '1996-01-25', 102), 'male', 'volounteer'),
 ('Lolek', 'lolek55','95022604195', 'adrian.wolski@example.com', '864456346', 'Adrian', 'Wolski', CONVERT(DATETIME, '1995-02-26', 102), 'male', 'needy'),
-('Micha1', 'okon1', '94081234419', 'mejlik123@gmail.com', '843954132', 'Michal', 'Adamski', CONVERT(DATETIME, '1994-08-12', 102), 'male', 'needy'), 
+('Micha1', 'okon1', '94081234419', 'mejlik123@gmail.com', '843954132', 'Michal', 'Adamski', CONVERT(DATETIME, '1994-08-12', 102), 'male', 'needy'),
 ('Sztazi', '123134', '67121204412', 'lekogemorr-6345@yopmail.com', '501234212', 'Ryszard', 'Sowa', CONVERT(DATETIME, '1967-12-12', 102), 'male', 'needy'), 
 ('Rzolniez18', 'haselko1', '75081123212', 'uzovallo-6754@hotmail.com', '783123084', 'Andrzej', 'Jaworski', CONVERT(DATETIME, '1975-08-11', 102), 'male', 'volounteer'), 
 ('LubiePiwo', '12345', '92010104437', 'olliddaneqo-6824@gmail.com', '514323928', 'Katarzyna', 'Szkutnik', CONVERT(DATETIME, '1992-01-01', 102), 'female', 'volounteer'), 
