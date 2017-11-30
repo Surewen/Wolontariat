@@ -24,12 +24,12 @@
                     <input type="text" id="telephone" class="form-control" placeholder="Telefon" required="required" runat="server"/>
 
                     Data urodzenia:
-                    <input type="date" name="birthDate" runat="server" value=""><br />
+                    <input type="date" id="birthDate" name="birthDate" runat="server" value=""><br />
                     Płeć:<br />
-                    <label><input type="radio" id="male" name="userSex"  required="required" runat="server"/>Mężczyzna</label><br />
+                    <input type="radio" id="male" name="userSex"  required="required" runat="server"/>Mężczyzna<br />
                     <input type="radio" id="female" name="userSex" required="required" runat="server"/>Kobieta<br /><br />
                     Typ użytkownika:<br />
-                    <label><input type="radio" id="volounteer" name="userType"  required="required" runat="server"/>Wolontariusz</label><br />
+                    <input type="radio" id="volounteer" name="userType"  required="required" runat="server"/>Wolontariusz<br />
                     <input type="radio" id="needy" name="userType" required="required" runat="server"/>Potrzebujący<br /><br />
                     <asp:Button CssClass="btn btn-rg btn-register" type="submit" OnClick="Register_User" runat="server" text="Zarejestruj"/>
 

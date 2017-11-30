@@ -10,6 +10,8 @@ namespace Wolontariat
     public partial class Register : System.Web.UI.Page
     {
         SQLDatabase db;
+        private String sex;
+        private String type;
     
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,10 +26,26 @@ namespace Wolontariat
         ///<param "db"> obiekt klasy zarządzającej za bazą danych</param>
         protected void Register_User(object sender, EventArgs e)
         {
-            
+            if(male.Checked)
+            {
+                sex = "male";
+            }
+            else
+            {
+                sex = "female";
+            }
+            if (volounteer.Checked)
+            {
+                type = "volounteer";
+            }
+            else
+            {
+                type = "needy";
+            }
+
             db = new SQLDatabase();
             db.Connect();
-            db.InsertUser(nickname.Value, inputPassword.Value, pesel.Value, inputEmail.Value, telephone.Value, name.Value, surname.Value, "1991-11-11", "male", "volounteer");
+            db.InsertUser(nickname.Value, inputPassword.Value, pesel.Value, inputEmail.Value, telephone.Value, name.Value, surname.Value, birthDate.Value, sex, type);
             db.Disconnect();
         }
     }
