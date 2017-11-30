@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using MySql.Data;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace Wolontariat
 {
     public class Database
     {
-        private MySqlConnection connection;
+        private SqlConnection connection;
         private string server;
         private string database;
         private string username;
@@ -28,7 +27,7 @@ namespace Wolontariat
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
 
-            connection = new MySqlConnection(connectionString);
+            connection = new SqlConnection(connectionString);
         }
         public void Connect()
         {
@@ -54,7 +53,7 @@ namespace Wolontariat
                 + sex + "\", \"" 
                 + type + "\");";
 
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
             
             cmd.ExecuteNonQuery();
         }
@@ -68,9 +67,9 @@ namespace Wolontariat
                 list[i] = new List<string>();
             }
 
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
 
-            MySqlDataReader dataReader = cmd.ExecuteReader();
+            SqlDataReader dataReader = cmd.ExecuteReader();
 
             while (dataReader.Read())
             {
@@ -97,7 +96,7 @@ namespace Wolontariat
             string query = "SELECT Count(*) FROM users;";
             int count = -1;
 
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
 
             count = int.Parse(cmd.ExecuteScalar() + "");
 
