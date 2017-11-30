@@ -51,17 +51,17 @@ namespace Wolontariat
         {
             string query =
                 "INSERT INTO users VALUES " +
-                "(NULL, \""
-                + nickname + "\", \""
-                + password + "\", \""
-                + pesel + "\", \""
-                + email + "\", \""
-                + telephone + "\", \""
-                + name + "\", \""
-                + surname + "\", CONVERT(DATETIME,'"
-                + birthdate + "', 102), \""
-                + sex + "\", \""
-                + type + "\");";
+                "(\'"
+                + nickname + "\', \'"
+                + password + "\', \'"
+                + pesel + "\', \'"
+                + email + "\', \'"
+                + telephone + "\', \'"
+                + name + "\', \'"
+                + surname + "\', CONVERT(DATETIME,'"
+                + birthdate + "', 102), \'"
+                + sex + "\', \'"
+                + type + "\');";
 
             SqlCommand cmd = new SqlCommand(query, connection);
 

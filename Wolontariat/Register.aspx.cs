@@ -20,7 +20,7 @@ namespace Wolontariat
             
             db = new SQLDatabase();
             db.Connect();
-            db.InsertUser(nickname.Value, inputPassword.Value, pesel.Value, inputEmail.Value, telephone.Value, name.Value, surname.Value, Request.Form["birthDate"], "male", "volounteer");
+            db.InsertUser(nickname.Value, inputPassword.Value, pesel.Value, inputEmail.Value, telephone.Value, name.Value, surname.Value, "1991-11-11", "male", "volounteer");
             db.Disconnect();
         }
     }
