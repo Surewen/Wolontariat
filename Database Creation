@@ -19,7 +19,7 @@ CREATE TABLE newsletter(
 );
 
 CREATE TABLE announcement(
-  id INTEGER PRIMARY KEY NOT NULL IDENTITY(1,1),
+  id INTEGER PRIMARY KEY,
   post_date DATETIME,
   created_by VARCHAR(20),
   current_status VARCHAR(10),
