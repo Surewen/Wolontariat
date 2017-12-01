@@ -16,7 +16,7 @@ INSERT INTO announcements(id_user, post_date, end_date, current_status, type, ti
 (8, '2016-11-14', NULL,'w trakcie', 'needy', 'Potrzebuję pomocy w poruszaniu się','Skręcona kostka, pomoc w robieniu zakupów'),
 (14, '2017-09-11', NULL,'zakończony', 'needy', 'Potrzebuję pomocy w poruszaniu się','Skręcona kostka, pomoc w robieniu zakupów'),
 (15, '2017-01-15', NULL,'w trakcie', 'needy', 'Potrzebuję pomocy w poruszaniu się','Skręcona kostka, pomoc w robieniu zakupów'),
-(16, '2017-05-12', NULL,'w trakcie', 'volunteer', 'Pomogę w codziennych czynnościach''pomoc w robieniu zakupów'),
+(16, '2017-05-12', NULL,'w trakcie', 'volunteer', 'Pomogę w codziennych czynnościach', 'pomoc w robieniu zakupów'),
 (17, '2014-07-04', NULL,'zakończony', 'volunteer', 'Pomogę w codziennych czynnościach','pomoc w robieniu zakupów'),
 (1, '2015-06-27', NULL,'w trakcie', 'needy', 'Potrzebuję pomocy w poruszaniu się','Skręcona kostka, pomoc w robieniu zakupów'),
 (19, '2016-07-10', NULL,'w trakcie', 'needy', 'Potrzebuję pomocy w poruszaniu się','Skręcona kostka, pomoc w robieniu zakupów');
