@@ -11,6 +11,7 @@ namespace Wolontariat
     public class SQLDatabase
     {
         private SqlConnection connection;
+        private SqlCommand cmd;
 
         /// <summary>
         /// inicjalizacja połączzenia
@@ -60,29 +61,31 @@ namespace Wolontariat
                 + content + "\');";
 
 
-            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd = new SqlCommand(query, connection);
 
             cmd.ExecuteNonQuery();
         }
-
-
-        public void InstertAnnouncements(String autor, String post_data, String end_data, String type, String content, String status)
+        public void InstertAnnouncement(int id_user, String end_data, bool type_help, String title, String content)
         {
+            String type = "";
+            if (type_help) type = "Jednorazowa";
+            else type = "Wielorazowa";
             string query =
                 "INSERT INTO announcements VALUES " +
-                "(CONVERT(DATETIME,'"
-                + post_data + "',102),  CONVERT(DATETIME,'"
-                + end_data + "', 102), \'"
-                + autor + "\', \'"
-                + status + "\', \'"
-                + type + "\', \'"
-                + content + "\');";
+                "("
+                + id_user + ", CONVERT(DATETIME,'"
+                + DateTime.Today + "', 102),  CONVERT(DATETIME,'"
+                + end_data + "', 102), '"
+                + type + "', 'trwa', '"
+                + title + "', '"
+                + content + "')";
 
 
-            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd = new SqlCommand(query, connection);
 
             cmd.ExecuteNonQuery();
         }
+        
 
 
         /// <summary>
@@ -114,7 +117,7 @@ namespace Wolontariat
                 + sex + "\', \'"
                 + type + "\');";
 
-            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd = new SqlCommand(query, connection);
 
             cmd.ExecuteNonQuery();
         }
@@ -132,7 +135,7 @@ namespace Wolontariat
                 list[i] = new List<string>();
             }
 
-            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd = new SqlCommand(query, connection);
 
             SqlDataReader dataReader = cmd.ExecuteReader();
 
@@ -165,7 +168,7 @@ namespace Wolontariat
             string query = "SELECT Count(*) FROM users;";
             int count = -1;
 
-            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd = new SqlCommand(query, connection);
 
             count = int.Parse(cmd.ExecuteScalar() + "");
 
@@ -174,7 +177,7 @@ namespace Wolontariat
 
         public DataTable getAnnouncements()
         {
-            SqlCommand cmd = new SqlCommand("SELECT * FROM announcements", connection);
+            cmd = new SqlCommand("SELECT * FROM announcements", connection);
             SqlDataAdapter sda = new SqlDataAdapter();
             cmd.Connection = connection;
             sda.SelectCommand = cmd;
@@ -182,7 +185,35 @@ namespace Wolontariat
             sda.Fill(dt);
             return dt;
         }
+        public SqlDataReader getLogin(String email, String pass)
+        { 
+            cmd = new SqlCommand("SELECT email, password FROM users where email='" + email + "' and password='" + pass + "'", connection);
+            SqlDataReader dr = cmd.ExecuteReader();
+            return dr;
+        }
 
+        public String getNickname(String email)
+        {
+            string nick = "";
+            List<String>[] lista = this.ListUsers();
+            for (int i = 0; i < lista.Length; i++)
+            {
+                if (lista[4].ElementAt(i) == email)
+                { nick = lista[1].ElementAt(i); }
+            }
+                return nick;
+        }
+        public int getId(String email)
+        {
+            int id=0;
+            List<String>[] lista = this.ListUsers();
+            for (int i = 0; i < lista.Length; i++)
+            {
+                if (lista[4].ElementAt(i) == email)
+                { id = int.Parse(lista[0].ElementAt(i)); }
+            }
+            return id;
+        }
 
     }
 }

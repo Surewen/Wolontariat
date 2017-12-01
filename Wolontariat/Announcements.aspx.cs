@@ -12,6 +12,7 @@ namespace Wolontariat
     public partial class Announcements : System.Web.UI.Page
     {
         SQLDatabase db;
+        List<String>[] lista;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -21,17 +22,35 @@ namespace Wolontariat
                 DataTable dt = db.getAnnouncements();
                 StringBuilder html = new StringBuilder();
 
+                if (Session["id"] == null)
+                {
+                    add_announcement.Visible = false;
+                }
+                else
+                {
+                    add_announcement.Visible = true; 
+                }
+                
                 html.Append("<table border = '1'>");
-
                 html.Append("<tr>");
-                html.Append("<th>Data dodania</th><th>Status</th><th>Temat</th>");
+                html.Append("<th>Data dodania</th><th>Stworzone przez</th><th>Status</th><th>Temat</th>");
                 html.Append("</tr>");
 
+                lista = db.ListUsers();
+                String rodzaj = "ww";
+                
                 foreach (DataRow row in dt.Rows)
                 {
+                    for (int i = 0; i < lista.Length; i++)
+                    {
+                        if (row[1].Equals(int.Parse(lista[0].ElementAt(i)))) { rodzaj = lista[10].ElementAt(i); }
+                    }
                     html.Append("<tr>");
                     html.Append("<td>");
                     html.Append(row[2]);
+                    html.Append("</td>");
+                    html.Append("<td>");
+                    html.Append(rodzaj);
                     html.Append("</td>");
                     html.Append("<td>");
                     html.Append(row[5]);

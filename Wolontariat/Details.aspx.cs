@@ -14,6 +14,7 @@ namespace Wolontariat
         SQLDatabase db;
         List<String>[] lista;
         String id_u, id_a;
+        String rodzaj;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -25,12 +26,16 @@ namespace Wolontariat
                 db.Connect();
 
                 lista = db.ListUsers();
-                String nick = "test";
+                String nick = "";
+                
                 for (int i = 0; i < lista.Length; i++)
                 {
                     if (lista[0].ElementAt(i) == id_u)
-                    { nick = lista[1].ElementAt(i); }
+                    { nick = lista[1].ElementAt(i);
+                      rodzaj = lista[10].ElementAt(i);
+                    }
                 }
+                
                 
                 DataTable dt = db.getAnnouncements();
                 StringBuilder html = new StringBuilder();
@@ -38,13 +43,11 @@ namespace Wolontariat
                 html.Append("<table border = '1'>");
 
                 html.Append("<tr>");
-                html.Append("<th>Id</th><th>Stworzone przez</th><th>Data dodania</th><th>Do kiedy</th><th>Typ pomocy</th><th>Status</th><th>Temat</th><th>Zawartość</th>");
+                html.Append("<th>Id</th><th>Stworzone przez</th><th>Nickname</th><th>Data dodania</th><th>Do kiedy</th><th>Typ pomocy</th><th>Status</th><th>Temat</th><th>Zawartość</th>");
                 html.Append("</tr>");
                 html.Append(nick);
                 foreach (DataRow row in dt.Rows)
                 {
-                    try
-                        {
                         if (int.Parse(id_a).Equals(row[0]))
                         {
                             html.Append("<tr>");
@@ -53,15 +56,17 @@ namespace Wolontariat
                             html.Append(row[0]);
                             html.Append("</td>");
                             html.Append("<td>");
+                            html.Append(rodzaj);
+                            html.Append("</td>");
+                            html.Append("<td>");
                             html.Append(nick);
                             html.Append("</td>");
                             html.Append("<td>");
                             html.Append(row[2]);
                             html.Append("</td>");
                             html.Append("<td>");
-                            if (row[4].Equals("jednorazowy")) { html.Append(row[2]); }
-                            else { html.Append(row[3]); }
-                            html.Append(row[3]);
+                            if (row[4].Equals("Jednorazowa")) html.Append("---");
+                            else  html.Append(row[3]); 
                             html.Append("</td>");
                             html.Append("<td>");
                             html.Append(row[4]);
@@ -78,26 +83,37 @@ namespace Wolontariat
 
                             html.Append("</tr>");
                         }
-
-                    }
-                    catch(ArgumentNullException a)
-                        { }
-                 
-                
                 }
                 //Table end.
                 html.Append("</table>");
+                html.Append("<br/><br/>");
+                html.Append("Aby zgłosić się do wykonania ogłoszenia podaj godziny, w których możesz pomagać:"+rodzaj);
                 //Append the HTML string to Placeholder.
                 PlaceHolder2.Controls.Add(new Literal { Text = html.ToString() });
 
+                if (rodzaj=="volounteer") zglos.Visible = true;
+                else zglos.Visible = false;
+
+
+                
+
                 db.Disconnect();
             }
-            
         }
 
-        
+
+        protected void zglos_sie(object sender, EventArgs e)
+        {
+            db = new SQLDatabase();
+            db.Connect();
+           
+            //db.AssigntoAnnouncement(id_a, id_u, db.getId((string)Session["id"]), end_date.Value, one.Checked, subject.Value, content.Value);
 
 
 
-    }
+            db.Disconnect();
+
+
+        }
+        }
 }

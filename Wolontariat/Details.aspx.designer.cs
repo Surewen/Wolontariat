@@ -13,6 +13,15 @@ namespace Wolontariat {
     public partial class Details {
         
         /// <summary>
+        /// Kontrolka zglos.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button zglos;
+        
+        /// <summary>
         /// Kontrolka PlaceHolder2.
         /// </summary>
         /// <remarks>
