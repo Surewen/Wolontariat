@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -143,12 +144,11 @@ namespace Wolontariat
                 list[3].Add(dataReader["pesel"] + "");
                 list[4].Add(dataReader["email"] + "");
                 list[5].Add(dataReader["telephone"] + "");
-                list[6].Add(dataReader["id"] + "");
-                list[7].Add(dataReader["name"] + "");
-                list[8].Add(dataReader["surname"] + "");
-                list[9].Add(dataReader["birth_date"] + "");
-                list[10].Add(dataReader["sex"] + "");
-                list[11].Add(dataReader["type"] + "");
+                list[6].Add(dataReader["name"] + "");
+                list[7].Add(dataReader["surname"] + "");
+                list[8].Add(dataReader["birth_date"] + "");
+                list[9].Add(dataReader["sex"] + "");
+                list[10].Add(dataReader["type"] + "");
             }
 
             dataReader.Close();
@@ -172,7 +172,16 @@ namespace Wolontariat
             return count;
         }
 
-
+        public DataTable getAnnouncements()
+        {
+            SqlCommand cmd = new SqlCommand("SELECT * FROM announcements", connection);
+            SqlDataAdapter sda = new SqlDataAdapter();
+            cmd.Connection = connection;
+            sda.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            return dt;
+        }
 
 
     }

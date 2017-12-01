@@ -72,6 +72,7 @@
     <Content Include="Announcements.aspx" />
     <Content Include="css\Login.css" />
     <Content Include="css\Register.css" />
+    <Content Include="Details.aspx" />
     <Content Include="EditEvent.aspx" />
     <Content Include="Events.aspx" />
     <Content Include="Home.aspx" />
@@ -104,6 +105,13 @@
     </Compile>
     <Compile Include="Announcements.aspx.designer.cs">
       <DependentUpon>Announcements.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditEvent.aspx.cs">
       <DependentUpon>EditEvent.aspx</DependentUpon>
