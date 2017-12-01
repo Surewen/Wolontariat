@@ -46,11 +46,12 @@ namespace Wolontariat
         /// <param name="due_data"> data wydarzenia</param>
         /// <param name="title">nazwa wydarzenia</param>
         /// <param name="content">tresc wydarzenia</param>
-        public void InstertEvents(String autor, String add_data, String due_data, String title, String content)
+        public void InstertEvents(Int16 id_announcement, String autor, String add_data, String due_data, String title, String content)
         {
             string query =
                 "INSERT INTO events VALUES " +
-                "(\'"
+                "("
+                + id_announcement + ", \'"
                 + autor + "\',  CONVERT(DATETIME,'"
                 + add_data + "', 102), CONVERT(DATETIME,'"
                 + due_data + "', 102), \'"
@@ -62,6 +63,27 @@ namespace Wolontariat
 
             cmd.ExecuteNonQuery();
         }
+
+
+        public void InstertAnnouncements(String autor, String post_data, String end_data, String type, String content, String status)
+        {
+            string query =
+                "INSERT INTO announcements VALUES " +
+                "(CONVERT(DATETIME,'"
+                + post_data + "',102),  CONVERT(DATETIME,'"
+                + end_data + "', 102), \'"
+                + autor + "\', \'"
+                + status + "\', \'"
+                + type + "\', \'"
+                + content + "\');";
+
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.ExecuteNonQuery();
+        }
+
+
         /// <summary>
         /// procedura dodawająca użytkowników do bazy danych
         /// </summary>
