@@ -12,10 +12,7 @@ namespace Wolontariat
     {
         private SqlConnection connection;
         private SqlCommand cmd;
-
-        /// <summary>
-        /// inicjalizacja połączzenia
-        /// </summary>
+        
         public SQLDatabase()
         {
             Init();
@@ -25,29 +22,48 @@ namespace Wolontariat
         {
             connection = new SqlConnection("Data Source=pww-server.database.windows.net;Initial Catalog=pww-database;User ID=wolontariusz;Password=Admini1.");
         }
-
-        /// <summary>
-        /// otwarcie połączenia z bazą danych
-        /// </summary>
+        
         public void Connect()
         {
             connection.Open();
         }
-        /// <summary>
-        /// zakończenie połączenia z bazą danych
-        /// </summary>
+       
         public void Disconnect()
         {
             connection.Close();
         }
-        /// <summary>
-        /// procedura polegająca na dodawniu wydarzeń do bazy danych
-        /// </summary>
-        /// <param name="autor"> kto założył wydarzenie</param>
-        /// <param name="add_data"> data dodania</param>
-        /// <param name="due_data"> data wydarzenia</param>
-        /// <param name="title">nazwa wydarzenia</param>
-        /// <param name="content">tresc wydarzenia</param>
+    
+        public List<Users> ListUsers()
+        {
+            List<Users> list = new List<Users>();
+
+            cmd = new SqlCommand("SELECT * FROM USERS;", connection);
+            SqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                list.Add(new Users(dataReader));
+            }
+            dataReader.Close();
+            return list;
+        }
+
+
+        public List<Announcement> ListAnnouncements()
+        {
+            List<Announcement> list = new List<Announcement>();
+
+            cmd = new SqlCommand("SELECT * FROM Announcements;", connection);
+            SqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                list.Add(new Announcement(dataReader));
+            }
+            dataReader.Close();
+            return list;
+        }
+
         public void InstertEvents(Int16 id_announcement, String autor, String add_data, String due_data, String title, String content)
         {
             string query =
@@ -59,13 +75,29 @@ namespace Wolontariat
                 + due_data + "', 102), \'"
                 + title + "\', \'"
                 + content + "\');";
-
-
+            
             cmd = new SqlCommand(query, connection);
-
             cmd.ExecuteNonQuery();
         }
-        public void InstertAnnouncement(int id_user, String end_data, bool type_help, String title, String content)
+
+        public void EditAnnouncement(int id_a, String end_data, bool type_help, String title, String content)
+        {
+            String type = "";
+            if (type_help) type = "Jednorazowa";
+            else type = "Wielorazowa";
+            string query =
+                "UPDATE announcements SET "
+                + "end_date=CONVERT(DATETIME,'"
+                + end_data + "', 102), type_help='"
+                + type + "', title='"
+                + title + "', content='"
+                + content + "' WHERE id="+id_a;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void InsertAnnouncement(int id_user, String end_data, bool type_help, String title, String content)
         {
             String type = "";
             if (type_help) type = "Jednorazowa";
@@ -80,104 +112,76 @@ namespace Wolontariat
                 + title + "', '"
                 + content + "')";
 
-
             cmd = new SqlCommand(query, connection);
-
             cmd.ExecuteNonQuery();
         }
-        
 
 
-        /// <summary>
-        /// procedura dodawająca użytkowników do bazy danych
-        /// </summary>
-        /// <param name="nickname"> nazwa użytkonika</param>
-        /// <param name="password">hasło</param>
-        /// <param name="pesel">pesel</param>
-        /// <param name="email">adres email</param>
-        /// <param name="telephone">telefon kontaktowy</param>
-        /// <param name="name">Imię</param>
-        /// <param name="surname">Nazwisko</param>
-        /// <param name="birthdate">Data urodzenia</param>
-        /// <param name="sex">Płeć</param>
-        /// <param name="type">typ użytkownika(potrzebujący wolontariusz)</param>
         public void InsertUser(String nickname, String password, String pesel, String email, String telephone, String name, String surname, String birthdate, String sex, String type)
         {
             string query =
-                "INSERT INTO users VALUES " +
-                "(\'"
-                + nickname + "\', \'"
-                + password + "\', \'"
-                + pesel + "\', \'"
-                + email + "\', \'"
-                + telephone + "\', \'"
-                + name + "\', \'"
-                + surname + "\', CONVERT(DATETIME,'"
-                + birthdate + "', 102), \'"
-                + sex + "\', \'"
-                + type + "\');";
+                "INSERT INTO USERS VALUES " +
+                "('"
+                + nickname + "', '"
+                + password + "', '"
+                + pesel + "', '"
+                + email + "', '"
+                + telephone + "', '"
+                + name + "', '"
+                + surname + "', CONVERT(DATETIME,'"
+                + birthdate + "', 102), '"
+                + sex + "', '"
+                + type + "');";
 
             cmd = new SqlCommand(query, connection);
-
             cmd.ExecuteNonQuery();
         }
-        /// <summary>
-        /// listowanie tabli użytkowników
-        /// </summary>
-        /// <returns>zwraca litę użytkowników</returns>
-        public List<String>[] ListUsers()
+        
+        public void AssigntoAnnouncement(int id_a, int id_u, String from, String to)
         {
-            string query = "SELECT * FROM users;";
-
-            List<String>[] list = new List<String>[11];
-            for (int i = 0; i < list.Length; i++)
-            {
-                list[i] = new List<string>();
-            }
+            string query =
+                "INSERT INTO users_assigned_announcement VALUES " +
+                "("
+                + id_a + ", "
+                + id_u + ", '"
+                + from + "', '"
+                + to + "')";
 
             cmd = new SqlCommand(query, connection);
-
-            SqlDataReader dataReader = cmd.ExecuteReader();
-
-            while (dataReader.Read())
-            {
-                list[0].Add(dataReader["id"] + "");
-                list[1].Add(dataReader["nickname"] + "");
-                list[2].Add(dataReader["password"] + "");
-                list[3].Add(dataReader["pesel"] + "");
-                list[4].Add(dataReader["email"] + "");
-                list[5].Add(dataReader["telephone"] + "");
-                list[6].Add(dataReader["name"] + "");
-                list[7].Add(dataReader["surname"] + "");
-                list[8].Add(dataReader["birth_date"] + "");
-                list[9].Add(dataReader["sex"] + "");
-                list[10].Add(dataReader["type"] + "");
-            }
-
-            dataReader.Close();
-
-            return list;
+            cmd.ExecuteNonQuery();
         }
 
-        /// <summary>
-        /// zliczanie użytkowników
-        /// </summary>
-        /// <returns>zwraca ilość użytkowników</returns>
-        public int CountUsers()
+
+        public void DeclineFromAnnouncement(int id_a, int id_u)
         {
-            string query = "SELECT Count(*) FROM users;";
-            int count = -1;
+            string query =
+                "DELETE FROM users_assigned_announcement WHERE id_announcement=" + id_a + " AND id_user=" + id_u;
 
             cmd = new SqlCommand(query, connection);
-
-            count = int.Parse(cmd.ExecuteScalar() + "");
-
-            return count;
+            cmd.ExecuteNonQuery();
         }
 
-        public DataTable getAnnouncements()
+        public void DeleteAnnouncement(int id_a)
         {
-            cmd = new SqlCommand("SELECT * FROM announcements", connection);
+            string query =
+                "DELETE FROM announcements WHERE id=" + id_a;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void Delete_Users_Assigned_Announcement(int id_a)
+        {
+            string query =
+                "DELETE FROM users_assigned_announcement WHERE id_announcement=" + id_a;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+        public DataTable getMyActivities(int id_u)
+        {
+            cmd = new SqlCommand("SELECT * FROM users_assigned_announcement where id_user="+id_u, connection);
             SqlDataAdapter sda = new SqlDataAdapter();
             cmd.Connection = connection;
             sda.SelectCommand = cmd;
@@ -185,6 +189,7 @@ namespace Wolontariat
             sda.Fill(dt);
             return dt;
         }
+
         public SqlDataReader getLogin(String email, String pass)
         { 
             cmd = new SqlCommand("SELECT email, password FROM users where email='" + email + "' and password='" + pass + "'", connection);
@@ -192,27 +197,52 @@ namespace Wolontariat
             return dr;
         }
 
-        public String getNickname(String email)
+        public String getNickname_email(String email)
         {
             string nick = "";
-            List<String>[] lista = this.ListUsers();
-            for (int i = 0; i < lista.Length; i++)
+            List<Users> lista = this.ListUsers();
+            for (int i = 0; i < lista.Count; i++)
             {
-                if (lista[4].ElementAt(i) == email)
-                { nick = lista[1].ElementAt(i); }
+                if (lista.ElementAt(i).email == email)
+                { nick = lista.ElementAt(i).nickname; }
             }
                 return nick;
         }
+
+        public String getNickname_id(int id_u)
+        {
+            string nick = "";
+            List<Users> lista = this.ListUsers();
+            for (int i = 0; i < lista.Count; i++)
+            {
+                if (lista.ElementAt(i).id==id_u)
+                { nick = lista.ElementAt(i).nickname; }
+            }
+            return nick;
+        }
+
         public int getId(String email)
         {
             int id=0;
-            List<String>[] lista = this.ListUsers();
-            for (int i = 0; i < lista.Length; i++)
+            List<Users> lista = this.ListUsers();
+            for (int i = 0; i < lista.Count; i++)
             {
-                if (lista[4].ElementAt(i) == email)
-                { id = int.Parse(lista[0].ElementAt(i)); }
+                if (lista.ElementAt(i).email == email)
+                { id = lista.ElementAt(i).id; }
             }
             return id;
+        }
+
+        public string getType_User(int id_user)
+        {
+            String type = "";
+            List<Users> lista = this.ListUsers();
+            for (int i = 0; i < lista.Count; i++)
+            {
+                if (lista.ElementAt(i).id == id_user)
+                { type = lista.ElementAt(i).type; }
+            }
+            return type;
         }
 
     }

@@ -12,14 +12,12 @@ namespace Wolontariat
     public partial class Announcements : System.Web.UI.Page
     {
         SQLDatabase db;
-        List<String>[] lista;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
                 db = new SQLDatabase();
                 db.Connect();
-                DataTable dt = db.getAnnouncements();
+                List<Announcement> list = db.ListAnnouncements();
+            
                 StringBuilder html = new StringBuilder();
 
                 if (Session["id"] == null)
@@ -36,34 +34,27 @@ namespace Wolontariat
                 html.Append("<th>Data dodania</th><th>Stworzone przez</th><th>Status</th><th>Temat</th>");
                 html.Append("</tr>");
 
-                lista = db.ListUsers();
-                String rodzaj = "ww";
-                
-                foreach (DataRow row in dt.Rows)
-                {
-                    for (int i = 0; i < lista.Length; i++)
-                    {
-                        if (row[1].Equals(int.Parse(lista[0].ElementAt(i)))) { rodzaj = lista[10].ElementAt(i); }
-                    }
-                    html.Append("<tr>");
-                    html.Append("<td>");
-                    html.Append(row[2]);
-                    html.Append("</td>");
-                    html.Append("<td>");
-                    html.Append(rodzaj);
-                    html.Append("</td>");
-                    html.Append("<td>");
-                    html.Append(row[5]);
-                    html.Append("</td>");
-                    html.Append("<td>");
-                    html.Append(row[6]);
-                    html.Append("</td>");
-                    html.Append("<td>");
-                    html.Append("<a href=\"Details.aspx?id_a="+row[0]+"&id_u="+row[1]+"\">Szczegóły</a>"); 
-                    html.Append("</td>");
-                    html.Append("</tr>");
-
-                }
+           
+            for (int i = 0; i < list.Count; i++)
+            {
+                html.Append("<tr>");
+                html.Append("<td>");
+                html.Append(list.ElementAt(i).post_date);
+                html.Append("</td>");
+                html.Append("<td>");
+                html.Append(db.getType_User(list.ElementAt(i).id_user));
+                html.Append("</td>");
+                html.Append("<td>");
+                html.Append(list.ElementAt(i).current_status);
+                html.Append("</td>");
+                html.Append("<td>");
+                html.Append(list.ElementAt(i).title);
+                html.Append("</td>");
+                html.Append("<td>");
+                html.Append("<a href=\"Details.aspx?id_a=" + list.ElementAt(i).id + "\">Szczegóły</a>");
+                html.Append("</td>");
+                html.Append("</tr>");
+            }
                 //Table end.
                 html.Append("</table>");
                 //Append the HTML string to Placeholder.
@@ -71,6 +62,6 @@ namespace Wolontariat
 
                 db.Disconnect();
             }
-        }
+        
     }
 }

@@ -14,14 +14,12 @@ namespace Wolontariat
         protected void Page_Load(object sender, EventArgs e)
         {
             db = new SQLDatabase();
-            
             db.Connect();
+
             if (db.getLogin(inputEmail.Value, inputPassword.Value).Read())
             {
                 Session["id"] = inputEmail.Value;
                 Response.Redirect("Home.aspx");
-
-
             }
             else
             {
@@ -29,7 +27,6 @@ namespace Wolontariat
             }
             
             db.Disconnect();
-           
         }
     }
 }

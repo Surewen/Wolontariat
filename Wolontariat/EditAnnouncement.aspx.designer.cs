@@ -10,42 +10,51 @@
 namespace Wolontariat {
     
     
-    public partial class Details {
+    public partial class EditAnnouncement {
         
         /// <summary>
-        /// Kontrolka PlaceHolder2.
+        /// Kontrolka one.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton one;
         
         /// <summary>
-        /// Kontrolka from.
+        /// Kontrolka many.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox from;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton many;
         
         /// <summary>
-        /// Kontrolka to.
+        /// Kontrolka subject.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox to;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText subject;
         
         /// <summary>
-        /// Kontrolka zglos.
+        /// Kontrolka content.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button zglos;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText content;
+        
+        /// <summary>
+        /// Kontrolka end_date.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl end_date;
     }
 }

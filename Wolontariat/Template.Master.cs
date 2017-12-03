@@ -25,6 +25,9 @@ namespace Wolontariat
                 logout.Visible = false;
                 my_activities.Visible = false;
                 invitations.Visible = false;
+                SQLDatabase db = new SQLDatabase();
+                db.Connect();
+                db.Disconnect();
             }
             else
             {
@@ -35,7 +38,7 @@ namespace Wolontariat
                 reg.Visible = false;
                 my_activities.Visible = true;
                 invitations.Visible = true;
-                hello_user.Text = "Hello " + db.getNickname((string)Session["id"]);
+                hello_user.Text = "Hello " + db.getNickname_email((string)Session["id"]);
                 db.Disconnect();
             }
 

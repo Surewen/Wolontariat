@@ -73,12 +73,14 @@
     <Content Include="css\Login.css" />
     <Content Include="css\Register.css" />
     <Content Include="Details.aspx" />
+    <Content Include="EditAnnouncement.aspx" />
     <Content Include="EditEvent.aspx" />
     <Content Include="Events.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Invitations.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
+    <Content Include="ModifyAnnouncement.aspx" />
     <Content Include="MyActivities.aspx" />
     <Content Include="News.aspx" />
     <Content Include="packages.config" />
@@ -110,6 +112,7 @@
     <Compile Include="AddEvent.aspx.designer.cs">
       <DependentUpon>AddEvent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Announcement.cs" />
     <Compile Include="Announcements.aspx.cs">
       <DependentUpon>Announcements.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -123,6 +126,13 @@
     </Compile>
     <Compile Include="Details.aspx.designer.cs">
       <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditAnnouncement.aspx.cs">
+      <DependentUpon>EditAnnouncement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditAnnouncement.aspx.designer.cs">
+      <DependentUpon>EditAnnouncement.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditEvent.aspx.cs">
       <DependentUpon>EditEvent.aspx</DependentUpon>
@@ -166,6 +176,13 @@
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModifyAnnouncement.aspx.cs">
+      <DependentUpon>ModifyAnnouncement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModifyAnnouncement.aspx.designer.cs">
+      <DependentUpon>ModifyAnnouncement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MyActivities.aspx.cs">
       <DependentUpon>MyActivities.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -196,6 +213,7 @@
     <Compile Include="Template.Master.designer.cs">
       <DependentUpon>Template.Master</DependentUpon>
     </Compile>
+    <Compile Include="Users.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\img\" />
