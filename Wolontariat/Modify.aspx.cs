@@ -49,10 +49,14 @@ namespace Wolontariat
                 }
                 if (Request.QueryString["id_an"] != null)
                 {
-                     //db.Delete_Users_Joined_Event(id_a);
-                    // db.DeleteEvent_id_a(id_a);
-                   //  db.Delete_Users_Assigned_Announcement(id_a);
-                   //  db.DeleteAnnouncement(id_a);
+                    List<int?> lista_wydarzeń_id = db.getIdEvents(id_a);
+                    for (int i = 0; i < lista_wydarzeń_id.Count; i++)
+                    {
+                        db.Delete_Users_Joined_Event((int)lista_wydarzeń_id.ElementAt(i));
+                    }
+                    db.DeleteEvent_id_a(id_a);
+                    db.Delete_Users_Assigned_Announcement(id_a);
+                    db.DeleteAnnouncement(id_a);
                 }
                         
                 Response.Redirect("MyActivities.aspx");

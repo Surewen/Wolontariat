@@ -245,7 +245,7 @@ namespace Wolontariat
         public void DeleteEvent_id_a(int id_a)
         {
             string query =
-                "DELETE FROM events WHERE id=announcement" + id_a;
+                "DELETE FROM events WHERE id_announcement=" + id_a;
 
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
@@ -321,6 +321,17 @@ namespace Wolontariat
                 { nick = lista.ElementAt(i).nickname; }
             }
             return nick;
+        }
+        public List<int?> getIdEvents(int id_a)
+        {
+            List<int?> list = new List<int?>();
+            List<Event> lista_wydarzeń = this.ListEvents();
+            for (int i = 0; i < lista_wydarzeń.Count; i++)
+            {
+                if (lista_wydarzeń.ElementAt(i).id_announcement.Equals(id_a) && lista_wydarzeń.ElementAt(i).id_announcement != null) list.Add(lista_wydarzeń.ElementAt(i).id_announcement);
+            }
+            
+            return list;
         }
 
         public int getId(String email)
