@@ -90,7 +90,7 @@ namespace Wolontariat
             html.Append("</br>");
             html.Append("<table border = '1'>");
             html.Append("<tr>");
-            html.Append("<th>Id wydarzenia</th><th>Dodane przez</th><th>Data wydarzenia</th><th>Temat</th><th>Zawartość</th><th>Powiązane z ogłoszeniem</th>");
+            html.Append("<th>Id wydarzenia</th><th>Dodane przez</th><th>Data wydarzenia</th><th>Temat</th><th>Zawartość</th><th>Powiązane z ogłoszeniem</th><th>Modyfikuj</th><th>Szczegóły</th>");
             html.Append("</tr>");
 
             foreach (DataRow row in dt_events.Rows)
