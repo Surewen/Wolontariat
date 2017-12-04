@@ -80,13 +80,14 @@
     <Content Include="Invitations.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
-    <Content Include="ModifyAnnouncement.aspx" />
+    <Content Include="Modify.aspx" />
     <Content Include="MyActivities.aspx" />
     <Content Include="News.aspx" />
     <Content Include="packages.config" />
     <Content Include="css\Template.css" />
     <Content Include="Register.aspx" />
     <Content Include="Template.Master" />
+    <None Include="Properties\PublishProfiles\pww - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -141,6 +142,7 @@
     <Compile Include="EditEvent.aspx.designer.cs">
       <DependentUpon>EditEvent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Event.cs" />
     <Compile Include="Events.aspx.cs">
       <DependentUpon>Events.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -176,12 +178,12 @@
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ModifyAnnouncement.aspx.cs">
-      <DependentUpon>ModifyAnnouncement.aspx</DependentUpon>
+    <Compile Include="Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ModifyAnnouncement.aspx.designer.cs">
-      <DependentUpon>ModifyAnnouncement.aspx</DependentUpon>
+    <Compile Include="Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
     </Compile>
     <Compile Include="MyActivities.aspx.cs">
       <DependentUpon>MyActivities.aspx</DependentUpon>

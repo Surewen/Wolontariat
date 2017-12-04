@@ -9,4 +9,7 @@
     
     <asp:Button ID="zglos" onClick="zglos_sie" runat="server" visible="false" Text="Zgłoś się" />
 
+    <asp:Button ID="create" onClick="create_event" runat="server" visible="false" Text="Utwórz wydarzenie" />
+    <asp:Button ID="join" onClick="join_to_event" runat="server" visible="false" Text="Dołącz do wydarzenia" />
+
 </asp:Content>

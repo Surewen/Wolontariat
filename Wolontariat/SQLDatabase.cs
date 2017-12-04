@@ -47,8 +47,7 @@ namespace Wolontariat
             dataReader.Close();
             return list;
         }
-
-
+        
         public List<Announcement> ListAnnouncements()
         {
             List<Announcement> list = new List<Announcement>();
@@ -64,17 +63,47 @@ namespace Wolontariat
             return list;
         }
 
-        public void InstertEvents(Int16 id_announcement, String autor, String add_data, String due_data, String title, String content)
+        public List<Event> ListEvents()
         {
-            string query =
+            List<Event> list = new List<Event>();
+
+            cmd = new SqlCommand("SELECT * FROM events;", connection);
+            SqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                list.Add(new Event(dataReader));
+            }
+            dataReader.Close();
+            return list;
+        }
+
+        public void InstertEvents(int id_a, int id_user, String due_date, String title, String content)
+        {
+            string query = "";
+            if (id_a == -1)
+            {
+                query =
+                "INSERT INTO events (id_user, post_date, due_date, title, content) VALUES " +
+                "("
+                + id_user + ",  CONVERT(DATETIME,'"
+                + DateTime.Today + "', 102), CONVERT(DATETIME,'"
+                + due_date + "', 102), '"
+                + title + "', '"
+                + content + "');";
+            }
+            else
+            {
+                    query =
                 "INSERT INTO events VALUES " +
                 "("
-                + id_announcement + ", \'"
-                + autor + "\',  CONVERT(DATETIME,'"
-                + add_data + "', 102), CONVERT(DATETIME,'"
-                + due_data + "', 102), \'"
-                + title + "\', \'"
-                + content + "\');";
+                + id_a + ", "
+                + id_user + ",  CONVERT(DATETIME,'"
+                + DateTime.Today + "', 102), CONVERT(DATETIME,'"
+                + due_date + "', 102), '"
+                + title + "', '"
+                + content + "');";
+            }
             
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
@@ -92,6 +121,19 @@ namespace Wolontariat
                 + type + "', title='"
                 + title + "', content='"
                 + content + "' WHERE id="+id_a;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void EditEvent(int id_e, String due_date, String title, String content)
+        {
+            string query =
+                "UPDATE events SET "
+                + "due_date=CONVERT(DATETIME,'"
+                + due_date + "', 102), title='"
+                + title + "', content='"
+                + content + "' WHERE id="+ id_e;
 
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
@@ -151,11 +193,32 @@ namespace Wolontariat
             cmd.ExecuteNonQuery();
         }
 
+        public void JoinToEvent(int id_e, int id_u)
+        {
+            string query =
+                "INSERT INTO users_joined_event VALUES " +
+                "("
+                + id_e + ", "
+                + id_u+")";
+                
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
 
         public void DeclineFromAnnouncement(int id_a, int id_u)
         {
             string query =
                 "DELETE FROM users_assigned_announcement WHERE id_announcement=" + id_a + " AND id_user=" + id_u;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void DeclineFromEvent(int id_e, int id_u)
+        {
+            string query =
+                "DELETE FROM users_joined_event WHERE id_event=" + id_e + " AND id_user=" + id_u;
 
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
@@ -170,6 +233,24 @@ namespace Wolontariat
             cmd.ExecuteNonQuery();
         }
 
+        public void DeleteEvent(int id_e)
+        {
+            string query =
+                "DELETE FROM events WHERE id=" + id_e;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void DeleteEvent_id_a(int id_a)
+        {
+            string query =
+                "DELETE FROM events WHERE id=announcement" + id_a;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
         public void Delete_Users_Assigned_Announcement(int id_a)
         {
             string query =
@@ -179,9 +260,30 @@ namespace Wolontariat
             cmd.ExecuteNonQuery();
         }
 
+        public void Delete_Users_Joined_Event(int id_e)
+        {
+            string query =
+                "DELETE FROM users_joined_event WHERE id_event=" + id_e;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
         public DataTable getMyActivities(int id_u)
         {
             cmd = new SqlCommand("SELECT * FROM users_assigned_announcement where id_user="+id_u, connection);
+            SqlDataAdapter sda = new SqlDataAdapter();
+            cmd.Connection = connection;
+            sda.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            return dt;
+        }
+
+
+        public DataTable getMyActivitiesEvents(int id_u)
+        {
+            cmd = new SqlCommand("SELECT * FROM users_joined_event where id_user=" + id_u, connection);
             SqlDataAdapter sda = new SqlDataAdapter();
             cmd.Connection = connection;
             sda.SelectCommand = cmd;

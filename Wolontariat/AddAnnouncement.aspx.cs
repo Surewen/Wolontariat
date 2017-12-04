@@ -19,7 +19,8 @@ namespace Wolontariat
             db = new SQLDatabase();
             db.Connect();
             db.InsertAnnouncement(db.getId((string)Session["id"]), end_date.Value, one.Checked, subject.Value, content.Value);
-            
+          
+            Response.Redirect("MyActivities.aspx");
             db.Disconnect();
         }
     }

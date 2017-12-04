@@ -23,7 +23,7 @@
                     <input type="date" id="end_date" name="endDate" runat="server"><br />
               <br />
            
-              <asp:Button CssClass="btn btn-rg btn-register" type="submit" OnClick="Add_Announcement" runat="server" text="Dodaj"/>
+              <asp:Button CssClass="btn btn-rg btn-register" id="modyfikuj" type="submit" OnClick="Add_Announcement" runat="server" text="Dodaj"/>
         </div>
     </div>
 

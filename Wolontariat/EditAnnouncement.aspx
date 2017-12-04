@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Template.Master" AutoEventWireup="true" CodeBehind="EditAnnouncement.aspx.cs" Inherits="Wolontariat.EditAnnouncement" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="container">
+
+    div class="container">
         <div class="card card-container">
-           Edytowanie ogłoszenie
+           Edytowanie ogłoszenia
            <p id="profile-name" class="profile-name-card"></p>
               Typ pomocy:
               <br />
@@ -23,8 +24,9 @@
                     <input type="date" id="end_date" name="endDate" runat="server"><br />
               <br />
            
-              <asp:Button CssClass="btn btn-rg btn-register" type="submit" OnClick="Edit_Announcement" runat="server" text="Edytuj"/>
+              <asp:Button CssClass="btn btn-rg btn-register" id="edytuj" type="submit" OnClick="Edit_Announcement" runat="server" text="Edytuj"/>
         </div>
     </div>
+
 
 </asp:Content>

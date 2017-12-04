@@ -5,4 +5,8 @@
     <br />
     <asp:PlaceHolder ID = "PlaceHolder2" runat="server" />
     <br />
+    <asp:PlaceHolder ID = "PlaceHolder3" runat="server" />
+    <br />
+    <asp:PlaceHolder ID = "PlaceHolder4" runat="server" />
+    <br />
 </asp:Content>
