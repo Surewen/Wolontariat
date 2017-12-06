@@ -5,7 +5,6 @@
         <div class="card card-container">
           Formularz wysyłania zaproszeni
            <p id="profile-name" class="profile-name-card"></p>
-              
               Temat:
               <br />
                     <input type="text" id="title" class="form-control" required="required" autofocus="autofocus" runat="server"/>
@@ -14,11 +13,8 @@
               <br />
                     <input type="text" id="content" class="form-control" required="required" autofocus="autofocus" runat="server"/>
               <br />
-            
-           
-              <asp:Button CssClass="btn btn-rg btn-register" id="send" type="submit" OnClick="send_invitation" runat="server" text="Wyślij zaproszenie"/>
+              <asp:Button CssClass="btn btn-rg btn-register" id="send" type="submit" OnClick="Send_Invitation" runat="server" text="Wyślij zaproszenie"/>
         </div>
     </div>
-
 
 </asp:Content>

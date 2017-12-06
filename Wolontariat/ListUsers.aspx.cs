@@ -12,15 +12,16 @@ namespace Wolontariat
     {
         SQLDatabase db;
         int id_e;
+        StringBuilder html;
+        List<Users> list_users;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["id_event"] != null) id_e = int.Parse(Request.QueryString["id_event"]);
+            if (Request.QueryString["id_e"] != null) id_e = int.Parse(Request.QueryString["id_e"]);
             db = new SQLDatabase();
-            StringBuilder html = new StringBuilder();
+            html = new StringBuilder();
             db.Connect();
-            List<Users> list_users = db.ListUsers();
-
-
+            list_users = db.ListUsers();
+            
             html.Append("<table border = '1'>");
 
             html.Append("<tr>");
@@ -39,20 +40,17 @@ namespace Wolontariat
                     html.Append("<td>" + list_users.ElementAt(i).email + "</td>");
                     html.Append("<td>" + list_users.ElementAt(i).sex + "</td>");
                     html.Append("<td>" + list_users.ElementAt(i).telephone + "</td>");
-                    html.Append("<td><a href=\"Invite.aspx?id_user="+ list_users.ElementAt(i).id+"&id_event="+id_e+"\">Zaproś</a></td>");
+                    html.Append("<td><a href=\"Invite.aspx?id_u="+ list_users.ElementAt(i).id+"&id_e="+id_e+"\">Zaproś</a></td>");
                     html.Append("</tr>");
                 }
             }
-
-            //Table end.
+            
             html.Append("</table>");
             html.Append("<br/><br/>");
             PlaceHolder1.Controls.Add(new Literal { Text = html.ToString() });
-
-
+            
             db.Disconnect();
         }
-
-
+        
     }
 }

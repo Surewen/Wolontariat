@@ -25,9 +25,6 @@ namespace Wolontariat
                 logout.Visible = false;
                 my_activities.Visible = false;
                 invitations.Visible = false;
-                SQLDatabase db = new SQLDatabase();
-                db.Connect();
-                db.Disconnect();
             }
             else
             {
@@ -41,14 +38,8 @@ namespace Wolontariat
                 hello_user.Text = "Hello " + db.getNickname_email((string)Session["id"]);
                 db.Disconnect();
             }
-
         }
         
-        /// <summary>
-        /// procedura odpowiadająća za wyświetlenie wiadomości o cookie i dodanie cookie jeśli zostanie zaakceptowanie
-        /// </summary>
-        /// <param name="sender"> obiekt przesyłany z formularza</param>
-        /// <param name="e"></param>
         protected void Accept_Cookies(object sender, EventArgs e)
         {
             HttpCookie cookie_consent = new HttpCookie("CookieConsent");
