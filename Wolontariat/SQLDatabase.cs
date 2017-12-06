@@ -47,7 +47,23 @@ namespace Wolontariat
             dataReader.Close();
             return list;
         }
-        
+
+
+        public List<Invitation> ListInvitations()
+        {
+            List<Invitation> list = new List<Invitation>();
+
+            cmd = new SqlCommand("SELECT * FROM INVITATIONS;", connection);
+            SqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                list.Add(new Invitation(dataReader));
+            }
+            dataReader.Close();
+            return list;
+        }
+
         public List<Announcement> ListAnnouncements()
         {
             List<Announcement> list = new List<Announcement>();
@@ -153,6 +169,23 @@ namespace Wolontariat
                 + type + "', 'trwa', '"
                 + title + "', '"
                 + content + "')";
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+
+        public void send_invitation(int id_event, int id_sender, int id_receiver, String title, String content)
+        {
+
+            string query =
+                "INSERT INTO invitations VALUES (" +
+                +id_event + ", "
+                + id_sender + ", "
+                + id_receiver + ", '"
+                + title + "', '"
+                + content + "', CONVERT(DATETIME, '"
+                + DateTime.Today + "', 102))";
 
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
@@ -332,6 +365,17 @@ namespace Wolontariat
             }
             
             return list;
+        }
+
+        public int getIdAnnouncement(int id_a)
+        {
+            List<Announcement> lista_ogłoszeń = this.ListAnnouncements();
+            int id = 0;
+            for (int i = 0; i < lista_ogłoszeń.Count; i++)
+            {
+                if (lista_ogłoszeń.ElementAt(i).id.Equals(id_a)) id = i;
+            }
+            return id;
         }
 
         public int getId(String email)

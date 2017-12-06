@@ -10,7 +10,7 @@
 namespace Wolontariat {
     
     
-    public partial class Invitations {
+    public partial class ListUsers {
         
         /// <summary>
         /// Kontrolka PlaceHolder1.

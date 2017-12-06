@@ -15,20 +15,21 @@ namespace Wolontariat
         int id_a, id_e;
         Boolean wielorazowe;
         string typ = "";
+        List<Announcement> list;
+        List<Event> lista_wydarzeń;
         protected void Page_Load(object sender, EventArgs e)
         {
                 if (Request.QueryString["id_a"]!=null) id_a = int.Parse(Request.QueryString["id_a"]);
                 if (Request.QueryString["id_e"] != null) id_e = int.Parse(Request.QueryString["id_e"]);
                 wielorazowe = false;
                 db = new SQLDatabase();
-
+                
                 db.Connect();
-                StringBuilder html = new StringBuilder();
+                list = db.ListAnnouncements();
+                lista_wydarzeń = db.ListEvents();
+            StringBuilder html = new StringBuilder();
             if (Request.QueryString["id_a"] != null)
             {
-                List<Announcement> list = db.ListAnnouncements();
-               
-
                 html.Append("<table border = '1'>");
 
                 html.Append("<tr>");
@@ -83,11 +84,7 @@ namespace Wolontariat
                 }
 
             if (Request.QueryString["id_e"] != null)
-
             {
-                List<Event> lista_wydarzeń = db.ListEvents();
-
-
                 html.Append("<table border = '1'>");
 
                 html.Append("<tr>");
@@ -109,6 +106,26 @@ namespace Wolontariat
                         html.Append("<td>" + lista_wydarzeń.ElementAt(i).title + "</td>");
                         html.Append("<td>" + lista_wydarzeń.ElementAt(i).content + "</td>");
                         html.Append("</tr>");
+                        if (!lista_wydarzeń.ElementAt(i).id_announcement.Equals(null))
+                        {
+                            int id_anno = db.getIdAnnouncement((int)lista_wydarzeń.ElementAt(i).id_announcement);
+                            html.Append("</br>Ogłoszenie, do którego zostało utworzone powyższe wydarzenie: </br>");
+                            html.Append("<tr>");
+                            html.Append("<th>Utworzone przez</th><th>Data dodania</th><th>Do kiedy</th><th>Typ pomocy</th><th>Status</th><th>Temat</th><th>Zawartość</th>");
+                            html.Append("</tr>");
+                            html.Append("<tr>");
+                            html.Append("<td>" + db.getNickname_id(list.ElementAt(id_anno).id_user) + "</td>");
+                            html.Append("<td>" + list.ElementAt(id_anno).post_date + "</td>");
+                            html.Append("<td>");
+                            if (list.ElementAt(id_anno).type_help.Equals("Jednorazowa")) html.Append("---");
+                            else html.Append(list.ElementAt(id_anno).end_date);
+                            html.Append("</td>");
+                            html.Append("<td>" + list.ElementAt(id_anno).type_help + "</td>");
+                            html.Append("<td>" + list.ElementAt(id_anno).current_status + "</td>");
+                            html.Append("<td>" + list.ElementAt(id_anno).title + "</td>");
+                            html.Append("<td>" + list.ElementAt(id_anno).content + "</td>");
+                            html.Append("</tr>");
+                        }
                     }
                     
                 }
@@ -123,6 +140,8 @@ namespace Wolontariat
                 {
                     html.Append("Możesz dołączyć do wydarzenia:");
                     join.Visible = true;
+                    html.Append("Możesz zaprosić innego wolontariusza do wzięcia udziału w tym wydarzeniu:");
+                    select.Visible = true;
                 }
             }
 
@@ -159,7 +178,10 @@ namespace Wolontariat
         {
             Response.Redirect("AddEvent.aspx?id_anno="+id_a);
         }
-
+        protected void select_user(object sender, EventArgs e)
+        {
+            Response.Redirect("ListUsers.aspx?id_event=" + id_e);
+        }
 
     }
 }

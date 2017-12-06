@@ -78,6 +78,8 @@
     <Content Include="Events.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Invitations.aspx" />
+    <Content Include="Invite.aspx" />
+    <Content Include="ListUsers.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Modify.aspx" />
@@ -157,12 +159,27 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Invitation.cs" />
     <Compile Include="Invitations.aspx.cs">
       <DependentUpon>Invitations.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Invitations.aspx.designer.cs">
       <DependentUpon>Invitations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Invite.aspx.cs">
+      <DependentUpon>Invite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Invite.aspx.designer.cs">
+      <DependentUpon>Invite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListUsers.aspx.cs">
+      <DependentUpon>ListUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListUsers.aspx.designer.cs">
+      <DependentUpon>ListUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

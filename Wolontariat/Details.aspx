@@ -11,5 +11,5 @@
 
     <asp:Button ID="create" onClick="create_event" runat="server" visible="false" Text="Utwórz wydarzenie" />
     <asp:Button ID="join" onClick="join_to_event" runat="server" visible="false" Text="Dołącz do wydarzenia" />
-
+    <asp:Button ID="select" onClick="select_user" runat="server" visible="false" Text="Wybierz wolontariusza" />
 </asp:Content>

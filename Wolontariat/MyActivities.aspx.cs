@@ -149,6 +149,9 @@ namespace Wolontariat
                     html.Append("<td>");
                     html.Append("<a href=\"Modify.aspx?id_event=" + lista_wydarzeń.ElementAt(i).id + "&r=u\">Usuń </a>");
                     html.Append("<a href=\"EditEvent.aspx?id_ev=" + lista_wydarzeń.ElementAt(i).id + "\">Edytuj </a>");
+                    html.Append("<td>");
+                    html.Append("<a href=\"Details.aspx?id_e=" + lista_wydarzeń.ElementAt(i).id + "\">Szczegóły</a>");
+                    html.Append("</td>");
                     html.Append("</td>");
                     html.Append("</tr>");
                 }
