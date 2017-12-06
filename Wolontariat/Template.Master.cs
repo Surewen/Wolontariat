@@ -9,7 +9,7 @@ namespace Wolontariat
 {
     public partial class Template : System.Web.UI.MasterPage
     {
-
+        SQLDatabase db;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,6 +18,30 @@ namespace Wolontariat
             {
                 cookieConsent.Visible = false;
             }
+
+            if (Session["id"] == null)
+            {
+                login.Visible = true;
+                logout.Visible = false;
+                my_activities.Visible = false;
+                invitations.Visible = false;
+                SQLDatabase db = new SQLDatabase();
+                db.Connect();
+                db.Disconnect();
+            }
+            else
+            {
+                db = new SQLDatabase();
+                db.Connect();
+                login.Visible = false;
+                logout.Visible = true;
+                reg.Visible = false;
+                my_activities.Visible = true;
+                invitations.Visible = true;
+                hello_user.Text = "Hello " + db.getNickname_email((string)Session["id"]);
+                db.Disconnect();
+            }
+
         }
         
         /// <summary>

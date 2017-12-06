@@ -10,6 +10,6 @@
 namespace Wolontariat {
     
     
-    public partial class Home {
+    public partial class ModifyAnnouncement {
     }
 }

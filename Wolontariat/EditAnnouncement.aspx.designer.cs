@@ -10,25 +10,34 @@
 namespace Wolontariat {
     
     
-    public partial class EditEvent {
+    public partial class EditAnnouncement {
         
         /// <summary>
-        /// Kontrolka due_date.
+        /// Kontrolka one.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl due_date;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton one;
         
         /// <summary>
-        /// Kontrolka title.
+        /// Kontrolka many.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText title;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton many;
+        
+        /// <summary>
+        /// Kontrolka subject.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText subject;
         
         /// <summary>
         /// Kontrolka content.
@@ -38,6 +47,15 @@ namespace Wolontariat {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText content;
+        
+        /// <summary>
+        /// Kontrolka end_date.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl end_date;
         
         /// <summary>
         /// Kontrolka edytuj.
