@@ -7,9 +7,9 @@
     
     <asp:TextBox ID="to" value="Do" runat="server" Visible="false"></asp:TextBox><br />
     
-    <asp:Button ID="zglos" onClick="zglos_sie" runat="server" visible="false" Text="Zgłoś się" />
+    <asp:Button ID="zglos" onClick="Zglos_Sie" runat="server" visible="false" Text="Zgłoś się" />
 
-    <asp:Button ID="create" onClick="create_event" runat="server" visible="false" Text="Utwórz wydarzenie" />
-    <asp:Button ID="join" onClick="join_to_event" runat="server" visible="false" Text="Dołącz do wydarzenia" />
-    <asp:Button ID="select" onClick="select_user" runat="server" visible="false" Text="Wybierz wolontariusza" />
+    <asp:Button ID="create" onClick="Create_Event" runat="server" visible="false" Text="Utwórz wydarzenie" />
+    <asp:Button ID="join" onClick="Join_To_Event" runat="server" visible="false" Text="Dołącz do wydarzenia" />
+    <asp:Button ID="select" onClick="Select_User" runat="server" visible="false" Text="Wybierz wolontariusza" />
 </asp:Content>

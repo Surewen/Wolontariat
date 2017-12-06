@@ -9,6 +9,7 @@ namespace Wolontariat
 {
     public partial class EditAnnouncement : System.Web.UI.Page
     {
+        SQLDatabase db;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -16,17 +17,16 @@ namespace Wolontariat
 
         protected void Edit_Announcement(object sender, EventArgs e)
         {
-            SQLDatabase db = new SQLDatabase();
+            db = new SQLDatabase();
             db.Connect();
             int id_a;
-            if (Request.QueryString["id_announc"] != null)
+            if (Request.QueryString["id_a"] != null)
             {
-                id_a = int.Parse(Request.QueryString["id_announc"]);
+                id_a = int.Parse(Request.QueryString["id_a"]);
                 db.EditAnnouncement(id_a, end_date.Value, one.Checked, subject.Value, content.Value);
             }
             Response.Redirect("MyActivities.aspx");
             db.Disconnect();
-
         }
     }
 }

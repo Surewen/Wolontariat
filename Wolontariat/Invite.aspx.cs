@@ -16,13 +16,13 @@ namespace Wolontariat
         {
             
         }
-        protected void send_invitation(object sender, EventArgs e)
+        protected void Send_Invitation(object sender, EventArgs e)
         {
             db = new SQLDatabase();
             db.Connect();
-            if (Request.QueryString["id_user"] != null) id_user = int.Parse(Request.QueryString["id_user"]);
-            if (Request.QueryString["id_event"] != null) id_event = int.Parse(Request.QueryString["id_event"]);
-            db.send_invitation(id_event, db.getId((string)Session["id"]), id_user, title.Value, content.Value);
+            if (Request.QueryString["id_u"] != null) id_user = int.Parse(Request.QueryString["id_u"]);
+            if (Request.QueryString["id_e"] != null) id_event = int.Parse(Request.QueryString["id_e"]);
+            db.SendInvitation(id_event, db.getId((string)Session["id"]), id_user, title.Value, content.Value);
             db.Disconnect();
         }
        
