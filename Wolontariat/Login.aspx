@@ -23,9 +23,7 @@
                     </div>
                     <button class="btn btn-lg btn-primary btn-block btn-signin" runat="server" type="submit">Zaloguj się</button>
                 </form>
-                <a href="#" class="forgot-password">
-                    Zapomniałeś hasła?
-                </a>
+                <a href="#" class="forgot-password">Zapomniałeś hasła?</a>
         </div>
     </div>
 

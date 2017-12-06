@@ -68,7 +68,7 @@ namespace Wolontariat
         {
             List<Announcement> list = new List<Announcement>();
 
-            cmd = new SqlCommand("SELECT * FROM Announcements;", connection);
+            cmd = new SqlCommand("SELECT * FROM ANNOUNCEMENTS;", connection);
             SqlDataReader dataReader = cmd.ExecuteReader();
 
             while (dataReader.Read())
@@ -83,7 +83,7 @@ namespace Wolontariat
         {
             List<Event> list = new List<Event>();
 
-            cmd = new SqlCommand("SELECT * FROM events;", connection);
+            cmd = new SqlCommand("SELECT * FROM EVENTS;", connection);
             SqlDataReader dataReader = cmd.ExecuteReader();
 
             while (dataReader.Read())
@@ -94,15 +94,15 @@ namespace Wolontariat
             return list;
         }
 
-        public void InstertEvents(int id_a, int id_user, String due_date, String title, String content)
+        public void InstertEvents(int id_a, int id_u, String due_date, String title, String content)
         {
             string query = "";
             if (id_a == -1)
             {
                 query =
-                "INSERT INTO events (id_user, post_date, due_date, title, content) VALUES " +
+                "INSERT INTO EVENTS (id_user, post_date, due_date, title, content) VALUES " +
                 "("
-                + id_user + ",  CONVERT(DATETIME,'"
+                + id_u + ",  CONVERT(DATETIME,'"
                 + DateTime.Today + "', 102), CONVERT(DATETIME,'"
                 + due_date + "', 102), '"
                 + title + "', '"
@@ -110,11 +110,11 @@ namespace Wolontariat
             }
             else
             {
-                    query =
-                "INSERT INTO events VALUES " +
+                 query =
+                "INSERT INTO EVENTS VALUES " +
                 "("
                 + id_a + ", "
-                + id_user + ",  CONVERT(DATETIME,'"
+                + id_u + ",  CONVERT(DATETIME,'"
                 + DateTime.Today + "', 102), CONVERT(DATETIME,'"
                 + due_date + "', 102), '"
                 + title + "', '"
@@ -131,7 +131,7 @@ namespace Wolontariat
             if (type_help) type = "Jednorazowa";
             else type = "Wielorazowa";
             string query =
-                "UPDATE announcements SET "
+                "UPDATE ANNOUNCEMENTS SET "
                 + "end_date=CONVERT(DATETIME,'"
                 + end_data + "', 102), type_help='"
                 + type + "', title='"
@@ -145,7 +145,7 @@ namespace Wolontariat
         public void EditEvent(int id_e, String due_date, String title, String content)
         {
             string query =
-                "UPDATE events SET "
+                "UPDATE EVENTS SET "
                 + "due_date=CONVERT(DATETIME,'"
                 + due_date + "', 102), title='"
                 + title + "', content='"
@@ -155,15 +155,15 @@ namespace Wolontariat
             cmd.ExecuteNonQuery();
         }
 
-        public void InsertAnnouncement(int id_user, String end_data, bool type_help, String title, String content)
+        public void InsertAnnouncement(int id_u, String end_data, bool type_help, String title, String content)
         {
             String type = "";
             if (type_help) type = "Jednorazowa";
             else type = "Wielorazowa";
             string query =
-                "INSERT INTO announcements VALUES " +
+                "INSERT INTO ANNOUNCEMENTS VALUES " +
                 "("
-                + id_user + ", CONVERT(DATETIME,'"
+                + id_u + ", CONVERT(DATETIME,'"
                 + DateTime.Today + "', 102),  CONVERT(DATETIME,'"
                 + end_data + "', 102), '"
                 + type + "', 'trwa', '"
@@ -175,11 +175,11 @@ namespace Wolontariat
         }
 
 
-        public void send_invitation(int id_event, int id_sender, int id_receiver, String title, String content)
+        public void SendInvitation(int id_event, int id_sender, int id_receiver, String title, String content)
         {
 
             string query =
-                "INSERT INTO invitations VALUES (" +
+                "INSERT INTO INVITATIONS VALUES (" +
                 +id_event + ", "
                 + id_sender + ", "
                 + id_receiver + ", '"
@@ -190,8 +190,7 @@ namespace Wolontariat
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
-
-
+        
         public void InsertUser(String nickname, String password, String pesel, String email, String telephone, String name, String surname, String birthdate, String sex, String type)
         {
             string query =
@@ -212,10 +211,10 @@ namespace Wolontariat
             cmd.ExecuteNonQuery();
         }
         
-        public void AssigntoAnnouncement(int id_a, int id_u, String from, String to)
+        public void AssignToAnnouncement(int id_a, int id_u, String from, String to)
         {
             string query =
-                "INSERT INTO users_assigned_announcement VALUES " +
+                "INSERT INTO USERS_ASSIGNED_ANNOUNCEMENT VALUES " +
                 "("
                 + id_a + ", "
                 + id_u + ", '"
@@ -229,10 +228,10 @@ namespace Wolontariat
         public void JoinToEvent(int id_e, int id_u)
         {
             string query =
-                "INSERT INTO users_joined_event VALUES " +
+                "INSERT INTO USERS_JOINED_EVENT VALUES " +
                 "("
                 + id_e + ", "
-                + id_u+")";
+                + id_u + ")";
                 
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
@@ -242,7 +241,7 @@ namespace Wolontariat
         public void DeclineFromAnnouncement(int id_a, int id_u)
         {
             string query =
-                "DELETE FROM users_assigned_announcement WHERE id_announcement=" + id_a + " AND id_user=" + id_u;
+                "DELETE FROM USERS_ASSIGNED_ANNOUNCEMENT WHERE id_announcement=" + id_a + " AND id_user=" + id_u;
 
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
@@ -251,7 +250,7 @@ namespace Wolontariat
         public void DeclineFromEvent(int id_e, int id_u)
         {
             string query =
-                "DELETE FROM users_joined_event WHERE id_event=" + id_e + " AND id_user=" + id_u;
+                "DELETE FROM USERS_JOINED_EVENT WHERE id_event=" + id_e + " AND id_user=" + id_u;
 
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
@@ -260,7 +259,7 @@ namespace Wolontariat
         public void DeleteAnnouncement(int id_a)
         {
             string query =
-                "DELETE FROM announcements WHERE id=" + id_a;
+                "DELETE FROM ANNOUNCEMENTS WHERE id=" + id_a;
 
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
@@ -278,7 +277,16 @@ namespace Wolontariat
         public void DeleteEvent_id_a(int id_a)
         {
             string query =
-                "DELETE FROM events WHERE id_announcement=" + id_a;
+                "DELETE FROM EVENTS WHERE id_announcement=" + id_a;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void DeleteInvitation(int id_e)
+        {
+            string query =
+                "DELETE FROM INVITATIONS WHERE id_event=" + id_e;
 
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
@@ -287,7 +295,7 @@ namespace Wolontariat
         public void Delete_Users_Assigned_Announcement(int id_a)
         {
             string query =
-                "DELETE FROM users_assigned_announcement WHERE id_announcement=" + id_a;
+                "DELETE FROM USERS_ASSIGNED_ANNOUNCEMENT WHERE id_announcement=" + id_a;
 
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
@@ -355,17 +363,19 @@ namespace Wolontariat
             }
             return nick;
         }
+
         public List<int?> getIdEvents(int id_a)
         {
             List<int?> list = new List<int?>();
             List<Event> lista_wydarzeń = this.ListEvents();
             for (int i = 0; i < lista_wydarzeń.Count; i++)
             {
-                if (lista_wydarzeń.ElementAt(i).id_announcement.Equals(id_a) && lista_wydarzeń.ElementAt(i).id_announcement != null) list.Add(lista_wydarzeń.ElementAt(i).id_announcement);
+                if (lista_wydarzeń.ElementAt(i).id_announcement.Equals(id_a) && lista_wydarzeń.ElementAt(i).id_announcement != null) list.Add(lista_wydarzeń.ElementAt(i).id);
             }
             
             return list;
         }
+        
 
         public int getIdAnnouncement(int id_a)
         {

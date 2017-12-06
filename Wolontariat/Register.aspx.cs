@@ -17,13 +17,7 @@ namespace Wolontariat
         {
 
         }
-
-
-        ///<summary>procedura pobierająca dane z formularza odpowiadającego dodawaniu wydarzeń a następnie
-        ///wywołująca procedure dodania do bazy danych</summary>
-        /// <param name="sender"> obiekt przesyłany z formularza rejestracji</param>
-        /// <param name="e"></param>
-        ///<param "db"> obiekt klasy zarządzającej za bazą danych</param>
+        
         protected void Register_User(object sender, EventArgs e)
         {
             if(male.Checked)

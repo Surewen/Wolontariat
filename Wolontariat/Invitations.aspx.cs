@@ -11,19 +11,19 @@ namespace Wolontariat
     public partial class Invitations : System.Web.UI.Page
     {
         SQLDatabase db;
-        
+        StringBuilder html;
         List<Invitation> list_invitations;
         protected void Page_Load(object sender, EventArgs e)
         {
-            db = new SQLDatabase();
-            db.Connect();
-            list_invitations = db.ListInvitations();
-            StringBuilder html = new StringBuilder();
             if (Session["id"] != null)
             {
+                db = new SQLDatabase();
+                db.Connect();
+                list_invitations = db.ListInvitations();
+                html = new StringBuilder();
+
                 html.Append("Otrzymane zaproszenia");
                 html.Append("<table border = '1'>");
-
                 html.Append("<tr>");
                 html.Append("<th>Data wysłania</th><th>Wysłane przez</th><th>Temat</th><th>Zawartość</th>");
                 html.Append("</tr>");
@@ -36,29 +36,15 @@ namespace Wolontariat
                         html.Append("<td>" + db.getNickname_id(list_invitations.ElementAt(i).id_sender) + "</td>");
                         html.Append("<td>" + list_invitations.ElementAt(i).title + "</td>");
                         html.Append("<td>" + list_invitations.ElementAt(i).content + "</td>");
-                        html.Append("<td>");
-                        html.Append("<a href=\"Details.aspx?id_e=" + list_invitations.ElementAt(i).id_event + "\">Szczegóły wydarzenia</a>");
-                        html.Append("</td>");
+                        html.Append("<td><a href=\"Details.aspx?id_e=" + list_invitations.ElementAt(i).id_event + "\">Szczegóły wydarzenia</a></td>");
                         html.Append("</tr>");
                     }
-                    
                 }
-
-                //Table end.
                 html.Append("</table>");
                 html.Append("<br/><br/>");
-
-
-
-                //Append the HTML string to Placeholder.
                 PlaceHolder1.Controls.Add(new Literal { Text = html.ToString() });
-
+                db.Disconnect();
             }
-
-
-            db.Disconnect();
-
-
         }
     }
 }

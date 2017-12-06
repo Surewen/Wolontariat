@@ -13,12 +13,11 @@ namespace Wolontariat
         {
 
         }
-        
         protected void Add_Event(object sender, EventArgs e)
         {
             SQLDatabase db = new SQLDatabase();
             int id_a = -1; ;
-            if (Request.QueryString["id_anno"]!=null) id_a = int.Parse(Request.QueryString["id_anno"]);
+            if (Request.QueryString["id_a"]!=null) id_a = int.Parse(Request.QueryString["id_a"]);
 
             db.Connect();
             db.InstertEvents(id_a, db.getId((string)Session["id"]), due_date.Value, title.Value, content.Value);
