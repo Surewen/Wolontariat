@@ -6,28 +6,20 @@
 
            Dodawanie wydarzenia
      <p id="profile-name" class="profile-name-card"></p>
-        Tytuł:
+        Data wydarzenia:
+            <br />
+      <input type="date" id="due_date" name="duedate" runat="server" value=""><br />
+            <br />
+           Tytuł:
             <br />
      <input type="text" id="title" class="form-control" required="required" autofocus="autofocus" runat="server"/>
             <br />
-        Treść:
+        Zawartość:
             <br />
          <input type="text" id="content" class="form-control" required="required" autofocus="autofocus" runat="server"/>
             <br />
-        Data wydarzenia:
-            <br />
-        <input type="text" id="due_data"  class="form-control" required="required" autofocus="autofocus" runat="server" placeholder="dd.mm.rrrr"/>
-            <br />
-            Data dodania:<br />
-        <input type="text" id="add_date"  class="form-control" required="required" autofocus="autofocus" runat="server" placeholder="dd.mm.rrrr"/>
 
-            <br /> 
-            Autor:
-            <br />
-           <input type="text" id="autor"  class="form-control" required="required" autofocus="autofocus" runat="server"/>
-            <br /> 
-
-        <asp:Button CssClass="btn btn-rg btn-register" type="submit" OnClick="Add" runat="server" text="Dodaj"/>
+        <asp:Button CssClass="btn btn-rg btn-register" type="submit" id="dodaj" OnClick="Add_Event" runat="server" text="Dodaj"/>
            <br />
         </div>
     </div>

@@ -10,16 +10,7 @@
 namespace Wolontariat {
     
     
-    public partial class Events {
-        
-        /// <summary>
-        /// Kontrolka add_event.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor add_event;
+    public partial class ListUsers {
         
         /// <summary>
         /// Kontrolka PlaceHolder1.

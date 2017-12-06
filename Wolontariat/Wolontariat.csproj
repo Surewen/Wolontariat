@@ -49,7 +49,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="MySql.Data, Version=6.10.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -68,18 +67,29 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddAnnouncement.aspx" />
     <Content Include="AddEvent.aspx" />
     <Content Include="Announcements.aspx" />
     <Content Include="css\Login.css" />
     <Content Include="css\Register.css" />
+    <Content Include="Details.aspx" />
+    <Content Include="EditAnnouncement.aspx" />
     <Content Include="EditEvent.aspx" />
     <Content Include="Events.aspx" />
     <Content Include="Home.aspx" />
+    <Content Include="Invitations.aspx" />
+    <Content Include="Invite.aspx" />
+    <Content Include="ListUsers.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="Modify.aspx" />
+    <Content Include="MyActivities.aspx" />
+    <Content Include="News.aspx" />
     <Content Include="packages.config" />
     <Content Include="css\Template.css" />
     <Content Include="Register.aspx" />
     <Content Include="Template.Master" />
+    <None Include="Properties\PublishProfiles\pww - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -91,6 +101,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAnnouncement.aspx.cs">
+      <DependentUpon>AddAnnouncement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddAnnouncement.aspx.designer.cs">
+      <DependentUpon>AddAnnouncement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddEvent.aspx.cs">
       <DependentUpon>AddEvent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -98,12 +115,27 @@
     <Compile Include="AddEvent.aspx.designer.cs">
       <DependentUpon>AddEvent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Announcement.cs" />
     <Compile Include="Announcements.aspx.cs">
       <DependentUpon>Announcements.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Announcements.aspx.designer.cs">
       <DependentUpon>Announcements.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditAnnouncement.aspx.cs">
+      <DependentUpon>EditAnnouncement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditAnnouncement.aspx.designer.cs">
+      <DependentUpon>EditAnnouncement.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditEvent.aspx.cs">
       <DependentUpon>EditEvent.aspx</DependentUpon>
@@ -112,6 +144,7 @@
     <Compile Include="EditEvent.aspx.designer.cs">
       <DependentUpon>EditEvent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Event.cs" />
     <Compile Include="Events.aspx.cs">
       <DependentUpon>Events.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -126,12 +159,62 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Invitation.cs" />
+    <Compile Include="Invitations.aspx.cs">
+      <DependentUpon>Invitations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Invitations.aspx.designer.cs">
+      <DependentUpon>Invitations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Invite.aspx.cs">
+      <DependentUpon>Invite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Invite.aspx.designer.cs">
+      <DependentUpon>Invite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListUsers.aspx.cs">
+      <DependentUpon>ListUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListUsers.aspx.designer.cs">
+      <DependentUpon>ListUsers.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyActivities.aspx.cs">
+      <DependentUpon>MyActivities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyActivities.aspx.designer.cs">
+      <DependentUpon>MyActivities.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="News.aspx.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="News.aspx.designer.cs">
+      <DependentUpon>News.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
@@ -149,6 +232,7 @@
     <Compile Include="Template.Master.designer.cs">
       <DependentUpon>Template.Master</DependentUpon>
     </Compile>
+    <Compile Include="Users.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\img\" />

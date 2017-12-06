@@ -10,16 +10,7 @@
 namespace Wolontariat {
     
     
-    public partial class EditEvent {
-        
-        /// <summary>
-        /// Kontrolka due_date.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl due_date;
+    public partial class Invite {
         
         /// <summary>
         /// Kontrolka title.
@@ -40,12 +31,12 @@ namespace Wolontariat {
         protected global::System.Web.UI.HtmlControls.HtmlInputText content;
         
         /// <summary>
-        /// Kontrolka edytuj.
+        /// Kontrolka send.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button edytuj;
+        protected global::System.Web.UI.WebControls.Button send;
     }
 }

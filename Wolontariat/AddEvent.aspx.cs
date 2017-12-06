@@ -13,19 +13,18 @@ namespace Wolontariat
         {
 
         }
-
-
-        ///<summary>procedura pobierająca dane z formularza odpowiadającego dodawaniu wydarzeń a następnie
-        ///wywołująca procedure dodania do bazy danych</summary>
-        /// <param name="sender">obiekt wysyłany z formularza dodawania wydarzenia</param>
-        /// <param name="e"></param>
-        ///<param "db"> obiekt klasy zarządzającej za bazą danych</param>
-        protected void Add(object sender, EventArgs e)
+        
+        protected void Add_Event(object sender, EventArgs e)
         {
             SQLDatabase db = new SQLDatabase();
+            int id_a = -1; ;
+            if (Request.QueryString["id_anno"]!=null) id_a = int.Parse(Request.QueryString["id_anno"]);
+
             db.Connect();
-            db.InstertEvents(autor.Value, add_date.Value, due_data.Value,title.Value, content.Value);
+            db.InstertEvents(id_a, db.getId((string)Session["id"]), due_date.Value, title.Value, content.Value);
+          
             db.Disconnect();
+            Response.Redirect("Events.aspx");
         }
     }
 }

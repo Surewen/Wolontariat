@@ -10,42 +10,42 @@
 namespace Wolontariat {
     
     
-    public partial class EditEvent {
+    public partial class MyActivities {
         
         /// <summary>
-        /// Kontrolka due_date.
+        /// Kontrolka PlaceHolder1.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl due_date;
+        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder1;
         
         /// <summary>
-        /// Kontrolka title.
+        /// Kontrolka PlaceHolder2.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText title;
+        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder2;
         
         /// <summary>
-        /// Kontrolka content.
+        /// Kontrolka PlaceHolder3.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText content;
+        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder3;
         
         /// <summary>
-        /// Kontrolka edytuj.
+        /// Kontrolka PlaceHolder4.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button edytuj;
+        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder4;
     }
 }
