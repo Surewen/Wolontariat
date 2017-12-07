@@ -11,18 +11,35 @@ using System.Web.UI.WebControls;
 
 namespace Wolontariat
 {
+    /// <summary>
+    /// This class is a partial class linked with Events.aspx page. Its main function is to list all events.
+    /// </summary>
     public partial class Events : System.Web.UI.Page
     {
+        /// <summary>
+        /// Database reference object
+        /// </summary>
         SQLDatabase db;
+        /// <summary>
+        /// List where all events taken from the database
+        /// </summary>
         List<Event> list_events;
+        /// <summary>
+        /// A helper tool to create a HTML table with data from the database.
+        /// </summary>
         StringBuilder html;
+        /// <summary>
+        /// This method is responsible for getting data from the database, putting them into a StringBuilder and appending them to the Events.aspx page.
+        /// </summary>
+        /// <param name="sender">Parameter containing references to the control that raised the event</param>
+        /// <param name="e">Parameter responsible for storing event data</param>
         protected void Page_Load(object sender, EventArgs e)
         {
             html = new StringBuilder();
             db = new SQLDatabase();
             db.Connect();
             list_events = db.ListEvents();
-
+            
             if (Session["id"] != null)
             {
                 if (db.getType_User(db.getId((string)Session["id"])) == "volounteer") add_event.Visible = true;
