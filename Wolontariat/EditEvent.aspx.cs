@@ -7,16 +7,23 @@ using System.Web.UI.WebControls;
 
 namespace Wolontariat
 {
+    /// <summary>
+    /// This class is a partial class responsible for editing events.
+    /// </summary>
     public partial class EditEvent : System.Web.UI.Page
     {
         SQLDatabase db;
+        /// <summary>
+        /// This method executes when the page loasds but is empty since everything needed for editing loads from aspx file.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
         /// <summary>
-        /// A method that supports editing of created events. 
-        /// It retrieves data from the form entered by the user, then calls the EditEvent method by sending this data as method parameters.
+        /// This method is responsible for making a connection to database, trying to put the edited data into the database and returning to the events list.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
