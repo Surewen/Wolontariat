@@ -15,9 +15,8 @@ namespace Wolontariat
 
         }
         /// <summary>
-        /// Metoda obsługująca edycję utworzonych wydarzeń. Pobiera dane
-        /// z formularza wprowadzone przez użytkownika, nastęnie wywołuje metodę EditEvent
-        /// przesyłając te dane jako parametry metody.
+        /// A method that supports editing of created events. 
+        /// It retrieves data from the form entered by the user, then calls the EditEvent method by sending this data as method parameters.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

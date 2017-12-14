@@ -15,9 +15,9 @@ namespace Wolontariat
 
         }
         /// <summary>
-        /// Metoda obsługująca edycję utworzonych ogłoszeń.
-        /// Pobiera z formularza wprowadzone dane przez użytkownika, następnie wywołuje
-        /// metodę EditAnnouncement przesyłając te wartości jako parametry metody.
+        /// The method that supports editing the adverts created. 
+        /// It retrieves data from the form by the user, then calls the EditAnnouncement method, 
+        /// sending these values as method parameters.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

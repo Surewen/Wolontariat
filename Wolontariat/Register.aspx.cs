@@ -18,8 +18,8 @@ namespace Wolontariat
 
         }
         /// <summary>
-        /// Metoda obsługująca proces rejestracji. Pobiera z formularza dane wprowadzone przez użytkownika, 
-        /// następnie wywołuje metodę InsertUser przesyłając pobrane dane jako parametry metody.
+        /// The method that supports the registration process. 
+        /// It retrieves the data entered by the user from the form, then calls the InsertUser method by sending the downloaded data as method parameters.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

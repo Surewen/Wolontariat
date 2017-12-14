@@ -10,7 +10,7 @@ namespace Wolontariat
     public partial class Logout : System.Web.UI.Page
     {
         /// <summary>
-        /// Metoda obsługująca możliwość wylogowania się użytkownika
+        /// A method that supports logging out of the user
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

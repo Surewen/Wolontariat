@@ -7,8 +7,8 @@ using System.Web;
 namespace Wolontariat
 {
     /// <summary>
-    /// Klasa odpowiadająca za obiekt Ogłoszenie. Atrybuty obiektu są równoważne atrybutom 
-    /// z bazy danych z tabeli Announcements. 
+    /// Class responsible for the Advert object. Attributes of the object are 
+    /// equivalent to attributes from the database from the Announcements table.
     /// </summary>
     public class Announcement
     {

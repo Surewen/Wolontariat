@@ -15,9 +15,8 @@ namespace Wolontariat
           
         }
         /// <summary>
-        /// Metoda odpowiadająca za obsługę podsystemu dodawania ogłoszenia.
-        /// Pobiera informacje z formularza wprowadzone przez użytkownika, 
-        /// następnie wywołuje metodę InsertAnnouncement przesyłając pobrane wcześniej informacje jako parametry metody
+        /// The method is responsible for handling the subsystem of adding advertisements. Retrieves information from the form entered by the user. 
+        /// Then it calls the InsertAnnouncement method by sending the previously retrieved information as method parameters.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -14,7 +14,7 @@ namespace Wolontariat
         StringBuilder html;
         List<Invitation> list_invitations;
         /// <summary>
-        /// Metoda wyświetlająca zaproszenia, które otrzymał użytkownik
+        /// A method that displays the invitations the user has received
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

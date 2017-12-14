@@ -19,9 +19,9 @@ namespace Wolontariat
         List<Event> list_events;
         StringBuilder html;
         /// <summary>
-        /// Metoda odpowiadająca za wyświetlenie szczegółów wybranego wydarzenia lub ogłoszenia. Numer wybranego ogłoszenia 
-        /// lub wydarzenia jest przesyłany za pomocą QueryString. Metoda wyświetla również ogłoszenie na podstawie, którego 
-        /// zostało stworzone wydarzenie (ale nie musiało)
+        /// The method responsible for displaying the details of the selected event or announcement. 
+        /// The number of the selected advertisement or event is sent using QueryString. 
+        /// The method also displays an advertisement based on which the event was created (but it did not have to)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

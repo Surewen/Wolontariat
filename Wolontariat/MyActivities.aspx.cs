@@ -18,9 +18,9 @@ namespace Wolontariat
         List<Event> list_events;
         StringBuilder html;
         /// <summary>
-        /// Metoda obsługująca wyświetlanie ogłoszeń i wydarzeń, które zalogowany użytkownik dodał
-        /// oraz ogłozenia, których zadeklarował swoją pomoc i wydarzenia, których bierze udział.
-        /// Metoda obsługuje także możliwość rezygnacji, edycji i usuwania ogłoszeń i wydarzeń.
+        /// The method that supports the display of announcements and events that the logged-on user has added and 
+        /// the declarations he has declared his help and events he takes part in. 
+        /// The method also supports the option of resigning, editing and deleting announcements and events.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

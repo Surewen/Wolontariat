@@ -7,8 +7,9 @@ using System.Web;
 namespace Wolontariat
 {
     /// <summary>
-    /// Klasa odpowiadająca za obiekt typu Użytkownik. Atrybuty tej klasy są równoważne z atrybutami
-    /// tabeli Users w bazie danych. Dane pobrane z tabeli Users są przechowywane za pomocą listy 
+    /// The class responsible for the User type object. Attributes of this class are equivalent to the attributes of 
+    /// the Users table in the database. 
+    /// The data downloaded from the Users table is stored using the list of objects of the Users class.
     /// obiektów klasy Users.
     /// </summary>
     public class Users

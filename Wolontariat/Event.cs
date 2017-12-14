@@ -7,9 +7,8 @@ using System.Web;
 namespace Wolontariat
 {
     /// <summary>
-    /// Klasa odpowiadająca za obiekt Wydarzenie. Atrybuty klasy są równoważne z atrybutami 
-    /// tabeli Events. Pobrane dane z bazy danych z tabeli Events są przechowywane w formie 
-    /// listy obiektów klasy Event.
+    /// The class responsible for the Event object. The class attributes are equivalent to the attributes of the Events table. 
+    /// The downloaded data from the database from the Events table is stored as a list of objects of the Event class.
     /// </summary>
     public class Event
     {

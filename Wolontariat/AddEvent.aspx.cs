@@ -15,12 +15,11 @@ namespace Wolontariat
         }
 
         /// <summary>
-        /// Metoda odpowiadająca za obsługę podsystemu dodawania wydarzeń.
-        /// Pobiera z formularza informacje wprowadzone przez użytkownika, 
-        /// następnie wywołuje metodę InsertEvents przesyłąc pobrane wartości jako parametry metody.
-        /// Wydarzenie można utworzyć również na podstawie ogłoszenia, metoda sprawdza czy zostaje przesłany numer ogłoszenia
-        /// za pomocą QueryString, jeżeli tak jest przesyłana wartość numeru ogłoszenia, 
-        /// jeżeli nie jest przesyłany numer -1. W metodzie InsertEvents znajduje się dalsza obsługa wartości numeru ogłoszenia
+        /// The method responsible for handling the subsystem of adding events. Retrieves information from the form entered by the user. 
+        /// Then it calls the InsertEvents method to send the downloaded values as method parameters. 
+        /// The event can also be created on the basis of the announcement, the method checks if the announcement number is sent using QueryString. 
+        /// If so, the value of the advertisement number is sent. If number -1 is not sent. 
+        /// In the InsertEvents method there is further support for the value of the advertisement number.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -13,8 +13,9 @@ namespace Wolontariat
         int opcja;//1=zrezygnuj, 2=usun
         SQLDatabase db;
         /// <summary>
-        /// Metoda obsługująca możliwość rezygnacji z wykonania ogłoszenia lub z wzięcia udziału w wydarzeniu.
-        /// Obsługuje również usuwanie ogłoszeń lub wydarzeń, które zalogowany użytkownik utworzył.
+        /// The method that supports the possibility of resignation from the performance of the announcement 
+        /// or from taking part in the event. 
+        /// It also supports deleting announcements or events that the logged-in user has created.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

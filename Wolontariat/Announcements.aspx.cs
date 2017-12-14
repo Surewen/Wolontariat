@@ -15,7 +15,7 @@ namespace Wolontariat
         List<Announcement> list_announcements;
         StringBuilder html;
         /// <summary>
-        /// Metoda odpowiadająca za wyświetlenie wszystkich ogłoszeń na podstawie listy obiektów Announcement.
+        /// The method responsible for displaying all advertisements based on the list of Announcement objects.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -15,8 +15,7 @@ namespace Wolontariat
         StringBuilder html;
         List<Users> list_users;
         /// <summary>
-        /// Metoda wyświetlająca wszystkich użytkowników typu wolontariusz. Służy do wybrania osoby, którą chcemy
-        /// zaprosić do wzięcia udziału w wydarzeniu.
+        /// A method that displays all volunteer users. It is used to select the person you want to invite to participate in the event.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

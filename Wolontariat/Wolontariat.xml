@@ -1,0 +1,1068 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wolontariat</name>
+    </assembly>
+    <members>
+        <member name="M:Wolontariat.AddAnnouncement.Add_Announcement(System.Object,System.EventArgs)">
+            <summary>
+            Metoda odpowiadająca za obsługę podsystemu dodawania ogłoszenia.
+            Pobiera informacje z formularza wprowadzone przez użytkownika, 
+            następnie wywołuje metodę InsertAnnouncement przesyłając pobrane wcześniej informacje jako parametry metody
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Wolontariat.AddAnnouncement.one">
+            <summary>
+            Kontrolka one.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.AddAnnouncement.many">
+            <summary>
+            Kontrolka many.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.AddAnnouncement.subject">
+            <summary>
+            Kontrolka subject.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.AddAnnouncement.content">
+            <summary>
+            Kontrolka content.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.AddAnnouncement.end_date">
+            <summary>
+            Kontrolka end_date.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.AddAnnouncement.modyfikuj">
+            <summary>
+            Kontrolka modyfikuj.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="M:Wolontariat.AddEvent.Add_Event(System.Object,System.EventArgs)">
+            <summary>
+            Metoda odpowiadająca za obsługę podsystemu dodawania wydarzeń.
+            Pobiera z formularza informacje wprowadzone przez użytkownika, 
+            następnie wywołuje metodę InsertEvents przesyłąc pobrane wartości jako parametry metody.
+            Wydarzenie można utworzyć również na podstawie ogłoszenia, metoda sprawdza czy zostaje przesłany numer ogłoszenia
+            za pomocą QueryString, jeżeli tak jest przesyłana wartość numeru ogłoszenia, 
+            jeżeli nie jest przesyłany numer -1. W metodzie InsertEvents znajduje się dalsza obsługa wartości numeru ogłoszenia
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Wolontariat.AddEvent.due_date">
+            <summary>
+            Kontrolka due_date.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.AddEvent.title">
+            <summary>
+            Kontrolka title.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.AddEvent.content">
+            <summary>
+            Kontrolka content.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.AddEvent.dodaj">
+            <summary>
+            Kontrolka dodaj.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="T:Wolontariat.Announcement">
+            <summary>
+            Klasa odpowiadająca za obiekt Ogłoszenie. Atrybuty obiektu są równoważne atrybutom 
+            z bazy danych z tabeli Announcements. 
+            </summary>
+        </member>
+        <member name="M:Wolontariat.Announcements.Page_Load(System.Object,System.EventArgs)">
+            <summary>
+            Metoda odpowiadająca za wyświetlenie wszystkich ogłoszeń na podstawie listy obiektów Announcement.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Wolontariat.Announcements.add_announcement">
+            <summary>
+            Kontrolka add_announcement.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Announcements.PlaceHolder1">
+            <summary>
+            Kontrolka PlaceHolder1.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="M:Wolontariat.Details.Page_Load(System.Object,System.EventArgs)">
+            <summary>
+            Metoda odpowiadająca za wyświetlenie szczegółów wybranego wydarzenia lub ogłoszenia. Numer wybranego ogłoszenia 
+            lub wydarzenia jest przesyłany za pomocą QueryString. Metoda wyświetla również ogłoszenie na podstawie, którego 
+            zostało stworzone wydarzenie (ale nie musiało)
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Wolontariat.Details.Zglos_Sie(System.Object,System.EventArgs)">
+            <summary>
+            Metoda obsługująca zgłaszanie wolontariusza do wykonania ogłoszenia potrzebującego. Wywołuję 
+            metodę AssignToAnnouncement, przesyła pobrane informacje z formularza wypełnionego 
+            przez użytkownika oraz numer wybranego ogłoszenia. 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Wolontariat.Details.Join_To_Event(System.Object,System.EventArgs)">
+            <summary>
+            Metoda obsługuje dołączenie wolontariuszy do wydarzeń.
+            Wywołuje metodę JoinToEvent.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Wolontariat.Details.Create_Event(System.Object,System.EventArgs)">
+            <summary>
+            Metoda obslugująca dodawanie wydarzeń. Wydarzenie może zostać utworzone na podstawie ogłoszenia,
+            wieć metoda za pomocą QueryString przesyła numer wybranego ogłoszenia. Wywołuje formularz sieci Web AddEvent.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Wolontariat.Details.Select_User(System.Object,System.EventArgs)">
+            <summary>
+            Metoda obsługująca zapraszanie wolontariuszy do wydarzenia. Wywołuje formularz sieci Web ListUsers przesyłając
+            za pomocą QueryString numer wybranego wydarzenia.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Wolontariat.Details.PlaceHolder2">
+            <summary>
+            Kontrolka PlaceHolder2.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Details.from">
+            <summary>
+            Kontrolka from.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Details.to">
+            <summary>
+            Kontrolka to.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Details.zglos">
+            <summary>
+            Kontrolka zglos.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Details.create">
+            <summary>
+            Kontrolka create.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Details.join">
+            <summary>
+            Kontrolka join.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Details.select">
+            <summary>
+            Kontrolka select.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="M:Wolontariat.EditAnnouncement.Edit_Announcement(System.Object,System.EventArgs)">
+            <summary>
+            Metoda obsługująca edycję utworzonych ogłoszeń.
+            Pobiera z formularza wprowadzone dane przez użytkownika, następnie wywołuje
+            metodę EditAnnouncement przesyłając te wartości jako parametry metody.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Wolontariat.EditAnnouncement.one">
+            <summary>
+            Kontrolka one.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.EditAnnouncement.many">
+            <summary>
+            Kontrolka many.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.EditAnnouncement.subject">
+            <summary>
+            Kontrolka subject.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.EditAnnouncement.content">
+            <summary>
+            Kontrolka content.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.EditAnnouncement.end_date">
+            <summary>
+            Kontrolka end_date.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.EditAnnouncement.edytuj">
+            <summary>
+            Kontrolka edytuj.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="M:Wolontariat.EditEvent.Edit_Event(System.Object,System.EventArgs)">
+            <summary>
+            Metoda obsługująca edycję utworzonych wydarzeń. Pobiera dane
+            z formularza wprowadzone przez użytkownika, nastęnie wywołuje metodę EditEvent
+            przesyłając te dane jako parametry metody.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Wolontariat.EditEvent.due_date">
+            <summary>
+            Kontrolka due_date.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.EditEvent.title">
+            <summary>
+            Kontrolka title.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.EditEvent.content">
+            <summary>
+            Kontrolka content.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.EditEvent.edytuj">
+            <summary>
+            Kontrolka edytuj.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="T:Wolontariat.Event">
+            <summary>
+            Klasa odpowiadająca za obiekt Wydarzenie. Atrybuty klasy są równoważne z atrybutami 
+            tabeli Events. Pobrane dane z bazy danych z tabeli Events są przechowywane w formie 
+            listy obiektów klasy Event.
+            </summary>
+        </member>
+        <member name="T:Wolontariat.Events">
+            <summary>
+            This class is a partial class linked with Events.aspx page. Its main function is to list all events.
+            </summary>
+        </member>
+        <member name="F:Wolontariat.Events.db">
+            <summary>
+            Database reference object
+            </summary>
+        </member>
+        <member name="F:Wolontariat.Events.list_events">
+            <summary>
+            List where all events taken from the database
+            </summary>
+        </member>
+        <member name="F:Wolontariat.Events.html">
+            <summary>
+            A helper tool to create a HTML table with data from the database.
+            </summary>
+        </member>
+        <member name="M:Wolontariat.Events.Page_Load(System.Object,System.EventArgs)">
+            <summary>
+            This method is responsible for getting data from the database, putting them into a StringBuilder and appending them to the Events.aspx page.
+            </summary>
+            <param name="sender">Parameter containing references to the control that raised the event</param>
+            <param name="e">Parameter responsible for storing event data</param>
+        </member>
+        <member name="F:Wolontariat.Events.add_event">
+            <summary>
+            Kontrolka add_event.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Events.PlaceHolder1">
+            <summary>
+            Kontrolka PlaceHolder1.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="T:Wolontariat.Invitation">
+            <summary>
+            Klasa odpowiadająca za obiekt Zaproszenie. Atrybuty z bazy danych z tabeli Invitations są 
+            równoważne z atrybutami klasy Invitation. Dane pobrane z tabeli Invitations są przechowywane
+            w liście obiektów klasy Invitation
+            </summary>
+        </member>
+        <member name="M:Wolontariat.Invitations.Page_Load(System.Object,System.EventArgs)">
+            <summary>
+            Metoda wyświetlająca zaproszenia, które otrzymał użytkownik
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Wolontariat.Invitations.PlaceHolder1">
+            <summary>
+            Kontrolka PlaceHolder1.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="M:Wolontariat.Invite.Send_Invitation(System.Object,System.EventArgs)">
+            <summary>
+            Metoda obsługująca podsystem zapraszania wolontariuszy do wydarzęń. Wywoluje metode SendInvitation. 
+            Parametry, które są wprowadzane przez uzytkownika to temat i zawartosc zaproszenia, 
+            następnie przesyłane są jako parametry metody SendIvitation
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Wolontariat.Invite.title">
+            <summary>
+            Kontrolka title.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Invite.content">
+            <summary>
+            Kontrolka content.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Invite.send">
+            <summary>
+            Kontrolka send.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="M:Wolontariat.ListUsers.Page_Load(System.Object,System.EventArgs)">
+            <summary>
+            Metoda wyświetlająca wszystkich użytkowników typu wolontariusz. Służy do wybrania osoby, którą chcemy
+            zaprosić do wzięcia udziału w wydarzeniu.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Wolontariat.ListUsers.PlaceHolder1">
+            <summary>
+            Kontrolka PlaceHolder1.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="M:Wolontariat.Login.Page_Load(System.Object,System.EventArgs)">
+            <summary>
+            Metoda obsługująca podsystem logowania. Pobiera z formularza
+            wprowadzony email i password, następnie wywołuje metodę getlogin, która zwraca
+            wartość typu SqlDataReader.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Wolontariat.Login.inputEmail">
+            <summary>
+            Kontrolka inputEmail.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Login.inputPassword">
+            <summary>
+            Kontrolka inputPassword.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="M:Wolontariat.Logout.Page_Load(System.Object,System.EventArgs)">
+            <summary>
+            Metoda obsługująca możliwość wylogowania się użytkownika
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Wolontariat.ModifyAnnouncement.Page_Load(System.Object,System.EventArgs)">
+            <summary>
+            Metoda obsługująca możliwość rezygnacji z wykonania ogłoszenia lub z wzięcia udziału w wydarzeniu.
+            Obsługuje również usuwanie ogłoszeń lub wydarzeń, które zalogowany użytkownik utworzył.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Wolontariat.MyActivities.Page_Load(System.Object,System.EventArgs)">
+            <summary>
+            Metoda obsługująca wyświetlanie ogłoszeń i wydarzeń, które zalogowany użytkownik dodał
+            oraz ogłozenia, których zadeklarował swoją pomoc i wydarzenia, których bierze udział.
+            Metoda obsługuje także możliwość rezygnacji, edycji i usuwania ogłoszeń i wydarzeń.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Wolontariat.MyActivities.PlaceHolder1">
+            <summary>
+            Kontrolka PlaceHolder1.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyActivities.PlaceHolder2">
+            <summary>
+            Kontrolka PlaceHolder2.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyActivities.PlaceHolder3">
+            <summary>
+            Kontrolka PlaceHolder3.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyActivities.PlaceHolder4">
+            <summary>
+            Kontrolka PlaceHolder4.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="M:Wolontariat.Register.Register_User(System.Object,System.EventArgs)">
+            <summary>
+            Metoda obsługująca proces rejestracji. Pobiera z formularza dane wprowadzone przez użytkownika, 
+            następnie wywołuje metodę InsertUser przesyłając pobrane dane jako parametry metody.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Wolontariat.Register.nickname">
+            <summary>
+            nickname control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Register.inputEmail">
+            <summary>
+            inputEmail control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Register.inputPassword">
+            <summary>
+            inputPassword control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Register.repeatPassword">
+            <summary>
+            repeatPassword control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Register.name">
+            <summary>
+            name control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Register.surname">
+            <summary>
+            surname control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Register.pesel">
+            <summary>
+            pesel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Register.telephone">
+            <summary>
+            telephone control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Register.birthDate">
+            <summary>
+            birthDate control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Register.male">
+            <summary>
+            male control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Register.female">
+            <summary>
+            female control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Register.volounteer">
+            <summary>
+            volounteer control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Register.needy">
+            <summary>
+            needy control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.SQLDatabase.connection">
+            <summary>
+            Klasa odpowiadająca za obsługę połączenia z bazą danych. Zawiera metody 
+            obsługujące dodawanie, edycję i usuwanie danych z bazy danych. 
+            Zawiera również metody służące do tworzenia list obiektów, na których 
+            łatwiej się pracuje.
+            </summary>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.#ctor">
+            <summary>
+            Metoda wywołuje metodę Init.
+            </summary>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.Init">
+            <summary>
+            Metoda zawiera połączenie z bazą danych.
+            </summary>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.Connect">
+            <summary>
+            Metoda inicjująca połączenie z bazą danych.
+            </summary>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.Disconnect">
+            <summary>
+            Metoda kończąca połączenie z bazą danych.
+            </summary>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.ListUsers">
+            <summary>
+            Metoda tworząca listę obiektów typu Użytkownik.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.ListInvitations">
+            <summary>
+            Metoda tworząca listę obiektów typu Zaproszenie.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.ListAnnouncements">
+            <summary>
+            Metoda tworząca listę obiektów typu Ogłoszenie.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.ListEvents">
+            <summary>
+            Metoda tworząca listę obiektów typy Wydarzenie.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.InstertEvents(System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Metoda dodaje do bazy danych nowy rekord w tabeli Events.
+            </summary>
+            <param name="id_a"></param>
+            <param name="id_u"></param>
+            <param name="due_date"></param>
+            <param name="title"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.EditAnnouncement(System.Int32,System.String,System.Boolean,System.String,System.String)">
+            <summary>
+            Metoda edytuje w bazie danynch wybrany rekord w tabeli Announcements.
+            </summary>
+            <param name="id_a"></param>
+            <param name="end_data"></param>
+            <param name="type_help"></param>
+            <param name="title"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.EditEvent(System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Metoda edytuje w bazie danych wybrany rekord w tabeli Events.
+            </summary>
+            <param name="id_e"></param>
+            <param name="due_date"></param>
+            <param name="title"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.InsertAnnouncement(System.Int32,System.String,System.Boolean,System.String,System.String)">
+            <summary>
+            Metoda dodająca nowy rekord w bazie danych w tabeli Announcement.
+            </summary>
+            <param name="id_u"></param>
+            <param name="end_data"></param>
+            <param name="type_help"></param>
+            <param name="title"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.SendInvitation(System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Metoda, której zadaniem jest dodawanie do tabeli Invitations kolejnych zaproszeń. 
+            Parametry, które są pobierane od użytkownika to tytul i zawartosc. Parametry pobierane z aplikacji to id użytkownika, który wysyła zaproszenie,
+            id wydarzenia, które użytkownik wybierze, id użytkownika, do którego ma być wysłane zaproszenie, użytkownik zalogowany go wybiera. Ostatnim
+            parametrem jest data, aplikacja sama go pobiera i przesyła.
+            </summary>
+            <param name="id_event"></param>
+            <param name="id_sender"></param>
+            <param name="id_receiver"></param>
+            <param name="title"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.InsertUser(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Metoda dodająca nowych użytkowników do tabeli Users. Wprowadzane dane są pobierane z wypełnionego formularza przez użytkownika.
+            </summary>
+            <param name="nickname"></param>
+            <param name="password"></param>
+            <param name="pesel"></param>
+            <param name="email"></param>
+            <param name="telephone"></param>
+            <param name="name"></param>
+            <param name="surname"></param>
+            <param name="birthdate"></param>
+            <param name="sex"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.AssignToAnnouncement(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Metoda dodająca nowy rekord do tabeli Users_Assigned_Announcement. Podana tabela
+            przechowuje informacje na temat użytkowników i ich zgłoszeń do wykonania wybranych ogłoszeń.
+            </summary>
+            <param name="id_a"></param>
+            <param name="id_u"></param>
+            <param name="from"></param>
+            <param name="to"></param>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.JoinToEvent(System.Int32,System.Int32)">
+            <summary>
+            Metoda dodaje nowy rekord do tabeli Joined_Event. Podana tabela przechowuje
+            informacje o użytkownikach i wydarzeniach, w których biorą udział.
+            </summary>
+            <param name="id_e"></param>
+            <param name="id_u"></param>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.DeclineFromAnnouncement(System.Int32,System.Int32)">
+            <summary>
+            Metoda usuwająca wybrany rekord z tabeli Users_Assigned_Announcemet. Oznacza to rezygnację z 
+            wykonania wybranego ogłoszenia.
+            </summary>
+            <param name="id_a"></param>
+            <param name="id_u"></param>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.DeclineFromEvent(System.Int32,System.Int32)">
+            <summary>
+            Metoda usuwa wybrany rekord z tabeli Joined_Event. Oznacza to opuszczeni wydarzenia przez
+            wolontariusza.
+            </summary>
+            <param name="id_e"></param>
+            <param name="id_u"></param>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.DeleteAnnouncement(System.Int32)">
+            <summary>
+            Metoda usuwająca wybrany rekord z tabeli Announcements. Oznacza to 
+            usunięcie ogłoszenia.
+            </summary>
+            <param name="id_a"></param>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.DeleteEvent(System.Int32)">
+            <summary>
+            Metoda usuwająca rekord z tabeli Events. Oznacza to usunięcie wydarzenia.
+            </summary>
+            <param name="id_e"></param>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.DeleteEvent_id_a(System.Int32)">
+            <summary>
+            Metoda usuwająca rekordy z tabeli Events. Oznacza to usunięcie wydarzenia utworzonego 
+            na podstawie ogłoszenia. Metoda usuwa wszystkie wydarzenia, które opierały się 
+            na wskazanym ogłoszeniu.
+            </summary>
+            <param name="id_a"></param>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.DeleteInvitation(System.Int32)">
+            <summary>
+            Metoda usuwająca zaproszenia na wybrane wydarzenie.
+            </summary>
+            <param name="id_e"></param>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.Delete_Users_Assigned_Announcement(System.Int32)">
+            <summary>
+            Metoda usuwająca rekordy przechowująca informacje o użytkownikach, którzy zgłosili
+            się do wykonania ogłoszenia. Usuwa wszystkie rekordy z wybranym numerem ogłoszenia.
+            </summary>
+            <param name="id_a"></param>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.Delete_Users_Joined_Event(System.Int32)">
+            <summary>
+            Metoda usuwająca wszystkie rekordy przechowujące informacje o użytkownikach biorących udział w wydarzeniu.
+            Usuwa wszystkie rekordy z wybranym numere wydarzenia.
+            </summary>
+            <param name="id_e"></param>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.getMyActivities(System.Int32)">
+            <summary>
+            Metoda zwracająca ogłoszenia, do których zalogowany użytkownik się zgłosił.
+            </summary>
+            <param name="id_u"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.getMyActivitiesEvents(System.Int32)">
+            <summary>
+            Metoda zwraca wydarzenia, w których zalogowany użytkownik
+            zadeklarował swoją obecność.
+            </summary>
+            <param name="id_u"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.getLogin(System.String,System.String)">
+            <summary>
+            Metoda zwracająca rekord z tabeli Users na podstawie email i password. Służy do obsługi logowania.
+            </summary>
+            <param name="email"></param>
+            <param name="pass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.getNickname_email(System.String)">
+            <summary>
+            Metoda zwracająca nickname na podstawie email z tabeli Users.
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.getNickname_id(System.Int32)">
+            <summary>
+            Metoda zwracająca nickname na podstawie id użytkownika z tabeli Users.
+            </summary>
+            <param name="id_u"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.getIdEvents(System.Int32)">
+            <summary>
+            Metoda zwracająca listę wydarzeń, które zostały utworzone na podstawie wybranego ogłoszenia.
+            </summary>
+            <param name="id_a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.getIdAnnouncement(System.Int32)">
+            <summary>
+            Metoda zwracająca id ogłoszenia z bazy danych na podstawie numeru ogłoszenia z listy obiektów typu Ogłoszenie.
+            </summary>
+            <param name="id_a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.getId(System.String)">
+            <summary>
+            Metoda zwracająca id zalogowanego użytkownika na podstawie jego email.
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wolontariat.SQLDatabase.getType_User(System.Int32)">
+            <summary>
+            Metoda zwracająca typ użytkownika na podstawie id użytkownika.
+            </summary>
+            <param name="id_user"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Wolontariat.Template.form1">
+            <summary>
+            Kontrolka form1.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Template.my_activities">
+            <summary>
+            Kontrolka my_activities.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Template.invitations">
+            <summary>
+            Kontrolka invitations.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Template.hello_user">
+            <summary>
+            Kontrolka hello_user.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Template.logout">
+            <summary>
+            Kontrolka logout.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Template.login">
+            <summary>
+            Kontrolka login.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Template.reg">
+            <summary>
+            Kontrolka reg.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Template.user_list">
+            <summary>
+            Kontrolka user_list.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Template.ContentPlaceHolder1">
+            <summary>
+            Kontrolka ContentPlaceHolder1.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Template.cookieConsent">
+            <summary>
+            Kontrolka cookieConsent.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Template.consent">
+            <summary>
+            Kontrolka consent.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="T:Wolontariat.Users">
+            <summary>
+            Klasa odpowiadająca za obiekt typu Użytkownik. Atrybuty tej klasy są równoważne z atrybutami
+            tabeli Users w bazie danych. Dane pobrane z tabeli Users są przechowywane za pomocą listy 
+            obiektów klasy Users.
+            </summary>
+        </member>
+    </members>
+</doc>

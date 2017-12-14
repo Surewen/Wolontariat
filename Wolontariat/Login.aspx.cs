@@ -12,9 +12,9 @@ namespace Wolontariat
     {
         SQLDatabase db;
         /// <summary>
-        /// Metoda obsługująca podsystem logowania. Pobiera z formularza
-        /// wprowadzony email i password, następnie wywołuje metodę getlogin, która zwraca
-        /// wartość typu SqlDataReader.
+        /// The method that supports the login subsystem. 
+        /// It retrieves the entered email and password from the form, then calls the getlogin method, 
+        /// which returns a value of type SqlDataReader.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
