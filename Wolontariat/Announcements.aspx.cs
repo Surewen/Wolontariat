@@ -14,6 +14,11 @@ namespace Wolontariat
         SQLDatabase db;
         List<Announcement> list_announcements;
         StringBuilder html;
+        /// <summary>
+        /// Metoda odpowiadająca za wyświetlenie wszystkich ogłoszeń na podstawie listy obiektów Announcement.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
                 db = new SQLDatabase();

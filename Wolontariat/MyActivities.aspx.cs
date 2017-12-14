@@ -17,6 +17,13 @@ namespace Wolontariat
         List<Announcement> list_announcements;
         List<Event> list_events;
         StringBuilder html;
+        /// <summary>
+        /// Metoda obsługująca wyświetlanie ogłoszeń i wydarzeń, które zalogowany użytkownik dodał
+        /// oraz ogłozenia, których zadeklarował swoją pomoc i wydarzenia, których bierze udział.
+        /// Metoda obsługuje także możliwość rezygnacji, edycji i usuwania ogłoszeń i wydarzeń.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             db = new SQLDatabase();

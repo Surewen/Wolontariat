@@ -14,6 +14,12 @@ namespace Wolontariat
         int id_e;
         StringBuilder html;
         List<Users> list_users;
+        /// <summary>
+        /// Metoda wyświetlająca wszystkich użytkowników typu wolontariusz. Służy do wybrania osoby, którą chcemy
+        /// zaprosić do wzięcia udziału w wydarzeniu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["id_e"] != null) id_e = int.Parse(Request.QueryString["id_e"]);

@@ -13,6 +13,11 @@ namespace Wolontariat
         SQLDatabase db;
         StringBuilder html;
         List<Invitation> list_invitations;
+        /// <summary>
+        /// Metoda wyświetlająca zaproszenia, które otrzymał użytkownik
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["id"] != null)

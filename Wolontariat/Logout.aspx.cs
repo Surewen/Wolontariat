@@ -9,6 +9,11 @@ namespace Wolontariat
 {
     public partial class Logout : System.Web.UI.Page
     {
+        /// <summary>
+        /// Metoda obsługująca możliwość wylogowania się użytkownika
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             Session.RemoveAll();

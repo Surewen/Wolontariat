@@ -13,6 +13,17 @@ namespace Wolontariat
         {
 
         }
+
+        /// <summary>
+        /// Metoda odpowiadająca za obsługę podsystemu dodawania wydarzeń.
+        /// Pobiera z formularza informacje wprowadzone przez użytkownika, 
+        /// następnie wywołuje metodę InsertEvents przesyłąc pobrane wartości jako parametry metody.
+        /// Wydarzenie można utworzyć również na podstawie ogłoszenia, metoda sprawdza czy zostaje przesłany numer ogłoszenia
+        /// za pomocą QueryString, jeżeli tak jest przesyłana wartość numeru ogłoszenia, 
+        /// jeżeli nie jest przesyłany numer -1. W metodzie InsertEvents znajduje się dalsza obsługa wartości numeru ogłoszenia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Add_Event(object sender, EventArgs e)
         {
             SQLDatabase db = new SQLDatabase();
