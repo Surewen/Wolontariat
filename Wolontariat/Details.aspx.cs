@@ -18,6 +18,13 @@ namespace Wolontariat
         List<Announcement> list_announcements;
         List<Event> list_events;
         StringBuilder html;
+        /// <summary>
+        /// Metoda odpowiadająca za wyświetlenie szczegółów wybranego wydarzenia lub ogłoszenia. Numer wybranego ogłoszenia 
+        /// lub wydarzenia jest przesyłany za pomocą QueryString. Metoda wyświetla również ogłoszenie na podstawie, którego 
+        /// zostało stworzone wydarzenie (ale nie musiało)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             typ = "";
@@ -146,7 +153,13 @@ namespace Wolontariat
             db.Disconnect();
         }
 
-
+        /// <summary>
+        /// Metoda obsługująca zgłaszanie wolontariusza do wykonania ogłoszenia potrzebującego. Wywołuję 
+        /// metodę AssignToAnnouncement, przesyła pobrane informacje z formularza wypełnionego 
+        /// przez użytkownika oraz numer wybranego ogłoszenia. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Zglos_Sie(object sender, EventArgs e)
         {
             db = new SQLDatabase();
@@ -155,6 +168,12 @@ namespace Wolontariat
             db.Disconnect();
         }
 
+        /// <summary>
+        /// Metoda obsługuje dołączenie wolontariuszy do wydarzeń.
+        /// Wywołuje metodę JoinToEvent.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Join_To_Event(object sender, EventArgs e)
         {
             db = new SQLDatabase();
@@ -163,11 +182,22 @@ namespace Wolontariat
             db.Disconnect();
 
         }
-
+        /// <summary>
+        /// Metoda obslugująca dodawanie wydarzeń. Wydarzenie może zostać utworzone na podstawie ogłoszenia,
+        /// wieć metoda za pomocą QueryString przesyła numer wybranego ogłoszenia. Wywołuje formularz sieci Web AddEvent.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Create_Event(object sender, EventArgs e)
         {
             Response.Redirect("AddEvent.aspx?id_a="+id_a);
         }
+        /// <summary>
+        /// Metoda obsługująca zapraszanie wolontariuszy do wydarzenia. Wywołuje formularz sieci Web ListUsers przesyłając
+        /// za pomocą QueryString numer wybranego wydarzenia.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Select_User(object sender, EventArgs e)
         {
             Response.Redirect("ListUsers.aspx?id_e=" + id_e);

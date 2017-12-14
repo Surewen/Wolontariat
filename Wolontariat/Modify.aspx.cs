@@ -12,6 +12,12 @@ namespace Wolontariat
         int id_a, id_e;
         int opcja;//1=zrezygnuj, 2=usun
         SQLDatabase db;
+        /// <summary>
+        /// Metoda obsługująca możliwość rezygnacji z wykonania ogłoszenia lub z wzięcia udziału w wydarzeniu.
+        /// Obsługuje również usuwanie ogłoszeń lub wydarzeń, które zalogowany użytkownik utworzył.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             db = new SQLDatabase();
