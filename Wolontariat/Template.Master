@@ -23,7 +23,7 @@
             </ul>
         
             <div class="ulMenuspace"></div>
-            <img class="welcomePanel" src="/res/img/welcome.bmp" />
+            <asp:Image class="welcomePanel" src="/res/img/welcome.bmp" runat="server"/>
             <div class="row">
                 <div id="leftColumn" class="column" style="background-color:#aaa;">
                     Column
