@@ -16,11 +16,7 @@ namespace Wolontariat
         SQLDatabase db;
         List<Event> list_events;
         StringBuilder html;
-        /// <summary>
-        /// Metoda obsługująca wyświetlanie wszystkich wydarzeń.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+      
         protected void Page_Load(object sender, EventArgs e)
         {
             html = new StringBuilder();
