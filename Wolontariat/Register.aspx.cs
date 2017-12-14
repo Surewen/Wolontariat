@@ -17,7 +17,12 @@ namespace Wolontariat
         {
 
         }
-        
+        /// <summary>
+        /// Metoda obsługująca proces rejestracji. Pobiera z formularza dane wprowadzone przez użytkownika, 
+        /// następnie wywołuje metodę InsertUser przesyłając pobrane dane jako parametry metody.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Register_User(object sender, EventArgs e)
         {
             if(male.Checked)

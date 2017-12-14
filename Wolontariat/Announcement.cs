@@ -6,6 +6,10 @@ using System.Web;
 
 namespace Wolontariat
 {
+    /// <summary>
+    /// Klasa odpowiadająca za obiekt Ogłoszenie. Atrybuty obiektu są równoważne atrybutom 
+    /// z bazy danych z tabeli Announcements. 
+    /// </summary>
     public class Announcement
     {
         public int id;

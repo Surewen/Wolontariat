@@ -14,6 +14,13 @@ namespace Wolontariat
         {
 
         }
+        /// <summary>
+        /// Metoda obsługująca edycję utworzonych wydarzeń. Pobiera dane
+        /// z formularza wprowadzone przez użytkownika, nastęnie wywołuje metodę EditEvent
+        /// przesyłając te dane jako parametry metody.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Edit_Event(object sender, EventArgs e)
         {
             db = new SQLDatabase();

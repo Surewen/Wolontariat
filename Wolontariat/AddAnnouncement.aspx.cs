@@ -14,6 +14,13 @@ namespace Wolontariat
         {
           
         }
+        /// <summary>
+        /// Metoda odpowiadająca za obsługę podsystemu dodawania ogłoszenia.
+        /// Pobiera informacje z formularza wprowadzone przez użytkownika, 
+        /// następnie wywołuje metodę InsertAnnouncement przesyłając pobrane wcześniej informacje jako parametry metody
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Add_Announcement(object sender, EventArgs e)
         {
             db = new SQLDatabase();

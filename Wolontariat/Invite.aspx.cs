@@ -16,6 +16,13 @@ namespace Wolontariat
         {
             
         }
+        /// <summary>
+        /// Metoda obsługująca podsystem zapraszania wolontariuszy do wydarzęń. Wywoluje metode SendInvitation. 
+        /// Parametry, które są wprowadzane przez uzytkownika to temat i zawartosc zaproszenia, 
+        /// następnie przesyłane są jako parametry metody SendIvitation
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Send_Invitation(object sender, EventArgs e)
         {
             db = new SQLDatabase();

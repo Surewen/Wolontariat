@@ -14,7 +14,13 @@ namespace Wolontariat
         {
 
         }
-
+        /// <summary>
+        /// Metoda obsługująca edycję utworzonych ogłoszeń.
+        /// Pobiera z formularza wprowadzone dane przez użytkownika, następnie wywołuje
+        /// metodę EditAnnouncement przesyłając te wartości jako parametry metody.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Edit_Announcement(object sender, EventArgs e)
         {
             db = new SQLDatabase();
