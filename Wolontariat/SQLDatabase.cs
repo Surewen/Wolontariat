@@ -394,6 +394,19 @@ namespace Wolontariat
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
+
+
+        public void DeleteUser(int id_u)
+        {
+            string query =
+                "DELETE FROM USERS WHERE id=" + id_u;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+
+
         /// <summary>
         /// The method that deletes the record from the Events table. This means deleting the event.
         /// </summary>
@@ -431,6 +444,15 @@ namespace Wolontariat
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
+
+        public void DeleteInvitation_id(int id)
+        {
+            string query =
+                "DELETE FROM INVITATIONS WHERE id=" + id;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
         /// <summary>
         /// A method that deletes records that store information about users who have applied to perform the announcement. 
         /// Removes all records with the selected number of the announcement.
@@ -440,6 +462,15 @@ namespace Wolontariat
         {
             string query =
                 "DELETE FROM USERS_ASSIGNED_ANNOUNCEMENT WHERE id_announcement=" + id_a;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void Delete_Users_Assigned_Announcement_id_user(int id_user)
+        {
+            string query =
+                "DELETE FROM USERS_ASSIGNED_ANNOUNCEMENT WHERE id_user=" + id_user;
 
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();

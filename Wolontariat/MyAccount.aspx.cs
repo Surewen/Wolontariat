@@ -119,8 +119,130 @@ namespace Wolontariat
 
         protected void Delete_Account(object sender, EventArgs e)
         {
+            List<int> list_announcement_id = ListAnnouncements_User();
+            List<int> list_events_id = ListEventsFromAnnouncement_User();
+            List<int> list_invitations_id = ListInvitations_User();
+            db = new SQLDatabase();
+            db.Connect();
 
+            db.Delete_Users_Assigned_Announcement_id_user(id);
+
+            for (int i = 0; i < list_events_id.Count; i++)
+            { db.Delete_Users_Joined_Event(list_events_id.ElementAt(i)); }
+            
+            for (int i = 0; i < list_invitations_id.Count; i++)
+            { db.DeleteInvitation_id(list_invitations_id.ElementAt(i)); }
+            
+            for (int i = 0; i < list_events_id.Count; i++)
+            { db.DeleteEvent(list_events_id.ElementAt(i)); }
+            
+            for (int i = 0; i < list_announcement_id.Count; i++)
+            { db.DeleteAnnouncement(list_announcement_id.ElementAt(i)); }
+            
+            db.DeleteUser(id);
+            Session.RemoveAll();
+            Response.Redirect("Home.aspx");
+            db.Disconnect();
         }
+
+
+        /// <summary>
+        /// lista identyfiakatorow ogloszen, ktore dodal uzytkownik
+        /// </summary>
+        /// <returns></returns>
+        public List<int> ListAnnouncements_User()
+        {
+            db = new SQLDatabase();
+            db.Connect();
+            List<Announcement> list = db.ListAnnouncements();
+            List<int> list_id = new List<int>();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (id == list.ElementAt(i).id_user) list_id.Add(list.ElementAt(i).id);
+            }
+            db.Disconnect();
+            return list_id;
+        }
+
+        /// <summary>
+        /// lista identyfikatorow wydarzen, które dodal uzytkownik
+        /// </summary>
+        /// <returns></returns>
+        public List<int> ListEvents_User()
+        {
+            db = new SQLDatabase();
+            db.Connect();
+            List<Event> list = db.ListEvents();
+            List<int> list_id = new List<int>();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (id == list.ElementAt(i).id_user) list_id.Add(list.ElementAt(i).id);
+            }
+            db.Disconnect();
+            return list_id;
+        }
+
+        /// <summary>
+        /// lista identyfikator wydarzen, ktore powstaly na podstawie ogloszen dodanych przez uzytkownika
+        /// </summary>
+        /// <returns></returns>
+        public List<int> ListEventsFromAnnouncement_User()
+        {
+            List<int> list_announcements_id = ListAnnouncements_User();
+            List<int> list_events_id2 = ListEvents_User(); //lista identyfikatorow wydarzen, ktore dodal uzytkownik plus list_events_id
+            db = new SQLDatabase();
+            db.Connect();
+            List<Event> list_events = db.ListEvents();
+            List<int> list_events_id = new List<int>(); //lista identyfikatorow wydarzen, ktore powstaly na podstawie ogloszen dodanych przez uzytkownika
+            Boolean licznik = false;
+
+            for (int j = 0; j < list_announcements_id.Count; j++)
+            {
+                for (int i = 0; i < list_events.Count; i++)
+                {
+                    if (list_announcements_id.ElementAt(j) == list_events.ElementAt(i).id_announcement) list_events_id.Add(list_events.ElementAt(i).id);
+                }
+            }
+
+            for (int i = 0; i < list_events_id.Count; i++)
+            {
+                list_events_id2.Add(list_events_id.ElementAt(i));
+            }
+            db.Disconnect();
+            return list_events_id2;
+        }
+
+
+        public List<int> ListInvitations_User()
+        {
+            List<int> list_events_id = ListEventsFromAnnouncement_User();
+            db = new SQLDatabase();
+            db.Connect();
+            List<Invitation> list_invitations = db.ListInvitations();
+          
+            List<int> list_invitations_id = new List<int>();
+
+
+            for (int i = 0; i < list_events_id.Count; i++)
+            {
+                for (int j = 0; j < list_invitations.Count; j++)
+                {
+                    if (list_events_id.ElementAt(i) == list_invitations.ElementAt(j).id_event) list_invitations_id.Add(list_invitations.ElementAt(j).id);
+                }
+            }
+
+            for (int i = 0; i < list_invitations.Count; i++)
+            {
+                if (id==list_invitations.ElementAt(i).id_sender)
+                {
+                    list_invitations_id.Add(list_invitations.ElementAt(i).id);
+                }
+            }
+
+            db.Disconnect();
+            return list_invitations_id;
+        }
+
     }
     
 }

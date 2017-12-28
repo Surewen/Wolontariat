@@ -46,6 +46,7 @@ namespace Wolontariat
             db.Connect();
             db.InsertUser(nickname.Value, inputPassword.Value, pesel.Value, inputEmail.Value, telephone.Value, name.Value, surname.Value, birthDate.Value, sex, type);
             db.Disconnect();
+            Response.Redirect("Home.aspx");
         }
     }
 }

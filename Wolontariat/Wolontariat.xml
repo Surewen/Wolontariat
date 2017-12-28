@@ -186,9 +186,9 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="F:Wolontariat.Details.PlaceHolder2">
+        <member name="F:Wolontariat.Details.PlaceHolder">
             <summary>
-            Kontrolka PlaceHolder2.
+            Kontrolka PlaceHolder.
             </summary>
             <remarks>
             Pole generowane automatycznie.
@@ -535,6 +535,195 @@
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
+        </member>
+        <member name="F:Wolontariat.MyAccount.PlaceHolder1">
+            <summary>
+            Kontrolka PlaceHolder1.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.form_data">
+            <summary>
+            Kontrolka form_data.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.edit_password">
+            <summary>
+            Kontrolka edit_password.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.delete_account">
+            <summary>
+            Kontrolka delete_account.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.password_form">
+            <summary>
+            Kontrolka password_form.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.password">
+            <summary>
+            Kontrolka password.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.new_password">
+            <summary>
+            Kontrolka new_password.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.change">
+            <summary>
+            Kontrolka change.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.data_form">
+            <summary>
+            Kontrolka data_form.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.nickname">
+            <summary>
+            Kontrolka nickname.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.inputEmail">
+            <summary>
+            Kontrolka inputEmail.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.name">
+            <summary>
+            Kontrolka name.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.surname">
+            <summary>
+            Kontrolka surname.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.pesel">
+            <summary>
+            Kontrolka pesel.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.telephone">
+            <summary>
+            Kontrolka telephone.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.birthDate">
+            <summary>
+            Kontrolka birthDate.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.male">
+            <summary>
+            Kontrolka male.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.female">
+            <summary>
+            Kontrolka female.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.volounteer">
+            <summary>
+            Kontrolka volounteer.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.needy">
+            <summary>
+            Kontrolka needy.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.MyAccount.Button1">
+            <summary>
+            Kontrolka Button1.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
         </member>
         <member name="M:Wolontariat.MyActivities.Page_Load(System.Object,System.EventArgs)">
             <summary>
@@ -991,6 +1180,15 @@
         <member name="F:Wolontariat.Template.hello_user">
             <summary>
             Kontrolka hello_user.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.Template.account">
+            <summary>
+            Kontrolka account.
             </summary>
             <remarks>
             Pole generowane automatycznie.
