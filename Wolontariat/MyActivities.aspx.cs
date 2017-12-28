@@ -59,7 +59,7 @@ namespace Wolontariat
                 html.Append("<tr>");
                 html.Append("<td>" + row[1] + "</td>");
                 html.Append("<td>" + db.getNickname_id(list_announcements.ElementAt(id_a).id_user) + "</td>");
-                html.Append("<td>" + list_announcements.ElementAt(id_a).post_date + "</td>");
+                html.Append("<td>" + list_announcements.ElementAt(id_a).post_date.ToString("yyyy-MM-dd") + "</td>");
                 html.Append("<td>");
                 if (list_announcements.ElementAt(id_a).type_help.Equals("Jednorazowa")) html.Append("---");
                 else html.Append(list_announcements.ElementAt(id_a).end_date);
@@ -95,7 +95,7 @@ namespace Wolontariat
                 html.Append("<tr>");
                 html.Append("<td>" + row[1] + "</td>");
                 html.Append("<td>" + db.getNickname_id(list_events.ElementAt(id_a).id_user) + "</td>");
-                html.Append("<td>" + list_events.ElementAt(id_a).due_date + "</td>");
+                html.Append("<td>" + list_events.ElementAt(id_a).due_date.ToString("yyyy-MM-dd") + "</td>");
                 html.Append("<td>" + list_events.ElementAt(id_a).title + "</td>");
                 html.Append("<td>" + list_events.ElementAt(id_a).content + "</td>");
                 if (list_events.ElementAt(id_a).id_announcement.Equals(null)) html.Append("<td>Nie</td>");
@@ -125,8 +125,8 @@ namespace Wolontariat
                 if (list_events.ElementAt(i).id_user.Equals(db.getId((string)Session["id"])))
                 {
                     html.Append("<tr>");
-                    html.Append("<td>" + list_events.ElementAt(i).post_date + "</td>");
-                    html.Append("<td>" + list_events.ElementAt(i).due_date + "</td>");
+                    html.Append("<td>" + list_events.ElementAt(i).post_date.ToString("yyyy-MM-dd") + "</td>");
+                    html.Append("<td>" + list_events.ElementAt(i).due_date.ToString("yyyy-MM-dd") + "</td>");
                     if (list_events.ElementAt(i).id_announcement.Equals(null)) html.Append("<td>Nie</td>");
                     else html.Append("<td>Tak</td>");
                     html.Append("<td>" + list_events.ElementAt(i).title + "</td>");
@@ -159,7 +159,7 @@ namespace Wolontariat
                 {
                     html.Append("<tr>");
                     html.Append("<td>" + list_announcements.ElementAt(i).id + "</td>");
-                    html.Append("<td>" + list_announcements.ElementAt(i).post_date + "</td>");
+                    html.Append("<td>" + list_announcements.ElementAt(i).post_date.ToString("yyyy-MM-dd") + "</td>");
                     html.Append("<td>");
                     if (list_announcements.ElementAt(i).type_help.Equals("Jednorazowa")) html.Append("---");
                     else html.Append(list_announcements.ElementAt(i).end_date);

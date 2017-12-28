@@ -53,11 +53,11 @@ namespace Wolontariat
             {
                 html.Append("<tr>");
                 html.Append("<td>" + db.getNickname_id(list_events.ElementAt(i).id_user)+ "</td>");
-                html.Append("<td>" + list_events.ElementAt(i).post_date + "</td>");
-                html.Append("<td>" + list_events.ElementAt(i).due_date+ "</td>");
+                html.Append("<td>" + list_events.ElementAt(i).post_date.ToString("yyyy-MM-dd") + "</td>");
+                html.Append("<td>" + list_events.ElementAt(i).due_date.ToString("yyyy-MM-dd") + "</td>");
                 if (list_events.ElementAt(i).id_announcement.Equals(null)) html.Append("<td>Nie</td>");
                 else html.Append("<td>Tak</td>");
-                html.Append("<td>" + list_events.ElementAt(i).title + "</td>");
+                html.Append("<td>" +list_events.ElementAt(i).title + "</td>");
                 html.Append("<td>");
                 html.Append("<a href=\"Details.aspx?id_e=" + list_events.ElementAt(i).id + "\">Szczegóły</a>");
                 html.Append("</td>");
@@ -67,7 +67,6 @@ namespace Wolontariat
             html.Append("<br/><br/>");
             
             PlaceHolder1.Controls.Add(new Literal { Text = html.ToString() });
-
             db.Disconnect();
         }
     }

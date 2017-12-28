@@ -217,7 +217,7 @@ namespace Wolontariat
                 "INSERT INTO ANNOUNCEMENTS VALUES " +
                 "("
                 + id_u + ", CONVERT(DATETIME,'"
-                + DateTime.Today + "', 102),  CONVERT(DATETIME,'"
+                + DateTime.Today.ToString("yyyy-MM-dd") + "', 102),  CONVERT(DATETIME,'"
                 + end_data + "', 102), '"
                 + type + "', 'trwa', '"
                 + title + "', '"
@@ -249,7 +249,7 @@ namespace Wolontariat
                 + id_receiver + ", '"
                 + title + "', '"
                 + content + "', CONVERT(DATETIME, '"
-                + DateTime.Today + "', 102))";
+                + DateTime.Today.ToString("yyyy-MM-dd") + "', 102))";
 
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
@@ -286,6 +286,25 @@ namespace Wolontariat
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
+
+        public void EditAccount(int id, String nickname, String pesel, String email, String telephone, String name, String surname, String birthdate, String sex, String type)
+        {
+            string query =
+                "UPDATE USERS SET "
+                + "nickname='" + nickname + "', pesel='"
+                + pesel + "', email='"
+                + email + "', telephone='"
+                + telephone + "', name='"
+                + name + "', surname='"
+                + surname + "', birth_date=CONVERT(DATETIME,'"
+                + birthdate + "', 102), sex='"
+                + sex + "', type='"
+                + type + "' WHERE id="+id+";";
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
         /// <summary>
         /// A method that adds a new record to the Users Assigned Announcement table. 
         /// The given table stores information about users and their applications to perform selected announcement.
