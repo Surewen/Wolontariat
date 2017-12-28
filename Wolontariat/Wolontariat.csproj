@@ -85,6 +85,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Modify.aspx" />
+    <Content Include="MyAccount.aspx" />
     <Content Include="MyActivities.aspx" />
     <Content Include="News.aspx" />
     <Content Include="packages.config" />
@@ -203,6 +204,13 @@
     </Compile>
     <Compile Include="Modify.aspx.designer.cs">
       <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyAccount.aspx.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyAccount.aspx.designer.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="MyActivities.aspx.cs">
       <DependentUpon>MyActivities.aspx</DependentUpon>

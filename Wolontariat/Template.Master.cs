@@ -23,6 +23,7 @@ namespace Wolontariat
             {
                 login.Visible = true;
                 logout.Visible = false;
+                account.Visible = false;
                 my_activities.Visible = false;
                 invitations.Visible = false;
             }
@@ -32,6 +33,7 @@ namespace Wolontariat
                 db.Connect();
                 login.Visible = false;
                 logout.Visible = true;
+                account.Visible = true;
                 reg.Visible = false;
                 my_activities.Visible = true;
                 invitations.Visible = true;

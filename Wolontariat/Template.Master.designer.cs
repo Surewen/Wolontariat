@@ -49,6 +49,15 @@ namespace Wolontariat {
         protected global::System.Web.UI.WebControls.Label hello_user;
         
         /// <summary>
+        /// Kontrolka account.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl account;
+        
+        /// <summary>
         /// Kontrolka logout.
         /// </summary>
         /// <remarks>

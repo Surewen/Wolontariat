@@ -128,33 +128,34 @@ namespace Wolontariat
         /// <param name="content"></param>
         public void InstertEvents(int id_a, int id_u, String due_date, String title, String content)
         {
-            string query = "";
+            String query = "";
             if (id_a == -1)
             {
-                query =
-                "INSERT INTO EVENTS (id_user, post_date, due_date, title, content) VALUES " +
-                "("
-                + id_u + ",  CONVERT(DATETIME,'"
-                + DateTime.Today + "', 102), CONVERT(DATETIME,'"
-                + due_date + "', 102), '"
-                + title + "', '"
-                + content + "');";
+                query = prepareSql("null", id_u, due_date, title, content);
             }
             else
             {
-                 query =
-                "INSERT INTO EVENTS VALUES " +
-                "("
-                + id_a + ", "
-                + id_u + ",  CONVERT(DATETIME,'"
-                + DateTime.Today + "', 102), CONVERT(DATETIME,'"
-                + due_date + "', 102), '"
-                + title + "', '"
-                + content + "');";
+                query = prepareSql(id_a.ToString(), id_u, due_date, title, content);
             }
             
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
+        }
+
+
+        public String prepareSql(String id_a, int id_u, String due_date, String title, String content)
+        {
+            string query = "";
+            query =
+              "INSERT INTO EVENTS VALUES " +
+              "("
+              + id_a + ", "
+              + id_u + ",  CONVERT(DATETIME,'"
+              + DateTime.Today.ToString("yyyy-MM-dd") + "', 102), CONVERT(DATETIME,'"
+              + due_date + "', 102), '"
+              + title + "', '"
+              + content + "');";
+            return query;
         }
         /// <summary>
         /// The method edits the selected record in the Notification database in the Announcements table.

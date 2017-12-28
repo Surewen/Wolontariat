@@ -17,6 +17,7 @@
                 <li class="liMenu" id="my_activities" runat="server"><a class="aMenu" href="MyActivities.aspx">Moje aktywności</a></li>
                 <li class="liMenu" id="invitations" runat="server"><a class="aMenu" href="Invitations.aspx">Zaproszenia</a></li>
                 <li class="liMenu"><asp:Label ID="hello_user" runat="server" Text="Hello Visitor!" ForeColor="#99FF33"></asp:Label></li>
+                <li class="liMenu" id="account" runat="server"><a class="aMenu"  href="MyAccount.aspx">Moje konto</a></li>
                 <li class="liMenu" id="logout" runat="server"><a class="aMenu"  href="Logout.aspx">Wyloguj</a></li>
                 <li class="liMenu" id="login" runat="server"><a class="aMenu"  href="Login.aspx">Zaloguj się</a></li>
                 <li class="liMenu" id="reg" runat="server" ><a class="aMenu" href="Register.aspx">Zarejestruj się</a></li>
