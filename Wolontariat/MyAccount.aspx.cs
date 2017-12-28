@@ -13,13 +13,16 @@ namespace Wolontariat
         SQLDatabase db;
         StringBuilder html;
         List<Users> list_users;
+        String email;
+        String pass;
+        int id;
         protected void Page_Load(object sender, EventArgs e)
         {
             db = new SQLDatabase();
             html = new StringBuilder();
             db.Connect();
             list_users = db.ListUsers();
-
+            id = db.getId((string)Session["id"]);
             html.Append("<table border = '1' align='center'>");
             
             for (int i = 0; i < list_users.Count; i++)
@@ -36,6 +39,8 @@ namespace Wolontariat
                     html.Append("<tr><td>Data urodzenia</td> <td>" + list_users.ElementAt(i).birth_date.ToString("yyyy-MM-dd") + "</td></tr>");
                     html.Append("<tr><td>Typ użytkownika</td> <td>" + list_users.ElementAt(i).type + "</td></tr>");
                     html.Append("<tr><td>Pesel</td> <td>" + list_users.ElementAt(i).pesel + "</td></tr>");
+                    email = list_users.ElementAt(i).email;
+                    pass = list_users.ElementAt(i).password;
                 }
             }
 
@@ -52,7 +57,6 @@ namespace Wolontariat
             db = new SQLDatabase();
             db.Connect();
             list_users = db.ListUsers();
-            
             nickname.Value = list_users.ElementAt(db.getId((string)Session["id"])-1).nickname;
             inputEmail.Value = list_users.ElementAt(db.getId((string)Session["id"]) - 1).email;
             name.Value= list_users.ElementAt(db.getId((string)Session["id"]) - 1).name;
@@ -81,12 +85,18 @@ namespace Wolontariat
                 if (volounteer.Checked) type = "volounteer";
                 else type = "needy";
             }
-            if (birthDate.Value.Equals("1900-01-01")) birthDate.Value= list_users.ElementAt(db.getId((string)Session["id"]) - 1).birth_date.ToString("yyyy-MM-dd");
-            int id = db.getId((string)Session["id"]);
+            if (birthDate.Value=="") birthDate.Value = list_users.ElementAt(db.getId((string)Session["id"]) - 1).birth_date.ToString("yyyy-MM-dd");
+           
             db.EditAccount(id, nickname.Value, pesel.Value, inputEmail.Value, telephone.Value, name.Value, surname.Value, birthDate.Value, sex, type);
+            
+
+            if (!inputEmail.Value.Equals(email))
+            {
+                Session.RemoveAll();
+                Response.Redirect("Login.aspx");
+            }
+            else Response.Redirect("MyAccount.aspx");
             db.Disconnect();
-            Session.RemoveAll();
-            Response.Redirect("Login.aspx");
         }
 
         protected void Edit_Password(object sender, EventArgs e)
@@ -96,7 +106,14 @@ namespace Wolontariat
             if (password != null && new_password != null)
             {
                 db = new SQLDatabase();
-                
+                db.Connect();
+                if (pass.Equals(password.Value))
+                {
+                    db.EditPassword(id, new_password.Value);
+                    Session.RemoveAll();
+                    Response.Redirect("Login.aspx");
+                }
+                db.Disconnect();
             }
         }
 

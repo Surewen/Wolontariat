@@ -150,7 +150,7 @@ namespace Wolontariat
             html.Append("Ogłoszenia, które dodałem: </br>");
             html.Append("<table border = '1'>");
             html.Append("<tr>");
-            html.Append("<th>Id wydarzenia</th><th>Data dodania</th><th>Do kiedy</th><th>Status</th><th>Temat</th><th>Zawartość</th><th>Modyfikuj</th>");
+            html.Append("<th>Id wydarzenia</th><th>Data dodania</th><th>Typ pomocy</th><th>Do kiedy</th><th>Status</th><th>Temat</th><th>Zawartość</th><th>Modyfikuj</th>");
             html.Append("</tr>");
 
             for (int i = 0; i < list_announcements.Count; i++)
@@ -160,6 +160,7 @@ namespace Wolontariat
                     html.Append("<tr>");
                     html.Append("<td>" + list_announcements.ElementAt(i).id + "</td>");
                     html.Append("<td>" + list_announcements.ElementAt(i).post_date.ToString("yyyy-MM-dd") + "</td>");
+                    html.Append("<td>" + list_announcements.ElementAt(i).type_help + "</td>");
                     html.Append("<td>");
                     if (list_announcements.ElementAt(i).type_help.Equals("Jednorazowa")) html.Append("---");
                     else html.Append(list_announcements.ElementAt(i).end_date);

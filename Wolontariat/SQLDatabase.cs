@@ -305,6 +305,17 @@ namespace Wolontariat
             cmd.ExecuteNonQuery();
         }
 
+
+        public void EditPassword(int id, String new_password)
+        {
+            string query =
+                "UPDATE USERS SET "
+                + "password='" + new_password + "' WHERE id=" + id + ";";
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
         /// <summary>
         /// A method that adds a new record to the Users Assigned Announcement table. 
         /// The given table stores information about users and their applications to perform selected announcement.

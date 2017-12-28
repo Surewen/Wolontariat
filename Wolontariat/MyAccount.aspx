@@ -37,7 +37,7 @@
                     <input type="radio" id="volounteer" name="userType" runat="server"/>Wolontariusz<br />
                     <input type="radio" id="needy" name="userType" runat="server"/>Potrzebujący<br />
               
-              <asp:Button CssClass="btn btn-rg btn-register" id="Button1" type="submit" OnClick="Edit_Data" runat="server" text="Zmień dane"/>
+              <asp:Button CssClass="btn btn-rg btn-register" id="Button1" type="submit" OnClick="Edit_Data" runat="server" text="Potwierdź zmiany"/>
         </div>
     </div>
 
