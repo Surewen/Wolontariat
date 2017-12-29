@@ -64,6 +64,22 @@ namespace Wolontariat
             return list;
         }
 
+        public List<Event_ranking> RankingEvents()
+        {
+            List<Event_ranking> list = new List<Event_ranking>();
+
+            cmd = new SqlCommand("SELECT * FROM users_joined_event", connection);
+            SqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                list.Add(new Event_ranking(dataReader));
+            }
+            dataReader.Close();
+            return list;
+        }
+
+
         /// <summary>
         /// The method that creates a list of objects like Invitation.
         /// </summary>
@@ -316,6 +332,16 @@ namespace Wolontariat
             cmd.ExecuteNonQuery();
         }
 
+        public int Count_Events(List<Event_ranking> list_event_ranking, int id_e)
+        {
+           int amount = 0;
+            for (int i = 0; i < list_event_ranking.Count; i++)
+            {
+                if (id_e == list_event_ranking.ElementAt(i).id_event) amount++;
+            }
+            return amount;
+        }
+
         /// <summary>
         /// A method that adds a new record to the Users Assigned Announcement table. 
         /// The given table stores information about users and their applications to perform selected announcement.
@@ -484,6 +510,15 @@ namespace Wolontariat
         {
             string query =
                 "DELETE FROM users_joined_event WHERE id_event=" + id_e;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void Delete_Users_Joined_Event_id_user(int id_u)
+        {
+            string query =
+                "DELETE FROM users_joined_event WHERE id_user=" + id_u;
 
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();

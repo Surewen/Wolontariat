@@ -155,6 +155,8 @@
     <Compile Include="Events.aspx.designer.cs">
       <DependentUpon>Events.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Event_count.cs" />
+    <Compile Include="Event_ranking.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

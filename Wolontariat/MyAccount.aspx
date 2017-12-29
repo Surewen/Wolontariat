@@ -6,7 +6,7 @@
     <asp:Button ID="edit_password" onClick="Edit_Password" runat="server" Text="Zmień hasło" />
     <asp:Button ID="delete_account" OnClick="Delete_Account" runat="server" Text="Usuń konto" />
 
-     <div class="container" ID="password_form" visible="false" runat="server">
+     <div class="container" ID="password_form" visible="false" runat="server" align="center">
         <div class="card card-container">
            <p id="profile-name" class="profile-name-card"></p>
 

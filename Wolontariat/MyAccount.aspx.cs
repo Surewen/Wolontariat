@@ -15,7 +15,7 @@ namespace Wolontariat
         List<Users> list_users;
         String email;
         String pass;
-        int id;
+        int id, id_i;
         protected void Page_Load(object sender, EventArgs e)
         {
             db = new SQLDatabase();
@@ -27,7 +27,7 @@ namespace Wolontariat
             
             for (int i = 0; i < list_users.Count; i++)
             {
-                if (list_users.ElementAt(i).id.Equals(db.getId((string)Session["id"])))
+                if (list_users.ElementAt(i).id.Equals(id))
                 {
                     html.Append("<tr><td>Id</td> <td>" + list_users.ElementAt(i).id + "</td></tr>");
                     html.Append("<tr><td>Imię</td> <td>" + list_users.ElementAt(i).name + "</td></tr>");
@@ -41,6 +41,7 @@ namespace Wolontariat
                     html.Append("<tr><td>Pesel</td> <td>" + list_users.ElementAt(i).pesel + "</td></tr>");
                     email = list_users.ElementAt(i).email;
                     pass = list_users.ElementAt(i).password;
+                    id_i = i;
                 }
             }
 
@@ -57,12 +58,12 @@ namespace Wolontariat
             db = new SQLDatabase();
             db.Connect();
             list_users = db.ListUsers();
-            nickname.Value = list_users.ElementAt(db.getId((string)Session["id"])-1).nickname;
-            inputEmail.Value = list_users.ElementAt(db.getId((string)Session["id"]) - 1).email;
-            name.Value= list_users.ElementAt(db.getId((string)Session["id"]) - 1).name;
-            surname.Value= list_users.ElementAt(db.getId((string)Session["id"]) - 1).surname;
-            telephone.Value= list_users.ElementAt(db.getId((string)Session["id"]) - 1).telephone;
-            pesel.Value= list_users.ElementAt(db.getId((string)Session["id"]) - 1).pesel;
+            nickname.Value = list_users.ElementAt(id_i).nickname;
+            inputEmail.Value = list_users.ElementAt(id_i).email;
+            name.Value= list_users.ElementAt(id_i).name;
+            surname.Value= list_users.ElementAt(id_i).surname;
+            telephone.Value= list_users.ElementAt(id_i).telephone;
+            pesel.Value= list_users.ElementAt(id_i).pesel;
             db.Disconnect();
         }
 
@@ -73,23 +74,22 @@ namespace Wolontariat
             list_users = db.ListUsers();
             string sex = "";
             string type = "";
-            if (!male.Checked && !female.Checked) sex = list_users.ElementAt(db.getId((string)Session["id"]) - 1).sex;
+            if (!male.Checked && !female.Checked) sex = list_users.ElementAt(id_i).sex;
             else
             {
                 if (male.Checked) sex = "male";
                 else sex = "female";
             }
-            if (!volounteer.Checked && !needy.Checked) type = list_users.ElementAt(db.getId((string)Session["id"]) - 1).type;
+            if (!volounteer.Checked && !needy.Checked) type = list_users.ElementAt(id_i).type;
             else
             {
                 if (volounteer.Checked) type = "volounteer";
                 else type = "needy";
             }
-            if (birthDate.Value=="") birthDate.Value = list_users.ElementAt(db.getId((string)Session["id"]) - 1).birth_date.ToString("yyyy-MM-dd");
+            if (birthDate.Value=="") birthDate.Value = list_users.ElementAt(id_i).birth_date.ToString("yyyy-MM-dd");
            
             db.EditAccount(id, nickname.Value, pesel.Value, inputEmail.Value, telephone.Value, name.Value, surname.Value, birthDate.Value, sex, type);
             
-
             if (!inputEmail.Value.Equals(email))
             {
                 Session.RemoveAll();
@@ -126,10 +126,16 @@ namespace Wolontariat
             db.Connect();
 
             db.Delete_Users_Assigned_Announcement_id_user(id);
+            for (int i = 0; i < list_announcement_id.Count; i++)
+            { db.Delete_Users_Assigned_Announcement(list_announcement_id.ElementAt(i)); }
 
             for (int i = 0; i < list_events_id.Count; i++)
             { db.Delete_Users_Joined_Event(list_events_id.ElementAt(i)); }
-            
+
+            db.Delete_Users_Joined_Event_id_user(id);
+            for (int i = 0; i < list_events_id.Count; i++)
+            { db.Delete_Users_Joined_Event(list_events_id.ElementAt(i)); }
+
             for (int i = 0; i < list_invitations_id.Count; i++)
             { db.DeleteInvitation_id(list_invitations_id.ElementAt(i)); }
             
@@ -194,7 +200,6 @@ namespace Wolontariat
             db.Connect();
             List<Event> list_events = db.ListEvents();
             List<int> list_events_id = new List<int>(); //lista identyfikatorow wydarzen, ktore powstaly na podstawie ogloszen dodanych przez uzytkownika
-            Boolean licznik = false;
 
             for (int j = 0; j < list_announcements_id.Count; j++)
             {
