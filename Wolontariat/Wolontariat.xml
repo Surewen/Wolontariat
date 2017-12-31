@@ -536,6 +536,24 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="M:Wolontariat.MyAccount.ListAnnouncements_User">
+            <summary>
+            lista identyfiakatorow ogloszen, ktore dodal uzytkownik
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wolontariat.MyAccount.ListEvents_User">
+            <summary>
+            lista identyfikatorow wydarzen, które dodal uzytkownik
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wolontariat.MyAccount.ListEventsFromAnnouncement_User">
+            <summary>
+            lista identyfikator wydarzen, ktore powstaly na podstawie ogloszen dodanych przez uzytkownika
+            </summary>
+            <returns></returns>
+        </member>
         <member name="F:Wolontariat.MyAccount.PlaceHolder1">
             <summary>
             Kontrolka PlaceHolder1.
@@ -764,6 +782,15 @@
         <member name="F:Wolontariat.MyActivities.PlaceHolder4">
             <summary>
             Kontrolka PlaceHolder4.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.News.PlaceHolder">
+            <summary>
+            Kontrolka PlaceHolder.
             </summary>
             <remarks>
             Pole generowane automatycznie.

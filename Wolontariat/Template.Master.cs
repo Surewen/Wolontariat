@@ -24,6 +24,7 @@ namespace Wolontariat
                 login.Visible = true;
                 logout.Visible = false;
                 account.Visible = false;
+                list_users.Visible = false;
                 my_activities.Visible = false;
                 invitations.Visible = false;
             }
@@ -35,9 +36,18 @@ namespace Wolontariat
                 logout.Visible = true;
                 account.Visible = true;
                 reg.Visible = false;
-                my_activities.Visible = true;
-                invitations.Visible = true;
                 hello_user.Text = "Hello " + db.getNickname_email((string)Session["id"]);
+                if (db.getType_User(db.getId((string)Session["id"])).Equals("administrator"))
+                {
+                    list_users.Visible = false;
+                }
+                else
+                {
+                    my_activities.Visible = true;
+                    invitations.Visible = true;
+                }
+                
+
                 db.Disconnect();
             }
         }

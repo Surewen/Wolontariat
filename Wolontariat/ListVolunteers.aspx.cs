@@ -8,17 +8,12 @@ using System.Web.UI.WebControls;
 
 namespace Wolontariat
 {
-    public partial class ListUsers : System.Web.UI.Page
+    public partial class ListVolunteers : System.Web.UI.Page
     {
         SQLDatabase db;
         int id_e;
         StringBuilder html;
         List<Users> list_users;
-        /// <summary>
-        /// A method that displays all volunteer users. It is used to select the person you want to invite to participate in the event.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["id_e"] != null) id_e = int.Parse(Request.QueryString["id_e"]);
@@ -26,7 +21,7 @@ namespace Wolontariat
             html = new StringBuilder();
             db.Connect();
             list_users = db.ListUsers();
-            
+
             html.Append("<table border = '1'>");
 
             html.Append("<tr>");
@@ -35,7 +30,8 @@ namespace Wolontariat
 
             for (int i = 0; i < list_users.Count; i++)
             {
-                
+                if (list_users.ElementAt(i).type.Equals("volounteer"))
+                {
                     html.Append("<tr>");
                     html.Append("<td>" + list_users.ElementAt(i).id + "</td>");
                     html.Append("<td>" + list_users.ElementAt(i).name + "</td>");
@@ -44,17 +40,16 @@ namespace Wolontariat
                     html.Append("<td>" + list_users.ElementAt(i).email + "</td>");
                     html.Append("<td>" + list_users.ElementAt(i).sex + "</td>");
                     html.Append("<td>" + list_users.ElementAt(i).telephone + "</td>");
-                    html.Append("<td><a href=\"Invite.aspx?id_u="+ list_users.ElementAt(i).id+"&id_e="+id_e+"\">Zaproś</a></td>");
+                    html.Append("<td><a href=\"Invite.aspx?id_u=" + list_users.ElementAt(i).id + "&id_e=" + id_e + "\">Zaproś</a></td>");
                     html.Append("</tr>");
-                
+                }
             }
-            
+
             html.Append("</table>");
             html.Append("<br/><br/>");
             PlaceHolder1.Controls.Add(new Literal { Text = html.ToString() });
-            
+
             db.Disconnect();
         }
-        
     }
 }

@@ -205,7 +205,7 @@ namespace Wolontariat
         /// <param name="e"></param>
         protected void Select_User(object sender, EventArgs e)
         {
-            Response.Redirect("ListUsers.aspx?id_e=" + id_e);
+            Response.Redirect("ListVolounteers.aspx?id_e=" + id_e);
         }
 
     }
