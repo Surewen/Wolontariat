@@ -39,7 +39,7 @@ namespace Wolontariat
 
             if (Request.QueryString["id_a"] != null)
             {
-                html.Append("<table border = '1'>");
+                html.Append("<table border = '1' align='center'>");
                 html.Append("<tr>");
                 html.Append("<th>Id</th><th>Dodane przez</th><th>Nickname</th><th>Data dodania</th><th>Do kiedy</th><th>Typ pomocy</th><th>Status</th><th>Temat</th><th>Zawartość</th>");
                 html.Append("</tr>");
@@ -66,6 +66,7 @@ namespace Wolontariat
                         html.Append("<td>" + list_announcements.ElementAt(i).current_status + "</td>");
                         html.Append("<td>" + list_announcements.ElementAt(i).title + "</td>");
                         html.Append("<td>" + list_announcements.ElementAt(i).content + "</td>");
+                        if (db.getType_User(db.getId((string)Session["id"])).Equals("administrator")) html.Append("<td><a href=\"Modify.aspx?id_a=" + list_announcements.ElementAt(i).id + "&id_u=" + list_announcements.ElementAt(i).id_user + "&r=u"+"\">Usuń</a></td>");
                         html.Append("</tr>");
                     }
                 }
@@ -98,7 +99,7 @@ namespace Wolontariat
                     {
 
                         html.Append("</br>Szczegóły wydarzenia: </br>");
-                        html.Append("<table border = '1'>");
+                        html.Append("<table border = '1' align='center'>");
                         html.Append("<tr>");
                         html.Append("<th>Id</th><th>Utworzone przez</th><th>Data dodania</th><th>Data wydarzenia</th><th>Powiązanie z ogłoszeniem</th><th>Temat</th><th>Zawartość</th>");
                         html.Append("</tr>");
@@ -112,6 +113,7 @@ namespace Wolontariat
                         else html.Append("<td>Tak</td>");
                         html.Append("<td>" + list_events.ElementAt(i).title + "</td>");
                         html.Append("<td>" + list_events.ElementAt(i).content + "</td>");
+                        if (db.getType_User(db.getId((string)Session["id"])).Equals("administrator")) html.Append("<td><a href=\"Modify.aspx?id_e=" + list_events.ElementAt(i).id +"&id_u="+ list_events.ElementAt(i).id_user + "&r=u" + "\">Usuń</a></td>");
                         html.Append("</tr>");
                         html.Append("</table>");
                         html.Append("<br/><br/>");

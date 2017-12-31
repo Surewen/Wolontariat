@@ -26,10 +26,13 @@ namespace Wolontariat
                 list_announcements = db.ListAnnouncements();
                 html = new StringBuilder();
 
-                if (Session["id"] == null) add_announcement.Visible = false;
-                else add_announcement.Visible = true; 
-                
-                html.Append("<table border = '1'>");
+            if (Session["id"] == null) add_announcement.Visible = false;
+            else {
+                add_announcement.Visible = false;
+                if (db.getType_User(db.getId((string)Session["id"]))!="administrator") add_announcement.Visible = true; 
+            }
+            
+                html.Append("<table border = '1' align='center'> ");
                 html.Append("<tr>");
                 html.Append("<th>Data dodania</th><th>Stworzone przez</th><th>Typ użytkownika</th><th>Status</th><th>Temat</th>");
                 html.Append("</tr>");

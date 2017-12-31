@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace Wolontariat
 {
-    public partial class ListVolunteers : System.Web.UI.Page
+    public partial class ListVolounteers : System.Web.UI.Page
     {
         SQLDatabase db;
         int id_e;
@@ -22,7 +22,7 @@ namespace Wolontariat
             db.Connect();
             list_users = db.ListUsers();
 
-            html.Append("<table border = '1'>");
+            html.Append("<table border = '1' align='center'>");
 
             html.Append("<tr>");
             html.Append("<th>Id</th><th>Imię</th><th>Nazwisko</th><th>Nickname</th><th>E-mail</th><th>Płeć</th><th>Telefon</th>");

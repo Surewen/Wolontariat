@@ -22,7 +22,7 @@ namespace Wolontariat
             db.Connect();
             list_event_ranking = db.RankingEvents();
             ranking_amount_events = count_joined_user();
-            html.Append("<table border = '1'>");
+            html.Append("<table border = '1'  align='center'>");
             html.Append("<tr>");
             html.Append("<th>Ilość osób biorących udział</th><th>Dodane przez</th><th>Data dodania</th><th>Data wydarzenia</th><th>Powiązane z ogłoszeniem potrzebującego</th><th>Temat</th>");
             html.Append("</tr>");

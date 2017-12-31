@@ -216,6 +216,17 @@ namespace Wolontariat
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
+        
+        public void ResetPassword(int id_u)
+        {
+            string query =
+                "UPDATE USERS SET "
+                + "password='password'"
+                + " WHERE id=" + id_u;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
         /// <summary>
         /// A method that adds a new record in the database in the Announcement table.
         /// </summary>
@@ -630,6 +641,27 @@ namespace Wolontariat
             }
             return id;
         }
+
+        public string getTitleAnnouncement(int id_a)
+        {
+            List<Announcement> lista_ogłoszeń = this.ListAnnouncements();
+            string title="";
+            for (int i = 0; i < lista_ogłoszeń.Count; i++)
+            {
+                if (lista_ogłoszeń.ElementAt(i).id.Equals(id_a)) title = lista_ogłoszeń.ElementAt(i).title;
+            }
+            return title;
+        }
+        public string getTitleEvent(int id_e)
+        {
+            List<Event> lista_wydarzeń = this.ListEvents();
+            string title = "";
+            for (int i = 0; i < lista_wydarzeń.Count; i++)
+            {
+                if (lista_wydarzeń.ElementAt(i).id.Equals(id_e)) title = lista_wydarzeń.ElementAt(i).title;
+            }
+            return title;
+        }
         /// <summary>
         /// The method that returns the id of the logged in user based on his email.
         /// </summary>
@@ -661,6 +693,17 @@ namespace Wolontariat
                 { type = lista.ElementAt(i).type; }
             }
             return type;
+        }
+        public string getEmail(int id_u)
+        {
+            String email = "";
+            List<Users> lista = this.ListUsers();
+            for (int i = 0; i < lista.Count; i++)
+            {
+                if (lista.ElementAt(i).id == id_u)
+                { email = lista.ElementAt(i).email; }
+            }
+            return email;
         }
 
     }

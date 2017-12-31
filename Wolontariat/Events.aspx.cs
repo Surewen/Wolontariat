@@ -45,7 +45,7 @@ namespace Wolontariat
                 if (db.getType_User(db.getId((string)Session["id"])) == "volounteer") add_event.Visible = true;
             }
             
-            html.Append("<table border = '1'>");
+            html.Append("<table border = '1' align='center'>");
             html.Append("<tr>");
             html.Append("<th>Dodane przez</th><th>Data dodania</th><th>Data wydarzenia</th><th>Powiązane z ogłoszeniem potrzebującego</th><th>Temat</th>");
             html.Append("</tr>");

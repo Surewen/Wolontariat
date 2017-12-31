@@ -82,7 +82,7 @@
     <Content Include="Invitations.aspx" />
     <Content Include="Invite.aspx" />
     <Content Include="ListUsers.aspx" />
-    <Content Include="ListVolunteers.aspx" />
+    <Content Include="ListVolounteers.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Modify.aspx" />
@@ -187,12 +187,12 @@
     <Compile Include="ListUsers.aspx.designer.cs">
       <DependentUpon>ListUsers.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ListVolunteers.aspx.cs">
-      <DependentUpon>ListVolunteers.aspx</DependentUpon>
+    <Compile Include="ListVolounteers.aspx.cs">
+      <DependentUpon>ListVolounteers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ListVolunteers.aspx.designer.cs">
-      <DependentUpon>ListVolunteers.aspx</DependentUpon>
+    <Compile Include="ListVolounteers.aspx.designer.cs">
+      <DependentUpon>ListVolounteers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
