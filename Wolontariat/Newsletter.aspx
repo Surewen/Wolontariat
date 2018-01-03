@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Template.Master" AutoEventWireup="true" CodeBehind="Newsletter.aspx.cs" Inherits="Wolontariat.Newsletter" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    Grupa łodbiorców:<br />
+    Grupa odbiorców:<br />
                     <input type="radio" id="volounteers" name="receiver"  required="required" runat="server"/>Wolontariusze<br />
                     <input type="radio" id="needies" name="receiver" required="required" runat="server"/>Potrzebujący<br />
                     <input type="radio" id="all" name="receiver" required="required" runat="server"/>Wszyscy<br /><br />
