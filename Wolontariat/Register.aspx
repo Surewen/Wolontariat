@@ -21,7 +21,7 @@
                     <input type="text" id="name" class="form-control" placeholder="Imię" required="required" runat="server"/>
                     <input type="text" id="surname" class="form-control" placeholder="Nazwisko" required="required" runat="server"/>
                     <input type="text" id="pesel" class="form-control" placeholder="PESEL" required="required" runat="server"/>
-                    <input type="text" id="telephone" class="form-control" placeholder="Telefon" required="required" runat="server"/>
+                   <input type="text" id="telephone" class="form-control" placeholder="Telefon" required="required" runat="server"/>
 
                     Data urodzenia:
                     <input type="date" id="birthDate" name="birthDate" runat="server" value=""><br />

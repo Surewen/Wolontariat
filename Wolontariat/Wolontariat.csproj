@@ -72,6 +72,7 @@
     <Content Include="AddAnnouncement.aspx" />
     <Content Include="AddEvent.aspx" />
     <Content Include="Announcements.aspx" />
+    <Content Include="Contact.aspx" />
     <Content Include="css\DatabaseTables.css" />
     <Content Include="css\Login.css" />
     <Content Include="css\Register.css" />
@@ -128,6 +129,13 @@
     </Compile>
     <Compile Include="Announcements.aspx.designer.cs">
       <DependentUpon>Announcements.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Details.aspx.cs">
       <DependentUpon>Details.aspx</DependentUpon>

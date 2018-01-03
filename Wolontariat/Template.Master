@@ -17,6 +17,7 @@
                 <li class="liMenu" id="my_activities" runat="server"><a class="aMenu" href="MyActivities.aspx">Moje aktywności</a></li>
                 <li class="liMenu" id="list_users" runat="server"><a class="aMenu" href="ListUsers.aspx">Lista użytkowników</a></li>
                 <li class="liMenu" id="invitations" runat="server"><a class="aMenu" href="Invitations.aspx">Zaproszenia</a></li>
+                <li class="liMenu"><a class="aMenu" href="Contact.aspx">Kontakt</a></li>
                 <li class="liMenu"><asp:Label ID="hello_user" runat="server" Text="Hello Visitor!" ForeColor="#99FF33"></asp:Label></li>
                 <li class="liMenu" id="account" runat="server"><a class="aMenu"  href="MyAccount.aspx">Moje konto</a></li>
                 <li class="liMenu" id="logout" runat="server"><a class="aMenu"  href="Logout.aspx">Wyloguj</a></li>
@@ -25,7 +26,7 @@
             </ul>
         
             <div class="ulMenuspace"></div>
-            <asp:Image class="welcomePanel" src="/res/img/welcome.bmp" runat="server"/>
+            <asp:Image class="welcomePanel" src="/res/img/Logo.JPG" runat="server"/>
             <div class="row">
                 <div id="leftColumn" class="column" style="background-color:#aaa;">
                     <a class="weatherwidget-io" href="https://forecast7.com/pl/52d2321d01/warsaw/" data-label_1="WARSZAWA" data-label_2="POGODA" data-theme="original" >WARSZAWA POGODA</a>

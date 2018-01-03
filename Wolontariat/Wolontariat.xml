@@ -128,20 +128,20 @@
         </member>
         <member name="F:Wolontariat.Announcements.add_announcement">
             <summary>
-            Kontrolka add_announcement.
+            add_announcement control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.Announcements.PlaceHolder1">
             <summary>
-            Kontrolka PlaceHolder1.
+            PlaceHolder1 control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="M:Wolontariat.Details.Page_Load(System.Object,System.EventArgs)">
@@ -188,65 +188,65 @@
         </member>
         <member name="F:Wolontariat.Details.PlaceHolder">
             <summary>
-            Kontrolka PlaceHolder.
+            PlaceHolder control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.Details.from">
             <summary>
-            Kontrolka from.
+            from control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.Details.to">
             <summary>
-            Kontrolka to.
+            to control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.Details.zglos">
             <summary>
-            Kontrolka zglos.
+            zglos control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.Details.create">
             <summary>
-            Kontrolka create.
+            create control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.Details.join">
             <summary>
-            Kontrolka join.
+            join control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.Details.select">
             <summary>
-            Kontrolka select.
+            select control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="M:Wolontariat.EditAnnouncement.Edit_Announcement(System.Object,System.EventArgs)">
@@ -402,20 +402,20 @@
         </member>
         <member name="F:Wolontariat.Events.add_event">
             <summary>
-            Kontrolka add_event.
+            add_event control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.Events.PlaceHolder1">
             <summary>
-            Kontrolka PlaceHolder1.
+            PlaceHolder1 control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="T:Wolontariat.Invitation">
@@ -434,11 +434,11 @@
         </member>
         <member name="F:Wolontariat.Invitations.PlaceHolder1">
             <summary>
-            Kontrolka PlaceHolder1.
+            PlaceHolder1 control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="M:Wolontariat.Invite.Send_Invitation(System.Object,System.EventArgs)">
@@ -486,11 +486,20 @@
         </member>
         <member name="F:Wolontariat.ListUsers.PlaceHolder1">
             <summary>
-            Kontrolka PlaceHolder1.
+            PlaceHolder1 control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Wolontariat.ListVolounteers.PlaceHolder1">
+            <summary>
+            PlaceHolder1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="M:Wolontariat.Login.Page_Load(System.Object,System.EventArgs)">
@@ -556,191 +565,191 @@
         </member>
         <member name="F:Wolontariat.MyAccount.PlaceHolder1">
             <summary>
-            Kontrolka PlaceHolder1.
+            PlaceHolder1 control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.form_data">
             <summary>
-            Kontrolka form_data.
+            form_data control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.edit_password">
             <summary>
-            Kontrolka edit_password.
+            edit_password control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.delete_account">
             <summary>
-            Kontrolka delete_account.
+            delete_account control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.password_form">
             <summary>
-            Kontrolka password_form.
+            password_form control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.password">
             <summary>
-            Kontrolka password.
+            password control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.new_password">
             <summary>
-            Kontrolka new_password.
+            new_password control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.change">
             <summary>
-            Kontrolka change.
+            change control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.data_form">
             <summary>
-            Kontrolka data_form.
+            data_form control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.nickname">
             <summary>
-            Kontrolka nickname.
+            nickname control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.inputEmail">
             <summary>
-            Kontrolka inputEmail.
+            inputEmail control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.name">
             <summary>
-            Kontrolka name.
+            name control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.surname">
             <summary>
-            Kontrolka surname.
+            surname control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.pesel">
             <summary>
-            Kontrolka pesel.
+            pesel control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.telephone">
             <summary>
-            Kontrolka telephone.
+            telephone control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.birthDate">
             <summary>
-            Kontrolka birthDate.
+            birthDate control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.male">
             <summary>
-            Kontrolka male.
+            male control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.female">
             <summary>
-            Kontrolka female.
+            female control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.volounteer">
             <summary>
-            Kontrolka volounteer.
+            volounteer control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.needy">
             <summary>
-            Kontrolka needy.
+            needy control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyAccount.Button1">
             <summary>
-            Kontrolka Button1.
+            Button1 control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="M:Wolontariat.MyActivities.Page_Load(System.Object,System.EventArgs)">
@@ -754,47 +763,47 @@
         </member>
         <member name="F:Wolontariat.MyActivities.PlaceHolder1">
             <summary>
-            Kontrolka PlaceHolder1.
+            PlaceHolder1 control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyActivities.PlaceHolder2">
             <summary>
-            Kontrolka PlaceHolder2.
+            PlaceHolder2 control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyActivities.PlaceHolder3">
             <summary>
-            Kontrolka PlaceHolder3.
+            PlaceHolder3 control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.MyActivities.PlaceHolder4">
             <summary>
-            Kontrolka PlaceHolder4.
+            PlaceHolder4 control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="F:Wolontariat.News.PlaceHolder">
             <summary>
-            Kontrolka PlaceHolder.
+            PlaceHolder control.
             </summary>
             <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
         <member name="M:Wolontariat.Register.Register_User(System.Object,System.EventArgs)">
@@ -1195,6 +1204,15 @@
             By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
             </remarks>
         </member>
+        <member name="F:Wolontariat.Template.list_users">
+            <summary>
+            Kontrolka list_users.
+            </summary>
+            <remarks>
+            Pole generowane automatycznie.
+            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+            </remarks>
+        </member>
         <member name="F:Wolontariat.Template.invitations">
             <summary>
             Kontrolka invitations.
@@ -1243,15 +1261,6 @@
         <member name="F:Wolontariat.Template.reg">
             <summary>
             Kontrolka reg.
-            </summary>
-            <remarks>
-            Pole generowane automatycznie.
-            By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-            </remarks>
-        </member>
-        <member name="F:Wolontariat.Template.user_list">
-            <summary>
-            Kontrolka user_list.
             </summary>
             <remarks>
             Pole generowane automatycznie.
