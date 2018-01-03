@@ -82,6 +82,7 @@
     <Content Include="Home.aspx" />
     <Content Include="Invitations.aspx" />
     <Content Include="Invite.aspx" />
+    <Content Include="javascript\JavaScript.js" />
     <Content Include="ListUsers.aspx" />
     <Content Include="ListVolounteers.aspx" />
     <Content Include="Login.aspx" />

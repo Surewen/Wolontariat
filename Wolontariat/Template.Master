@@ -28,8 +28,10 @@
             <asp:Image class="welcomePanel" src="/res/img/welcome.bmp" runat="server"/>
             <div class="row">
                 <div id="leftColumn" class="column" style="background-color:#aaa;">
-                    Column
-                    <asp:PlaceHolder ID = "user_list" runat="server" />
+                    <a class="weatherwidget-io" href="https://forecast7.com/pl/52d2321d01/warsaw/" data-label_1="WARSZAWA" data-label_2="POGODA" data-theme="original" >WARSZAWA POGODA</a>
+                        <script>
+                            !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "/javascript/JavaScript.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "weatherwidget-io-js");
+                        </script>
                 </div>
                 <div id="middleColumn" class="column" style="background-color:#bbb;">    
                         <div>

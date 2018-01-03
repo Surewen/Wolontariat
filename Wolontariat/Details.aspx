@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Template.Master" AutoEventWireup="true" CodeBehind="Details.aspx.cs" Inherits="Wolontariat.Details" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <asp:PlaceHolder ID = "PlaceHolder" runat="server" /><br />
+    <link rel="stylesheet" runat="server" media="screen" href="/css/DatabaseTables.css" />
+    <div class="table1">
+        <asp:PlaceHolder ID = "PlaceHolder" runat="server" /><br />
+    </div>
     <asp:TextBox ID="from" value="Od" runat="server" Visible="false"></asp:TextBox><br />
     
     <asp:TextBox ID="to" value="Do" runat="server" Visible="false"></asp:TextBox><br />

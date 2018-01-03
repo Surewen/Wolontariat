@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Template.Master" AutoEventWireup="true" CodeBehind="MyAccount.aspx.cs" Inherits="Wolontariat.MyAccount" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-     <asp:PlaceHolder ID = "PlaceHolder1" runat="server" /><br />
+     <link rel="stylesheet" runat="server" media="screen" href="/css/DatabaseTables.css" />
+     <div class="table1">
+        <asp:PlaceHolder ID = "PlaceHolder1" runat="server" /><br />
+     </div>
      <asp:Button ID="form_data" onClick="Form_Data" runat="server" Text="Zmień dane" />
     <asp:Button ID="edit_password" onClick="Edit_Password" runat="server" Text="Zmień hasło" />
     <asp:Button ID="delete_account" OnClick="Delete_Account" runat="server" Text="Usuń konto" />
