@@ -72,6 +72,7 @@
     <Content Include="AddAnnouncement.aspx" />
     <Content Include="AddEvent.aspx" />
     <Content Include="Announcements.aspx" />
+    <Content Include="css\DatabaseTables.css" />
     <Content Include="css\Login.css" />
     <Content Include="css\Register.css" />
     <Content Include="Details.aspx" />
