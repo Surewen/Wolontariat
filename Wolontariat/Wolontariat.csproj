@@ -92,6 +92,7 @@
     <Content Include="MyAccount.aspx" />
     <Content Include="MyActivities.aspx" />
     <Content Include="News.aspx" />
+    <Content Include="Newsletter.aspx" />
     <Content Include="packages.config" />
     <Content Include="css\Template.css" />
     <Content Include="Register.aspx" />
@@ -245,6 +246,13 @@
     </Compile>
     <Compile Include="News.aspx.designer.cs">
       <DependentUpon>News.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Newsletter.aspx.cs">
+      <DependentUpon>Newsletter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Newsletter.aspx.designer.cs">
+      <DependentUpon>Newsletter.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
