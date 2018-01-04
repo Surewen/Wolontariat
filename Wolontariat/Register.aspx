@@ -32,7 +32,6 @@
                     <input type="radio" id="volounteer" name="userType"  required="required" runat="server"/>Wolontariusz<br />
                     <input type="radio" id="needy" name="userType" required="required" runat="server"/>Potrzebujący<br /><br />
                     <asp:Button CssClass="btn btn-rg btn-register" type="submit" OnClick="Register_User" runat="server" text="Zarejestruj"/>
-
                 </form>
         </div>
     </div>

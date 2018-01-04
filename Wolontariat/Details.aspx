@@ -4,7 +4,7 @@
     <div class="table1">
         <asp:PlaceHolder ID = "PlaceHolder" runat="server" /><br />
     </div>
-    <asp:TextBox ID="from" value="Od" runat="server" Visible="false"></asp:TextBox><br />
+    <asp:TextBox  ID="from" value="Od" runat="server" Visible="false"></asp:TextBox><br />
     
     <asp:TextBox ID="to" value="Do" runat="server" Visible="false"></asp:TextBox><br />
     

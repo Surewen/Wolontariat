@@ -75,6 +75,7 @@
     <Content Include="Contact.aspx" />
     <Content Include="css\DatabaseTables.css" />
     <Content Include="css\Login.css" />
+    <Content Include="css\Newsletter.css" />
     <Content Include="css\Register.css" />
     <Content Include="Details.aspx" />
     <Content Include="EditAnnouncement.aspx" />

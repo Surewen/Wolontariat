@@ -27,7 +27,6 @@ namespace Wolontariat
                 list_invitations = db.ListInvitations();
                 html = new StringBuilder();
 
-                html.Append("Otrzymane zaproszenia");
                 html.Append("<table border = '1' align='center'>");
                 html.Append("<tr>");
                 html.Append("<th>Data wysłania</th><th>Wysłane przez</th><th>Temat</th><th>Zawartość</th>");

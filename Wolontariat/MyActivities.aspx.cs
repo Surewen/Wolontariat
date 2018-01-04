@@ -45,7 +45,6 @@ namespace Wolontariat
         public void display_assigned_announcements()
         {
             html = new StringBuilder();
-            html.Append("Ogłoszenia, do których się zgłosiłem: </br>");
             html.Append("<table border = '1' align='center'>");
             html.Append("<tr>");
             html.Append("<th>Id ogłoszenia</th><th>Dodane przez</th><th>Data dodania</th><th>Do kiedy</th><th>Typ pomocy</th><th>Status</th><th>Temat</th><th>Zawartość</th><th>od</th><th>do</th><th>Modyfikuj</th>");
@@ -82,7 +81,6 @@ namespace Wolontariat
         public void display_joined_events()
         {
             html = new StringBuilder();
-            html.Append("Wydarzenia, w których biorę udział: </br>");
             html.Append("<table border = '1' align='center'>");
             html.Append("<tr>");
             html.Append("<th>Id wydarzenia</th><th>Dodane przez</th><th>Data wydarzenia</th><th>Temat</th><th>Zawartość</th><th>Powiązane z ogłoszeniem</th><th>Modyfikuj</th><th>Szczegóły</th>");
@@ -115,7 +113,6 @@ namespace Wolontariat
         public void display_created_events()
         {
             html = new StringBuilder();
-            html.Append("Wydarzenia, które dodałem: </br>");
             html.Append("<table border = '1' align='center'>");
             html.Append("<tr>");
             html.Append("<th>Data dodania</th><th>Data wydarzenia</th><th>Powiązane z ogłoszeniem potrzebującego</th><th>Temat</th>");
@@ -147,7 +144,6 @@ namespace Wolontariat
         public void display_created_announcements()
         {
             html = new StringBuilder();
-            html.Append("Ogłoszenia, które dodałem: </br>");
             html.Append("<table border = '1' align='center'>");
             html.Append("<tr>");
             html.Append("<th>Id wydarzenia</th><th>Data dodania</th><th>Typ pomocy</th><th>Do kiedy</th><th>Status</th><th>Temat</th><th>Zawartość</th><th>Modyfikuj</th>");

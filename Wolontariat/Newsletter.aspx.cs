@@ -47,7 +47,7 @@ namespace Wolontariat
 
             for (int i = 0; i < lists_email.Count(); i++)
             {
-                Send_Email(lists_email.ElementAt(i), db.getNickname_email(lists_email.ElementAt(i)), subject.Value, content.Value);
+                Send_Email(lists_email.ElementAt(i), db.getNickname_email(lists_email.ElementAt(i)), subject.Value, TextArea1.Text);
             }
             
             db.Disconnect();
@@ -62,7 +62,7 @@ namespace Wolontariat
             msg.From = new MailAddress((string)Session["id"]);
             msg.To.Add(email);
             msg.Subject = title;
-            msg.Body = "Witaj " + nickname + "! "+content;
+            msg.Body = "Witaj " + nickname + "! "+content + ",\n";
             msg.IsBodyHtml = true;
             msg.Priority = MailPriority.High;
 
