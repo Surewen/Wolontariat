@@ -45,14 +45,14 @@ namespace Wolontariat
             {
                 if (Request.QueryString["id_e"] != null)
                 {
+                    if (Request.QueryString["id_u"] != null) Send_Email(db.getEmail(id_u), db.getNickname_id(id_u), true, db.getTitleEvent(id_e));
                     db.Delete_Users_Joined_Event(id_e);
                     db.DeleteInvitation(id_e);
                     db.DeleteEvent(id_e);
-
-                    if (Request.QueryString["id_u"] != null) Send_Email(db.getEmail(id_u), db.getNickname_id(id_u), true, db.getTitleEvent(id_e));
                 }
                 if (Request.QueryString["id_a"] != null)
                 {
+                    if (Request.QueryString["id_u"] != null) Send_Email(db.getEmail(id_u), db.getNickname_id(id_u), false, db.getTitleAnnouncement(id_a));
                     List<int?> list_events_id = db.getIdEvents(id_a);
                     for (int i = 0; i < list_events_id.Count; i++)
                     {
@@ -62,7 +62,6 @@ namespace Wolontariat
                     db.DeleteEvent_id_a(id_a);
                     db.Delete_Users_Assigned_Announcement(id_a);
                     db.DeleteAnnouncement(id_a);
-                    if (Request.QueryString["id_u"] != null) Send_Email(db.getEmail(id_u), db.getNickname_id(id_u),false, db.getTitleAnnouncement(id_a));
                 }
                 if (Request.QueryString["id_u"] == null) Response.Redirect("MyActivities.aspx");
             }
@@ -74,6 +73,7 @@ namespace Wolontariat
         {
             string subject = "";
             string body = "";
+            title = "aa";
             if (wydarzenie)
             {
                 subject = "Usunięcie Twojego wydarzneia";

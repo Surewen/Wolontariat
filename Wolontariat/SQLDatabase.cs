@@ -29,7 +29,8 @@ namespace Wolontariat
         /// </summary>
         private void Init()
         {
-            connection = new SqlConnection("Data Source=pww-server.database.windows.net;Initial Catalog=pww-database;User ID=wolontariusz;Password=Admini1.");
+            connection = new SqlConnection("Data Source=pww-server.database.windows.net;" +
+                "Initial Catalog=pww-database;User ID=wolontariusz;Password=Admini1.");
         }
         /// <summary>
         /// The method that initiates the connection to the database.
@@ -642,14 +643,17 @@ namespace Wolontariat
             return id;
         }
 
-        public string getTitleAnnouncement(int id_a)
+        
+
+        public String getTitleAnnouncement(int id_a)
         {
             List<Announcement> lista_ogłoszeń = this.ListAnnouncements();
-            string title="";
+            String title="";
             for (int i = 0; i < lista_ogłoszeń.Count; i++)
             {
-                if (lista_ogłoszeń.ElementAt(i).id.Equals(id_a)) title = lista_ogłoszeń.ElementAt(i).title;
+                if (lista_ogłoszeń.ElementAt(i).id == id_a)  title = lista_ogłoszeń.ElementAt(i).title; 
             }
+            
             return title;
         }
         public string getTitleEvent(int id_e)
@@ -658,7 +662,7 @@ namespace Wolontariat
             string title = "";
             for (int i = 0; i < lista_wydarzeń.Count; i++)
             {
-                if (lista_wydarzeń.ElementAt(i).id.Equals(id_e)) title = lista_wydarzeń.ElementAt(i).title;
+                if (lista_wydarzeń.ElementAt(i).id.Equals(id_e)) { title = lista_wydarzeń.ElementAt(i).title; }
             }
             return title;
         }
