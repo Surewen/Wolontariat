@@ -1,7 +1,4 @@
-﻿@import url(http://fonts.googleapis.com/css?family=Roboto);
-
-
-/*TOP PANEL*/
+﻿/*TOP PANEL*/
 .ulMenu {
     list-style-type: none;
     margin: 0;
@@ -17,7 +14,7 @@
 .liMenu {
     display:inline;
     float: left;
-    border-right: 2px solid #60712F;
+    border-right: 0.01em solid #60712F;
 }
 
     .liMenu:nth-last-child(2) {
@@ -45,13 +42,13 @@
 .ulMenuspace{
     height: 52px;
     width: 259px;
-    margin-bottom: 9px;
+    margin-bottom:7px;
 }
 
 /*WELCOME IMAGE*/
 .welcomePanel{
     width: 100%;
-    height: 278px;
+    max-height:300px;
     margin-top: 0px;
 }
 
@@ -59,18 +56,13 @@
 .column {
     float: left;
     width: 33%;
-    padding: 0.1%;
-    height: 800px; /* Remove later. */
 }
 
 #leftColumn {
     width: 25%;
 }
 #middleColumn {
-    width: 59%;
-}
-#rightColumn {
-    width: 15%;
+    width: 75%;
 }
 
 
@@ -109,12 +101,36 @@
     color: dodgerblue;
 }
 
+@media (max-width: 1420px) {/*RESPONSIVITY*/
+    .column {
+        width: 100%;
+    }
+    .ulMenu {
+        width: 100%;
+        position: inherit !important;
+    }
+    .liMenu {
+        width: 49.8%;
+        border-bottom: 0.01em solid #60712F;
+    }
+    .ulMenuspace {
+        height: 0px;
+        margin-bottom:0px;
+    }
+    #cookieConsent {
+        width: 35%;
+    }
+    .liMenu:nth-child(2n){
+        float:right;
+    }
+    .liMenu:last-of-type {
+        border-right: 0.01em solid #60712F;
+        float:left;
+    }
 
+}
 
-
-
-
-@media (max-width: 800px) {/*RESPONSIVITY*/
+@media (max-width: 400px) {
     .column {
         width: 100%;
     }
@@ -124,13 +140,26 @@
     }
     .liMenu {
         width: 100%;
-        border-bottom: 2px solid #60712F;
+        border-bottom: 0.01em solid #60712F;
+        float:left;
+        clear:both;
     }
     .ulMenuspace {
         height: 0px;
+        margin-bottom:0;
     }
     #cookieConsent {
         width: 100%;
+    }
+    .column {
+        float: none;
+        width: 100%;
+    }
+    #leftColumn{
+        width:100%;
+    }
+    #middleColumn{
+        width:100%;
     }
 
 }

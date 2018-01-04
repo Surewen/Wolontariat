@@ -41,7 +41,7 @@ namespace Wolontariat
             {
                 html.Append("<table border = '1' align='center'>");
                 html.Append("<tr>");
-                html.Append("<th>Id</th><th>Dodane przez</th><th>Nickname</th><th>Data dodania</th><th>Do kiedy</th><th>Typ pomocy</th><th>Status</th><th>Temat</th><th>Zawartość</th>");
+                html.Append("<th>Dodane przez</th><th>Nickname</th><th>Data dodania</th><th>Do kiedy</th><th>Typ pomocy</th><th>Status</th><th>Temat</th><th>Zawartość</th>");
                 html.Append("</tr>");
                 
                 for (int i = 0; i < list_announcements.Count; i++)
@@ -50,7 +50,6 @@ namespace Wolontariat
                     {
                         typ = db.getType_User(list_announcements.ElementAt(i).id_user);
                         html.Append("<tr>");
-                        html.Append("<td>" + list_announcements.ElementAt(i).id + "</td>");
                         html.Append("<td>" + typ + "</td>");
                         html.Append("<td>" + db.getNickname_id(list_announcements.ElementAt(i).id_user) + "</td>");
                         html.Append("<td>" + list_announcements.ElementAt(i).post_date.ToString("yyyy-MM-dd") + "</td>");
@@ -101,11 +100,10 @@ namespace Wolontariat
                         html.Append("</br>Szczegóły wydarzenia: </br>");
                         html.Append("<table border = '1' align='center'>");
                         html.Append("<tr>");
-                        html.Append("<th>Id</th><th>Utworzone przez</th><th>Data dodania</th><th>Data wydarzenia</th><th>Powiązanie z ogłoszeniem</th><th>Temat</th><th>Zawartość</th>");
+                        html.Append("<th>Utworzone przez</th><th>Data dodania</th><th>Data wydarzenia</th><th>Powiązanie z ogłoszeniem</th><th>Temat</th><th>Zawartość</th>");
                         html.Append("</tr>");
                         typ = db.getType_User(list_events.ElementAt(i).id_user);
                         html.Append("<tr>");
-                        html.Append("<td>" + list_events.ElementAt(i).id + "</td>");
                         html.Append("<td>" + db.getNickname_id(list_events.ElementAt(i).id_user) + "</td>");
                         html.Append("<td>" + list_events.ElementAt(i).post_date.ToString("yyyy-MM-dd") + "</td>");
                         html.Append("<td>" + list_events.ElementAt(i).due_date.ToString("yyyy-MM-dd") + "</td>");
@@ -124,10 +122,9 @@ namespace Wolontariat
                             html.Append("</br>Ogłoszenie, do którego zostało utworzone powyższe wydarzenie: </br>");
                             html.Append("<table border = '1'>");
                             html.Append("<tr>");
-                            html.Append("<th>Id</th><th>Utworzone przez</th><th>Data dodania</th><th>Do kiedy</th><th>Typ pomocy</th><th>Status</th><th>Temat</th><th>Zawartość</th>");
+                            html.Append("<th>Utworzone przez</th><th>Data dodania</th><th>Do kiedy</th><th>Typ pomocy</th><th>Status</th><th>Temat</th><th>Zawartość</th>");
                             html.Append("</tr>");
                             html.Append("<tr>");
-                            html.Append("<td>" + list_announcements.ElementAt(id_anno).id + "</td>");
                             html.Append("<td>" + db.getNickname_id(list_announcements.ElementAt(id_anno).id_user) + "</td>");
                             html.Append("<td>" + list_announcements.ElementAt(id_anno).post_date.ToString("yyyy-MM-dd") + "</td>");
                             html.Append("<td>");

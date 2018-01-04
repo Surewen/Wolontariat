@@ -34,7 +34,7 @@ namespace Wolontariat
             
                 html.Append("<table border = '1' align='center'> ");
                 html.Append("<tr>");
-                html.Append("<th>Data dodania</th><th>Stworzone przez</th><th>Typ użytkownika</th><th>Status</th><th>Temat</th>");
+                html.Append("<th>Data dodania</th><th>Stworzone przez</th><th>Dodane przez</th><th>Status</th><th>Temat</th>");
                 html.Append("</tr>");
             
             for (int i = 0; i < list_announcements.Count; i++)
@@ -42,7 +42,7 @@ namespace Wolontariat
                 html.Append("<tr>");
                 html.Append("<td>" + list_announcements.ElementAt(i).post_date.ToString("yyyy-MM-dd") + "</td>");
                 html.Append("<td>" + db.getNickname_id(list_announcements.ElementAt(i).id_user) + "</td>");
-                html.Append("<td>" + db.getType_User(list_announcements.ElementAt(i).id_user) + "</td>");
+                html.Append("<td>" + db.getType_User(list_announcements.ElementAt(i).id_user).Replace("needy", "Potrzebujący").Replace("volounteer","Wolontariusz") + "</td>");
                 html.Append("<td>" + list_announcements.ElementAt(i).current_status + "</td>");
                 html.Append("<td>" + list_announcements.ElementAt(i).title + "</td>");
                 html.Append("<td><a href=\"Details.aspx?id_a=" + list_announcements.ElementAt(i).id + "\">Szczegóły</a></td>");

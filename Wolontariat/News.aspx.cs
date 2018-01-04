@@ -27,7 +27,7 @@ namespace Wolontariat
             html.Append("<th>Ilość osób biorących udział</th><th>Dodane przez</th><th>Data dodania</th><th>Data wydarzenia</th><th>Powiązane z ogłoszeniem potrzebującego</th><th>Temat</th>");
             html.Append("</tr>");
             int k = 0;
-            for (int i = 0; i < ranking_amount_events.Count; i++)
+            for (int i = 0; i < Math.Min(5, ranking_amount_events.Count); i++)
             {
                 for (int j = 0; j < list_events.Count; j++)
                 {
