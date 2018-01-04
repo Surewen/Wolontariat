@@ -73,7 +73,6 @@ namespace Wolontariat
         {
             string subject = "";
             string body = "";
-            title = "aa";
             if (wydarzenie)
             {
                 subject = "Usunięcie Twojego wydarzneia";
