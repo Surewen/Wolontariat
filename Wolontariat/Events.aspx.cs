@@ -39,10 +39,10 @@ namespace Wolontariat
             db = new SQLDatabase();
             db.Connect();
             list_events = db.ListEvents();
-            
+
             if (Session["id"] != null)
             {
-                if (db.getType_User(db.getId((string)Session["id"])) == "volounteer") add_event.Visible = true;
+                if (db.getType_User(db.getId((string)Session["id"])) == "volounteer" || db.getType_User(db.getId((string)Session["id"])) == "administrator") add_event.Visible = true;
             }
             
             html.Append("<table border = '1' align='center'>");

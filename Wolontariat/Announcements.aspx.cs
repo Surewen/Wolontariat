@@ -28,8 +28,7 @@ namespace Wolontariat
 
             if (Session["id"] == null) add_announcement.Visible = false;
             else {
-                add_announcement.Visible = false;
-                if (db.getType_User(db.getId((string)Session["id"]))!="administrator") add_announcement.Visible = true; 
+                add_announcement.Visible = true; 
             }
             
                 html.Append("<table border = '1' align='center'> ");
