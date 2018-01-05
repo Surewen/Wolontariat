@@ -4,10 +4,11 @@
      <div class="table1">
         <asp:PlaceHolder ID = "PlaceHolder1" runat="server" /><br />
      </div>
-     <asp:Button ID="form_data" onClick="Form_Data" runat="server" Text="Zmień dane" />
-    <asp:Button ID="edit_password" onClick="Edit_Password" runat="server" Text="Zmień hasło" />
-    <asp:Button ID="delete_account" OnClick="Delete_Account" runat="server" Text="Usuń konto" />
-
+    <div>
+        <asp:Button ID="form_data" class="mySuperClass" onClick="Form_Data" runat="server" Text="Zmień dane" />
+        <asp:Button ID="edit_password" class="mySuperClass" onClick="Edit_Password" runat="server" Text="Zmień hasło" />
+        <asp:Button ID="delete_account" class="mySuperClass" OnClick="Delete_Account" runat="server" Text="Usuń konto" />
+    </div>
      <div class="container" ID="password_form" visible="false" runat="server" align="center">
         <div class="card card-container">
            <p id="profile-name" class="profile-name-card"></p>

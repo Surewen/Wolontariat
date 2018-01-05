@@ -141,6 +141,17 @@ div.container p {
     color:#737272;
     font-family: Tahoma, Helvetica, 'Segoe UI', Segoe, Arial, 'Lucida Grande', Verdana, sans-serif;
 }
+
+.mySuperClass{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
 @media (max-width: 1420px) {/*RESPONSIVITY*/
     .column {
         width: 100%;
