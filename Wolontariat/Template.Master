@@ -34,11 +34,13 @@
                         <script>
                             !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "/javascript/JavaScript.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "weatherwidget-io-js");
                         </script>
+                    <div>
+                        Licznik odwiedzin: <asp:Label id="visitcounter" Text="0" runat="server"></asp:Label>
+                    </div>
                 </div>
                 <div id="middleColumn" class="column">    
                         <div>
-                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                            </asp:ContentPlaceHolder>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
                         </div>
                 </div>
             </div>
@@ -50,6 +52,9 @@
                         <asp:Button class="btn btn-xs btn-green" id="consent" OnClick="Accept_Cookies" runat="server" Text="Ok" />
                  </div>
              </div>
+        <div class="footer">
+            © Wolontariat team 2018
+        </div>
     </form>
 </body>
 </html>

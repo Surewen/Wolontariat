@@ -131,6 +131,16 @@ div.container p {
                0 10px 10px rgba(0,0,0,.2),
                0 20px 20px rgba(0,0,0,.15);
 }
+
+.footer{
+    text-align: center;
+    bottom:0;
+    left:50%;
+    font-size:80%;
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+    color:#737272;
+    font-family: Tahoma, Helvetica, 'Segoe UI', Segoe, Arial, 'Lucida Grande', Verdana, sans-serif;
+}
 @media (max-width: 1420px) {/*RESPONSIVITY*/
     .column {
         width: 100%;
@@ -166,6 +176,9 @@ div.container p {
     text-transform: none;
     color: #fff;
 }
+    h1{
+        font-size:1.5em;
+    }
 
 }
 
@@ -209,4 +222,7 @@ div.container p {
     text-transform: none;
     color: #fff;
 }
+    h1{
+        font-size:1.2em;
+    }
 }

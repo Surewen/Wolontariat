@@ -98,6 +98,7 @@
     <Content Include="packages.config" />
     <Content Include="css\Template.css" />
     <Content Include="Register.aspx" />
+    <Content Include="res\xml\counter.xml" />
     <Content Include="Template.Master" />
     <None Include="Properties\PublishProfiles\pww - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
