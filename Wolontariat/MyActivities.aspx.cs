@@ -18,9 +18,9 @@ namespace Wolontariat
         List<Event> list_events;
         StringBuilder html;
         /// <summary>
-        /// Metoda obsługująca wyświetlanie ogłoszeń i wydarzeń, które zalogowany użytkownik dodał
-        /// oraz ogłozenia, których zadeklarował swoją pomoc i wydarzenia, których bierze udział.
-        /// Metoda obsługuje także możliwość rezygnacji, edycji i usuwania ogłoszeń i wydarzeń.
+        /// The method that supports the display of announcements and events that the logged-on user has added and 
+        /// the declarations he has declared his help and events he takes part in. 
+        /// The method also supports the option of resigning, editing and deleting announcements and events.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -45,8 +45,7 @@ namespace Wolontariat
         public void display_assigned_announcements()
         {
             html = new StringBuilder();
-            html.Append("Ogłoszenia, do których się zgłosiłem: </br>");
-            html.Append("<table border = '1'>");
+            html.Append("<table border = '1' align='center'>");
             html.Append("<tr>");
             html.Append("<th>Id ogłoszenia</th><th>Dodane przez</th><th>Data dodania</th><th>Do kiedy</th><th>Typ pomocy</th><th>Status</th><th>Temat</th><th>Zawartość</th><th>od</th><th>do</th><th>Modyfikuj</th>");
             html.Append("</tr>");
@@ -59,7 +58,7 @@ namespace Wolontariat
                 html.Append("<tr>");
                 html.Append("<td>" + row[1] + "</td>");
                 html.Append("<td>" + db.getNickname_id(list_announcements.ElementAt(id_a).id_user) + "</td>");
-                html.Append("<td>" + list_announcements.ElementAt(id_a).post_date + "</td>");
+                html.Append("<td>" + list_announcements.ElementAt(id_a).post_date.ToString("yyyy-MM-dd") + "</td>");
                 html.Append("<td>");
                 if (list_announcements.ElementAt(id_a).type_help.Equals("Jednorazowa")) html.Append("---");
                 else html.Append(list_announcements.ElementAt(id_a).end_date);
@@ -82,8 +81,7 @@ namespace Wolontariat
         public void display_joined_events()
         {
             html = new StringBuilder();
-            html.Append("Wydarzenia, w których biorę udział: </br>");
-            html.Append("<table border = '1'>");
+            html.Append("<table border = '1' align='center'>");
             html.Append("<tr>");
             html.Append("<th>Id wydarzenia</th><th>Dodane przez</th><th>Data wydarzenia</th><th>Temat</th><th>Zawartość</th><th>Powiązane z ogłoszeniem</th><th>Modyfikuj</th><th>Szczegóły</th>");
             html.Append("</tr>");
@@ -95,7 +93,7 @@ namespace Wolontariat
                 html.Append("<tr>");
                 html.Append("<td>" + row[1] + "</td>");
                 html.Append("<td>" + db.getNickname_id(list_events.ElementAt(id_a).id_user) + "</td>");
-                html.Append("<td>" + list_events.ElementAt(id_a).due_date + "</td>");
+                html.Append("<td>" + list_events.ElementAt(id_a).due_date.ToString("yyyy-MM-dd") + "</td>");
                 html.Append("<td>" + list_events.ElementAt(id_a).title + "</td>");
                 html.Append("<td>" + list_events.ElementAt(id_a).content + "</td>");
                 if (list_events.ElementAt(id_a).id_announcement.Equals(null)) html.Append("<td>Nie</td>");
@@ -115,8 +113,7 @@ namespace Wolontariat
         public void display_created_events()
         {
             html = new StringBuilder();
-            html.Append("Wydarzenia, które dodałem: </br>");
-            html.Append("<table border = '1'>");
+            html.Append("<table border = '1' align='center'>");
             html.Append("<tr>");
             html.Append("<th>Data dodania</th><th>Data wydarzenia</th><th>Powiązane z ogłoszeniem potrzebującego</th><th>Temat</th>");
             html.Append("</tr>");
@@ -125,8 +122,8 @@ namespace Wolontariat
                 if (list_events.ElementAt(i).id_user.Equals(db.getId((string)Session["id"])))
                 {
                     html.Append("<tr>");
-                    html.Append("<td>" + list_events.ElementAt(i).post_date + "</td>");
-                    html.Append("<td>" + list_events.ElementAt(i).due_date + "</td>");
+                    html.Append("<td>" + list_events.ElementAt(i).post_date.ToString("yyyy-MM-dd") + "</td>");
+                    html.Append("<td>" + list_events.ElementAt(i).due_date.ToString("yyyy-MM-dd") + "</td>");
                     if (list_events.ElementAt(i).id_announcement.Equals(null)) html.Append("<td>Nie</td>");
                     else html.Append("<td>Tak</td>");
                     html.Append("<td>" + list_events.ElementAt(i).title + "</td>");
@@ -147,10 +144,9 @@ namespace Wolontariat
         public void display_created_announcements()
         {
             html = new StringBuilder();
-            html.Append("Ogłoszenia, które dodałem: </br>");
-            html.Append("<table border = '1'>");
+            html.Append("<table border = '1' align='center'>");
             html.Append("<tr>");
-            html.Append("<th>Id wydarzenia</th><th>Data dodania</th><th>Do kiedy</th><th>Status</th><th>Temat</th><th>Zawartość</th><th>Modyfikuj</th>");
+            html.Append("<th>Id wydarzenia</th><th>Data dodania</th><th>Typ pomocy</th><th>Do kiedy</th><th>Status</th><th>Temat</th><th>Zawartość</th><th>Modyfikuj</th>");
             html.Append("</tr>");
 
             for (int i = 0; i < list_announcements.Count; i++)
@@ -159,7 +155,8 @@ namespace Wolontariat
                 {
                     html.Append("<tr>");
                     html.Append("<td>" + list_announcements.ElementAt(i).id + "</td>");
-                    html.Append("<td>" + list_announcements.ElementAt(i).post_date + "</td>");
+                    html.Append("<td>" + list_announcements.ElementAt(i).post_date.ToString("yyyy-MM-dd") + "</td>");
+                    html.Append("<td>" + list_announcements.ElementAt(i).type_help + "</td>");
                     html.Append("<td>");
                     if (list_announcements.ElementAt(i).type_help.Equals("Jednorazowa")) html.Append("---");
                     else html.Append(list_announcements.ElementAt(i).end_date);

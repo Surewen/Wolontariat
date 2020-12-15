@@ -7,7 +7,7 @@
     <title>Wolontariat</title>
 </head>
 
-<body>
+<body style="background-image: url(https://i.imgur.com/LyClpug.gif); margin:0 !important;">
     <form id="form1" runat="server">
             <ul class="ulMenu">
                 <li class="liMenu"><a class="aMenu" href="Home.aspx">Strona główna</a></li>
@@ -15,38 +15,46 @@
                 <li class="liMenu"><a class="aMenu" href="Events.aspx">Wydarzenia</a></li>
                 <li class="liMenu"><a class="aMenu" href="Announcements.aspx">Ogłoszenia</a></li>
                 <li class="liMenu" id="my_activities" runat="server"><a class="aMenu" href="MyActivities.aspx">Moje aktywności</a></li>
+                <li class="liMenu" id="list_users" runat="server"><a class="aMenu" href="ListUsers.aspx">Lista użytkowników</a></li>
                 <li class="liMenu" id="invitations" runat="server"><a class="aMenu" href="Invitations.aspx">Zaproszenia</a></li>
-                <li class="liMenu"><asp:Label ID="hello_user" runat="server" Text="Hello Visitor!" ForeColor="#99FF33"></asp:Label></li>
+                <li class="liMenu" id="newsletter" runat="server"><a class="aMenu" href="Newsletter.aspx">Newsletter</a></li>
+                <li class="liMenu"><a class="aMenu" href="Contact.aspx">Kontakt</a></li>
+                <li class="liMenu"><a class="aMenu" title="Kliknij aby się zarejestrować" href="Register.aspx"><asp:Label ID="hello_user" runat="server" Text="Witaj!" ForeColor="#99FF33"></asp:Label></a></li>
+                <li class="liMenu" id="account" runat="server"><a class="aMenu"  href="MyAccount.aspx">Moje konto</a></li>
                 <li class="liMenu" id="logout" runat="server"><a class="aMenu"  href="Logout.aspx">Wyloguj</a></li>
                 <li class="liMenu" id="login" runat="server"><a class="aMenu"  href="Login.aspx">Zaloguj się</a></li>
                 <li class="liMenu" id="reg" runat="server" ><a class="aMenu" href="Register.aspx">Zarejestruj się</a></li>
             </ul>
         
             <div class="ulMenuspace"></div>
-            <img class="welcomePanel" src="/res/img/welcome.bmp" />
+            <asp:Image class="welcomePanel" src="https://i.imgur.com/P4YqIFX.jpg" runat="server"/>
             <div class="row">
                 <div id="leftColumn" class="column" style="background-color:#aaa;">
-                    Column
-                    <asp:PlaceHolder ID = "user_list" runat="server" />
+                    <a class="weatherwidget-io" href="https://forecast7.com/pl/52d2321d01/warsaw/" data-label_1="WARSZAWA" data-label_2="POGODA" data-theme="original" ></a>
+                        <script>
+                            !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "/javascript/JavaScript.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "weatherwidget-io-js");
+                        </script>
+                    <div>
+                        Licznik odwiedzin: <asp:Label id="visitcounter" Text="0" runat="server"></asp:Label>
+                    </div>
                 </div>
-                <div id="middleColumn" class="column" style="background-color:#bbb;">    
+                <div id="middleColumn" class="column">    
                         <div>
-                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                            </asp:ContentPlaceHolder>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
                         </div>
-                </div>
-                <div id="rightColumn" class="column" style="background-color:#ccc;">
-                    Column
                 </div>
             </div>
 
              <div id="cookieConsent" runat="server">
                 <div class="container" runat="server">
-                        Ta strona korzysta z Cookies w celu personalizacji i łatwości dotępu. Przeglądając stronę akceptujesz politykę Cookies.<br />
+                        Ta strona korzysta z Cookies w celu personalizacji i łatwości dotępu. Korzystając ze strony akceptujesz politykę Cookies.<br />
                             <a href="http://ec.europa.eu/ipg/basics/legal/cookies/index_en.htm" class="btn btn-xs btn-green" id="learn-more">Dowiedz się więcej</a>
                         <asp:Button class="btn btn-xs btn-green" id="consent" OnClick="Accept_Cookies" runat="server" Text="Ok" />
                  </div>
              </div>
+        <div class="footer">
+            © Wolontariat team 2018
+        </div>
     </form>
 </body>
 </html>

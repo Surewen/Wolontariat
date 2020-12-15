@@ -15,7 +15,7 @@ namespace Wolontariat
         List<Announcement> list_announcements;
         StringBuilder html;
         /// <summary>
-        /// Metoda odpowiadająca za wyświetlenie wszystkich ogłoszeń na podstawie listy obiektów Announcement.
+        /// The method responsible for displaying all advertisements based on the list of Announcement objects.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -26,19 +26,22 @@ namespace Wolontariat
                 list_announcements = db.ListAnnouncements();
                 html = new StringBuilder();
 
-                if (Session["id"] == null) add_announcement.Visible = false;
-                else add_announcement.Visible = true; 
-                
-                html.Append("<table border = '1'>");
+            if (Session["id"] == null) add_announcement.Visible = false;
+            else {
+                add_announcement.Visible = true; 
+            }
+            
+                html.Append("<table border = '1' align='center'> ");
                 html.Append("<tr>");
-                html.Append("<th>Data dodania</th><th>Stworzone przez</th><th>Status</th><th>Temat</th>");
+                html.Append("<th>Data dodania</th><th>Stworzone przez</th><th>Dodane przez</th><th>Status</th><th>Temat</th>");
                 html.Append("</tr>");
             
             for (int i = 0; i < list_announcements.Count; i++)
             {
                 html.Append("<tr>");
-                html.Append("<td>" + list_announcements.ElementAt(i).post_date+ "</td>");
-                html.Append("<td>" + db.getType_User(list_announcements.ElementAt(i).id_user) + "</td>");
+                html.Append("<td>" + list_announcements.ElementAt(i).post_date.ToString("yyyy-MM-dd") + "</td>");
+                html.Append("<td>" + db.getNickname_id(list_announcements.ElementAt(i).id_user) + "</td>");
+                html.Append("<td>" + db.getType_User(list_announcements.ElementAt(i).id_user).Replace("needy", "Potrzebujący").Replace("volounteer","Wolontariusz") + "</td>");
                 html.Append("<td>" + list_announcements.ElementAt(i).current_status + "</td>");
                 html.Append("<td>" + list_announcements.ElementAt(i).title + "</td>");
                 html.Append("<td><a href=\"Details.aspx?id_a=" + list_announcements.ElementAt(i).id + "\">Szczegóły</a></td>");

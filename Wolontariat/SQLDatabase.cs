@@ -11,45 +11,45 @@ namespace Wolontariat
     public class SQLDatabase
     {
         /// <summary>
-        /// Klasa odpowiadająca za obsługę połączenia z bazą danych. Zawiera metody 
-        /// obsługujące dodawanie, edycję i usuwanie danych z bazy danych. 
-        /// Zawiera również metody służące do tworzenia list obiektów, na których 
-        /// łatwiej się pracuje.
+        /// The class responsible for handling the connection to the database. 
+        /// It contains methods for adding, editing and deleting data from the database. 
+        /// It also includes methods for creating lists of objects on which it is easier to work.
         /// </summary>
         private SqlConnection connection;
         private SqlCommand cmd;
         /// <summary>
-        /// Metoda wywołuje metodę Init.
+        /// The method calls the Init method.
         /// </summary>
         public SQLDatabase()
         {
             Init();
         }
         /// <summary>
-        /// Metoda zawiera połączenie z bazą danych.
+        /// The method includes a connection to the database.
         /// </summary>
         private void Init()
         {
-            connection = new SqlConnection("Data Source=pww-server.database.windows.net;Initial Catalog=pww-database;User ID=wolontariusz;Password=Admini1.");
+            connection = new SqlConnection("Data Source=pww-server.database.windows.net;" +
+                "Initial Catalog=pww-database;User ID=wolontariusz;Password=Admini1.");
         }
         /// <summary>
-        /// Metoda inicjująca połączenie z bazą danych.
+        /// The method that initiates the connection to the database.
         /// </summary>
         public void Connect()
         {
             connection.Open();
         }
-       /// <summary>
-       /// Metoda kończąca połączenie z bazą danych.
-       /// </summary>
+        /// <summary>
+        /// The method terminating the connection to the database.
+        /// </summary>
         public void Disconnect()
         {
             connection.Close();
         }
-    /// <summary>
-    /// Metoda tworząca listę obiektów typu Użytkownik.
-    /// </summary>
-    /// <returns></returns>
+        /// <summary>
+        /// The method that creates a list of User type objects.
+        /// </summary>
+        /// <returns></returns>
         public List<Users> ListUsers()
         {
             List<Users> list = new List<Users>();
@@ -65,8 +65,24 @@ namespace Wolontariat
             return list;
         }
 
+        public List<Event_ranking> RankingEvents()
+        {
+            List<Event_ranking> list = new List<Event_ranking>();
+
+            cmd = new SqlCommand("SELECT * FROM users_joined_event", connection);
+            SqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                list.Add(new Event_ranking(dataReader));
+            }
+            dataReader.Close();
+            return list;
+        }
+
+
         /// <summary>
-        /// Metoda tworząca listę obiektów typu Zaproszenie.
+        /// The method that creates a list of objects like Invitation.
         /// </summary>
         /// <returns></returns>
         public List<Invitation> ListInvitations()
@@ -84,7 +100,7 @@ namespace Wolontariat
             return list;
         }
         /// <summary>
-        /// Metoda tworząca listę obiektów typu Ogłoszenie.
+        /// The method that creates a list of objects like Advert.
         /// </summary>
         /// <returns></returns>
         public List<Announcement> ListAnnouncements()
@@ -102,7 +118,7 @@ namespace Wolontariat
             return list;
         }
         /// <summary>
-        /// Metoda tworząca listę obiektów typy Wydarzenie.
+        /// The method that creates the list of objects types Event.
         /// </summary>
         /// <returns></returns>
         public List<Event> ListEvents()
@@ -120,7 +136,7 @@ namespace Wolontariat
             return list;
         }
         /// <summary>
-        /// Metoda dodaje do bazy danych nowy rekord w tabeli Events.
+        /// The method adds a new record to the database in the Events table.
         /// </summary>
         /// <param name="id_a"></param>
         /// <param name="id_u"></param>
@@ -129,36 +145,37 @@ namespace Wolontariat
         /// <param name="content"></param>
         public void InstertEvents(int id_a, int id_u, String due_date, String title, String content)
         {
-            string query = "";
+            String query = "";
             if (id_a == -1)
             {
-                query =
-                "INSERT INTO EVENTS (id_user, post_date, due_date, title, content) VALUES " +
-                "("
-                + id_u + ",  CONVERT(DATETIME,'"
-                + DateTime.Today + "', 102), CONVERT(DATETIME,'"
-                + due_date + "', 102), '"
-                + title + "', '"
-                + content + "');";
+                query = prepareSql("null", id_u, due_date, title, content);
             }
             else
             {
-                 query =
-                "INSERT INTO EVENTS VALUES " +
-                "("
-                + id_a + ", "
-                + id_u + ",  CONVERT(DATETIME,'"
-                + DateTime.Today + "', 102), CONVERT(DATETIME,'"
-                + due_date + "', 102), '"
-                + title + "', '"
-                + content + "');";
+                query = prepareSql(id_a.ToString(), id_u, due_date, title, content);
             }
             
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
+
+
+        public String prepareSql(String id_a, int id_u, String due_date, String title, String content)
+        {
+            string query = "";
+            query =
+              "INSERT INTO EVENTS VALUES " +
+              "("
+              + id_a + ", "
+              + id_u + ",  CONVERT(DATETIME,'"
+              + DateTime.Today.ToString("yyyy-MM-dd") + "', 102), CONVERT(DATETIME,'"
+              + due_date + "', 102), '"
+              + title + "', '"
+              + content + "');";
+            return query;
+        }
         /// <summary>
-        /// Metoda edytuje w bazie danynch wybrany rekord w tabeli Announcements.
+        /// The method edits the selected record in the Notification database in the Announcements table.
         /// </summary>
         /// <param name="id_a"></param>
         /// <param name="end_data"></param>
@@ -182,7 +199,7 @@ namespace Wolontariat
             cmd.ExecuteNonQuery();
         }
         /// <summary>
-        /// Metoda edytuje w bazie danych wybrany rekord w tabeli Events.
+        /// The method edits the selected record in the Events table in the database.
         /// </summary>
         /// <param name="id_e"></param>
         /// <param name="due_date"></param>
@@ -200,8 +217,19 @@ namespace Wolontariat
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
+        
+        public void ResetPassword(int id_u)
+        {
+            string query =
+                "UPDATE USERS SET "
+                + "password='password'"
+                + " WHERE id=" + id_u;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
         /// <summary>
-        /// Metoda dodająca nowy rekord w bazie danych w tabeli Announcement.
+        /// A method that adds a new record in the database in the Announcement table.
         /// </summary>
         /// <param name="id_u"></param>
         /// <param name="end_data"></param>
@@ -217,7 +245,7 @@ namespace Wolontariat
                 "INSERT INTO ANNOUNCEMENTS VALUES " +
                 "("
                 + id_u + ", CONVERT(DATETIME,'"
-                + DateTime.Today + "', 102),  CONVERT(DATETIME,'"
+                + DateTime.Today.ToString("yyyy-MM-dd") + "', 102),  CONVERT(DATETIME,'"
                 + end_data + "', 102), '"
                 + type + "', 'trwa', '"
                 + title + "', '"
@@ -228,10 +256,11 @@ namespace Wolontariat
         }
 
         /// <summary>
-        /// Metoda, której zadaniem jest dodawanie do tabeli Invitations kolejnych zaproszeń. 
-        /// Parametry, które są pobierane od użytkownika to tytul i zawartosc. Parametry pobierane z aplikacji to id użytkownika, który wysyła zaproszenie,
-        /// id wydarzenia, które użytkownik wybierze, id użytkownika, do którego ma być wysłane zaproszenie, użytkownik zalogowany go wybiera. Ostatnim
-        /// parametrem jest data, aplikacja sama go pobiera i przesyła.
+        /// A method whose task is to add further invitations to the Invitations table.
+        /// Parameters that are downloaded from the user are the title and content.
+        /// The parameters downloaded from the application are the user's id that sends the invitation, the id of the event that the user chooses, 
+        /// the id of the user to whom the invitation is to be sent, the logged-in user selects it. 
+        /// The last parameter is the date, the application itself downloads and transmits.
         /// </summary>
         /// <param name="id_event"></param>
         /// <param name="id_sender"></param>
@@ -248,13 +277,13 @@ namespace Wolontariat
                 + id_receiver + ", '"
                 + title + "', '"
                 + content + "', CONVERT(DATETIME, '"
-                + DateTime.Today + "', 102))";
+                + DateTime.Today.ToString("yyyy-MM-dd") + "', 102))";
 
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
         /// <summary>
-        /// Metoda dodająca nowych użytkowników do tabeli Users. Wprowadzane dane są pobierane z wypełnionego formularza przez użytkownika.
+        /// A method that adds new users to the Users table. The data entered is downloaded from the completed form by the user.
         /// </summary>
         /// <param name="nickname"></param>
         /// <param name="password"></param>
@@ -285,9 +314,49 @@ namespace Wolontariat
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
+
+        public void EditAccount(int id, String nickname, String pesel, String email, String telephone, String name, String surname, String birthdate, String sex, String type)
+        {
+            string query =
+                "UPDATE USERS SET "
+                + "nickname='" + nickname + "', pesel='"
+                + pesel + "', email='"
+                + email + "', telephone='"
+                + telephone + "', name='"
+                + name + "', surname='"
+                + surname + "', birth_date=CONVERT(DATETIME,'"
+                + birthdate + "', 102), sex='"
+                + sex + "', type='"
+                + type + "' WHERE id="+id+";";
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+
+        public void EditPassword(int id, String new_password)
+        {
+            string query =
+                "UPDATE USERS SET "
+                + "password='" + new_password + "' WHERE id=" + id + ";";
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+        public int Count_Events(List<Event_ranking> list_event_ranking, int id_e)
+        {
+           int amount = 0;
+            for (int i = 0; i < list_event_ranking.Count; i++)
+            {
+                if (id_e == list_event_ranking.ElementAt(i).id_event) amount++;
+            }
+            return amount;
+        }
+
         /// <summary>
-        /// Metoda dodająca nowy rekord do tabeli Users_Assigned_Announcement. Podana tabela
-        /// przechowuje informacje na temat użytkowników i ich zgłoszeń do wykonania wybranych ogłoszeń.
+        /// A method that adds a new record to the Users Assigned Announcement table. 
+        /// The given table stores information about users and their applications to perform selected announcement.
         /// </summary>
         /// <param name="id_a"></param>
         /// <param name="id_u"></param>
@@ -307,8 +376,8 @@ namespace Wolontariat
             cmd.ExecuteNonQuery();
         }
         /// <summary>
-        /// Metoda dodaje nowy rekord do tabeli Joined_Event. Podana tabela przechowuje
-        /// informacje o użytkownikach i wydarzeniach, w których biorą udział.
+        /// The method adds a new record to the Joined_Event table. 
+        /// The given table stores information about users and events in which they participate.
         /// </summary>
         /// <param name="id_e"></param>
         /// <param name="id_u"></param>
@@ -325,8 +394,8 @@ namespace Wolontariat
         }
 
         /// <summary>
-        /// Metoda usuwająca wybrany rekord z tabeli Users_Assigned_Announcemet. Oznacza to rezygnację z 
-        /// wykonania wybranego ogłoszenia.
+        /// The method that deletes the selected record from the Users_Assigned_Announcemet table. 
+        /// This means giving up the selected advertisement.
         /// </summary>
         /// <param name="id_a"></param>
         /// <param name="id_u"></param>
@@ -339,8 +408,7 @@ namespace Wolontariat
             cmd.ExecuteNonQuery();
         }
         /// <summary>
-        /// Metoda usuwa wybrany rekord z tabeli Joined_Event. Oznacza to opuszczeni wydarzenia przez
-        /// wolontariusza.
+        /// The method deletes the selected record from the Joined_Event table. It means abandoned events by a volunteer.
         /// </summary>
         /// <param name="id_e"></param>
         /// <param name="id_u"></param>
@@ -353,8 +421,7 @@ namespace Wolontariat
             cmd.ExecuteNonQuery();
         }
         /// <summary>
-        /// Metoda usuwająca wybrany rekord z tabeli Announcements. Oznacza to 
-        /// usunięcie ogłoszenia.
+        /// The method that deletes the selected record from the Announcements table. It means removing the advertisement.
         /// </summary>
         /// <param name="id_a"></param>
         public void DeleteAnnouncement(int id_a)
@@ -365,8 +432,21 @@ namespace Wolontariat
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
+
+
+        public void DeleteUser(int id_u)
+        {
+            string query =
+                "DELETE FROM USERS WHERE id=" + id_u;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+
+
         /// <summary>
-        /// Metoda usuwająca rekord z tabeli Events. Oznacza to usunięcie wydarzenia.
+        /// The method that deletes the record from the Events table. This means deleting the event.
         /// </summary>
         /// <param name="id_e"></param>
         public void DeleteEvent(int id_e)
@@ -378,9 +458,8 @@ namespace Wolontariat
             cmd.ExecuteNonQuery();
         }
         /// <summary>
-        /// Metoda usuwająca rekordy z tabeli Events. Oznacza to usunięcie wydarzenia utworzonego 
-        /// na podstawie ogłoszenia. Metoda usuwa wszystkie wydarzenia, które opierały się 
-        /// na wskazanym ogłoszeniu.
+        /// The method that deletes records from the Events table. This means deleting the event created on the basis of the announcement. 
+        /// The method removes all events that were based on the indicated advertisement.
         /// </summary>
         /// <param name="id_a"></param>
         public void DeleteEvent_id_a(int id_a)
@@ -392,7 +471,7 @@ namespace Wolontariat
             cmd.ExecuteNonQuery();
         }
         /// <summary>
-        /// Metoda usuwająca zaproszenia na wybrane wydarzenie.
+        /// The method that removes invitations to the selected event.
         /// </summary>
         /// <param name="id_e"></param>
         public void DeleteInvitation(int id_e)
@@ -403,9 +482,18 @@ namespace Wolontariat
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
+
+        public void DeleteInvitation_id(int id)
+        {
+            string query =
+                "DELETE FROM INVITATIONS WHERE id=" + id;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
         /// <summary>
-        /// Metoda usuwająca rekordy przechowująca informacje o użytkownikach, którzy zgłosili
-        /// się do wykonania ogłoszenia. Usuwa wszystkie rekordy z wybranym numerem ogłoszenia.
+        /// A method that deletes records that store information about users who have applied to perform the announcement. 
+        /// Removes all records with the selected number of the announcement.
         /// </summary>
         /// <param name="id_a"></param>
         public void Delete_Users_Assigned_Announcement(int id_a)
@@ -416,9 +504,18 @@ namespace Wolontariat
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
+
+        public void Delete_Users_Assigned_Announcement_id_user(int id_user)
+        {
+            string query =
+                "DELETE FROM USERS_ASSIGNED_ANNOUNCEMENT WHERE id_user=" + id_user;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
         /// <summary>
-        /// Metoda usuwająca wszystkie rekordy przechowujące informacje o użytkownikach biorących udział w wydarzeniu.
-        /// Usuwa wszystkie rekordy z wybranym numere wydarzenia.
+        /// A method that deletes all records that store information about users who are participating in the event. 
+        /// Removes all records from the selected event number.
         /// </summary>
         /// <param name="id_e"></param>
         public void Delete_Users_Joined_Event(int id_e)
@@ -429,8 +526,17 @@ namespace Wolontariat
             cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
+
+        public void Delete_Users_Joined_Event_id_user(int id_u)
+        {
+            string query =
+                "DELETE FROM users_joined_event WHERE id_user=" + id_u;
+
+            cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
         /// <summary>
-        /// Metoda zwracająca ogłoszenia, do których zalogowany użytkownik się zgłosił.
+        /// The method that returns ads to which the logged-in user has applied.
         /// </summary>
         /// <param name="id_u"></param>
         /// <returns></returns>
@@ -446,8 +552,7 @@ namespace Wolontariat
         }
 
         /// <summary>
-        /// Metoda zwraca wydarzenia, w których zalogowany użytkownik
-        /// zadeklarował swoją obecność.
+        /// The method returns events in which the logged-in user declared his presence.
         /// </summary>
         /// <param name="id_u"></param>
         /// <returns></returns>
@@ -462,7 +567,7 @@ namespace Wolontariat
             return dt;
         }
         /// <summary>
-        /// Metoda zwracająca rekord z tabeli Users na podstawie email i password. Służy do obsługi logowania.
+        /// A method that returns a record from the Users table based on email and password. Used to support logging.
         /// </summary>
         /// <param name="email"></param>
         /// <param name="pass"></param>
@@ -474,7 +579,7 @@ namespace Wolontariat
             return dr;
         }
         /// <summary>
-        /// Metoda zwracająca nickname na podstawie email z tabeli Users.
+        /// The method returns nickname based on an email from the Users table.
         /// </summary>
         /// <param name="email"></param>
         /// <returns></returns>
@@ -490,7 +595,7 @@ namespace Wolontariat
                 return nick;
         }
         /// <summary>
-        /// Metoda zwracająca nickname na podstawie id użytkownika z tabeli Users.
+        /// The method returns nickname based on the user's id from the Users table.
         /// </summary>
         /// <param name="id_u"></param>
         /// <returns></returns>
@@ -506,7 +611,7 @@ namespace Wolontariat
             return nick;
         }
         /// <summary>
-        /// Metoda zwracająca listę wydarzeń, które zostały utworzone na podstawie wybranego ogłoszenia.
+        /// A method that returns a list of events that have been created based on the selected advertisement.
         /// </summary>
         /// <param name="id_a"></param>
         /// <returns></returns>
@@ -521,9 +626,9 @@ namespace Wolontariat
             
             return list;
         }
-        
+
         /// <summary>
-        /// Metoda zwracająca id ogłoszenia z bazy danych na podstawie numeru ogłoszenia z listy obiektów typu Ogłoszenie.
+        /// The method that returns id of the announcement from the database based on the number of the advertisement from the list of objects.
         /// </summary>
         /// <param name="id_a"></param>
         /// <returns></returns>
@@ -537,8 +642,32 @@ namespace Wolontariat
             }
             return id;
         }
+
+        
+
+        public String getTitleAnnouncement(int id_a)
+        {
+            List<Announcement> lista_ogłoszeń = this.ListAnnouncements();
+            String title="";
+            for (int i = 0; i < lista_ogłoszeń.Count; i++)
+            {
+                if (lista_ogłoszeń.ElementAt(i).id == id_a)  title = lista_ogłoszeń.ElementAt(i).title; 
+            }
+            
+            return title;
+        }
+        public string getTitleEvent(int id_e)
+        {
+            List<Event> lista_wydarzeń = this.ListEvents();
+            string title = "";
+            for (int i = 0; i < lista_wydarzeń.Count; i++)
+            {
+                if (lista_wydarzeń.ElementAt(i).id.Equals(id_e)) { title = lista_wydarzeń.ElementAt(i).title; }
+            }
+            return title;
+        }
         /// <summary>
-        /// Metoda zwracająca id zalogowanego użytkownika na podstawie jego email.
+        /// The method that returns the id of the logged in user based on his email.
         /// </summary>
         /// <param name="email"></param>
         /// <returns></returns>
@@ -554,7 +683,7 @@ namespace Wolontariat
             return id;
         }
         /// <summary>
-        /// Metoda zwracająca typ użytkownika na podstawie id użytkownika.
+        /// A method that returns a user type based on a user's id.
         /// </summary>
         /// <param name="id_user"></param>
         /// <returns></returns>
@@ -568,6 +697,17 @@ namespace Wolontariat
                 { type = lista.ElementAt(i).type; }
             }
             return type;
+        }
+        public string getEmail(int id_u)
+        {
+            String email = "";
+            List<Users> lista = this.ListUsers();
+            for (int i = 0; i < lista.Count; i++)
+            {
+                if (lista.ElementAt(i).id == id_u)
+                { email = lista.ElementAt(i).email; }
+            }
+            return email;
         }
 
     }

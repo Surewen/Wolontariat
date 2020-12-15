@@ -21,7 +21,7 @@
                     <input type="text" id="name" class="form-control" placeholder="Imię" required="required" runat="server"/>
                     <input type="text" id="surname" class="form-control" placeholder="Nazwisko" required="required" runat="server"/>
                     <input type="text" id="pesel" class="form-control" placeholder="PESEL" required="required" runat="server"/>
-                    <input type="text" id="telephone" class="form-control" placeholder="Telefon" required="required" runat="server"/>
+                   <input type="text" id="telephone" class="form-control" placeholder="Telefon" required="required" runat="server"/>
 
                     Data urodzenia:
                     <input type="date" id="birthDate" name="birthDate" runat="server" value=""><br />
@@ -32,7 +32,6 @@
                     <input type="radio" id="volounteer" name="userType"  required="required" runat="server"/>Wolontariusz<br />
                     <input type="radio" id="needy" name="userType" required="required" runat="server"/>Potrzebujący<br /><br />
                     <asp:Button CssClass="btn btn-rg btn-register" type="submit" OnClick="Register_User" runat="server" text="Zarejestruj"/>
-
                 </form>
         </div>
     </div>

@@ -19,9 +19,9 @@ namespace Wolontariat
         List<Event> list_events;
         StringBuilder html;
         /// <summary>
-        /// Metoda odpowiadająca za wyświetlenie szczegółów wybranego wydarzenia lub ogłoszenia. Numer wybranego ogłoszenia 
-        /// lub wydarzenia jest przesyłany za pomocą QueryString. Metoda wyświetla również ogłoszenie na podstawie, którego 
-        /// zostało stworzone wydarzenie (ale nie musiało)
+        /// The method responsible for displaying the details of the selected event or announcement. 
+        /// The number of the selected advertisement or event is sent using QueryString. 
+        /// The method also displays an advertisement based on which the event was created (but it did not have to)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -39,9 +39,9 @@ namespace Wolontariat
 
             if (Request.QueryString["id_a"] != null)
             {
-                html.Append("<table border = '1'>");
+                html.Append("<table border = '1' align='center'>");
                 html.Append("<tr>");
-                html.Append("<th>Id</th><th>Dodane przez</th><th>Nickname</th><th>Data dodania</th><th>Do kiedy</th><th>Typ pomocy</th><th>Status</th><th>Temat</th><th>Zawartość</th>");
+                html.Append("<th>Dodane przez</th><th>Nickname</th><th>Data dodania</th><th>Do kiedy</th><th>Typ pomocy</th><th>Status</th><th>Temat</th><th>Zawartość</th>");
                 html.Append("</tr>");
                 
                 for (int i = 0; i < list_announcements.Count; i++)
@@ -50,10 +50,9 @@ namespace Wolontariat
                     {
                         typ = db.getType_User(list_announcements.ElementAt(i).id_user);
                         html.Append("<tr>");
-                        html.Append("<td>" + list_announcements.ElementAt(i).id + "</td>");
                         html.Append("<td>" + typ + "</td>");
                         html.Append("<td>" + db.getNickname_id(list_announcements.ElementAt(i).id_user) + "</td>");
-                        html.Append("<td>" + list_announcements.ElementAt(i).post_date + "</td>");
+                        html.Append("<td>" + list_announcements.ElementAt(i).post_date.ToString("yyyy-MM-dd") + "</td>");
                         html.Append("<td>");
                         if (list_announcements.ElementAt(i).type_help.Equals("Jednorazowa")) html.Append("---");
                         else
@@ -66,6 +65,7 @@ namespace Wolontariat
                         html.Append("<td>" + list_announcements.ElementAt(i).current_status + "</td>");
                         html.Append("<td>" + list_announcements.ElementAt(i).title + "</td>");
                         html.Append("<td>" + list_announcements.ElementAt(i).content + "</td>");
+                        if (db.getType_User(db.getId((string)Session["id"])).Equals("administrator")) html.Append("<td><a href=\"Modify.aspx?id_a=" + list_announcements.ElementAt(i).id + "&id_u=" + list_announcements.ElementAt(i).id_user + "&r=u"+"\">Usuń</a></td>");
                         html.Append("</tr>");
                     }
                 }
@@ -91,37 +91,42 @@ namespace Wolontariat
 
             if (Request.QueryString["id_e"] != null)
             {
-                html.Append("<table border = '1'>");
-
-                html.Append("<tr>");
-                html.Append("<th>Id</th><th>Utworzone przez</th><th>Data dodania</th><th>Data wydarzenia</th><th>Powiązanie z ogłoszeniem</th><th>Temat</th><th>Zawartość</th>");
-                html.Append("</tr>");
-
+               
                 for (int i = 0; i < list_events.Count; i++)
                 {
                     if (id_e == list_events.ElementAt(i).id)
                     {
+
+                        html.Append("</br>Szczegóły wydarzenia: </br>");
+                        html.Append("<table border = '1' align='center'>");
+                        html.Append("<tr>");
+                        html.Append("<th>Utworzone przez</th><th>Data dodania</th><th>Data wydarzenia</th><th>Powiązanie z ogłoszeniem</th><th>Temat</th><th>Zawartość</th>");
+                        html.Append("</tr>");
                         typ = db.getType_User(list_events.ElementAt(i).id_user);
                         html.Append("<tr>");
-                        html.Append("<td>" + list_events.ElementAt(i).id + "</td>");
                         html.Append("<td>" + db.getNickname_id(list_events.ElementAt(i).id_user) + "</td>");
-                        html.Append("<td>" + list_events.ElementAt(i).post_date + "</td>");
-                        html.Append("<td>" + list_events.ElementAt(i).due_date + "</td>");
+                        html.Append("<td>" + list_events.ElementAt(i).post_date.ToString("yyyy-MM-dd") + "</td>");
+                        html.Append("<td>" + list_events.ElementAt(i).due_date.ToString("yyyy-MM-dd") + "</td>");
                         if (list_events.ElementAt(i).id_announcement.Equals(null)) html.Append("<td>Nie</td>");
                         else html.Append("<td>Tak</td>");
                         html.Append("<td>" + list_events.ElementAt(i).title + "</td>");
                         html.Append("<td>" + list_events.ElementAt(i).content + "</td>");
+                        if (db.getType_User(db.getId((string)Session["id"])).Equals("administrator")) html.Append("<td><a href=\"Modify.aspx?id_e=" + list_events.ElementAt(i).id +"&id_u="+ list_events.ElementAt(i).id_user + "&r=u" + "\">Usuń</a></td>");
                         html.Append("</tr>");
+                        html.Append("</table>");
+                        html.Append("<br/><br/>");
+
                         if (!list_events.ElementAt(i).id_announcement.Equals(null))
                         {
                             int id_anno = db.getIdAnnouncement((int)list_events.ElementAt(i).id_announcement);
                             html.Append("</br>Ogłoszenie, do którego zostało utworzone powyższe wydarzenie: </br>");
+                            html.Append("<table border = '1'>");
                             html.Append("<tr>");
                             html.Append("<th>Utworzone przez</th><th>Data dodania</th><th>Do kiedy</th><th>Typ pomocy</th><th>Status</th><th>Temat</th><th>Zawartość</th>");
                             html.Append("</tr>");
                             html.Append("<tr>");
                             html.Append("<td>" + db.getNickname_id(list_announcements.ElementAt(id_anno).id_user) + "</td>");
-                            html.Append("<td>" + list_announcements.ElementAt(id_anno).post_date + "</td>");
+                            html.Append("<td>" + list_announcements.ElementAt(id_anno).post_date.ToString("yyyy-MM-dd") + "</td>");
                             html.Append("<td>");
                             if (list_announcements.ElementAt(id_anno).type_help.Equals("Jednorazowa")) html.Append("---");
                             else html.Append(list_announcements.ElementAt(id_anno).end_date);
@@ -131,11 +136,10 @@ namespace Wolontariat
                             html.Append("<td>" + list_announcements.ElementAt(id_anno).title + "</td>");
                             html.Append("<td>" + list_announcements.ElementAt(id_anno).content + "</td>");
                             html.Append("</tr>");
+                            html.Append("</table>");
                         }
                     }
                 }
-                html.Append("</table>");
-                html.Append("<br/><br/>");
             }
             if (Session["id"] != null && Request.QueryString["id_e"] != null)
             {
@@ -148,7 +152,7 @@ namespace Wolontariat
                 }
             }
             
-            PlaceHolder2.Controls.Add(new Literal { Text = html.ToString() });
+            PlaceHolder.Controls.Add(new Literal { Text = html.ToString() });
 
             db.Disconnect();
         }
@@ -200,7 +204,7 @@ namespace Wolontariat
         /// <param name="e"></param>
         protected void Select_User(object sender, EventArgs e)
         {
-            Response.Redirect("ListUsers.aspx?id_e=" + id_e);
+            Response.Redirect("ListVolounteers.aspx?id_e=" + id_e);
         }
 
     }

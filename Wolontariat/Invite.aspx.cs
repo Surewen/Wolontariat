@@ -17,9 +17,9 @@ namespace Wolontariat
             
         }
         /// <summary>
-        /// Metoda obsługująca podsystem zapraszania wolontariuszy do wydarzęń. Wywoluje metode SendInvitation. 
-        /// Parametry, które są wprowadzane przez uzytkownika to temat i zawartosc zaproszenia, 
-        /// następnie przesyłane są jako parametry metody SendIvitation
+        /// A method that supports the subsystem to invite volunteers to the parish. Invokes the SendInvitation method. 
+        /// Parameters that are entered by the user are the subject and contents of the invitation, 
+        /// then are sent as parameters of the SendIvitation method
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

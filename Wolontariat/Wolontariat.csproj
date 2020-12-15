@@ -34,14 +34,16 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Wolontariat.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
+    <OutputPath>C:\Users\maszk\Desktop\dokumentacja kodu źródłowego\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>Wolontariat.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -70,7 +72,11 @@
     <Content Include="AddAnnouncement.aspx" />
     <Content Include="AddEvent.aspx" />
     <Content Include="Announcements.aspx" />
+    <Content Include="Contact.aspx" />
+    <Content Include="css\Contact.css" />
+    <Content Include="css\DatabaseTables.css" />
     <Content Include="css\Login.css" />
+    <Content Include="css\Newsletter.css" />
     <Content Include="css\Register.css" />
     <Content Include="Details.aspx" />
     <Content Include="EditAnnouncement.aspx" />
@@ -79,15 +85,20 @@
     <Content Include="Home.aspx" />
     <Content Include="Invitations.aspx" />
     <Content Include="Invite.aspx" />
+    <Content Include="javascript\JavaScript.js" />
     <Content Include="ListUsers.aspx" />
+    <Content Include="ListVolounteers.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Modify.aspx" />
+    <Content Include="MyAccount.aspx" />
     <Content Include="MyActivities.aspx" />
     <Content Include="News.aspx" />
+    <Content Include="Newsletter.aspx" />
     <Content Include="packages.config" />
     <Content Include="css\Template.css" />
     <Content Include="Register.aspx" />
+    <Content Include="res\xml\counter.xml" />
     <Content Include="Template.Master" />
     <None Include="Properties\PublishProfiles\pww - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
@@ -123,6 +134,13 @@
     <Compile Include="Announcements.aspx.designer.cs">
       <DependentUpon>Announcements.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Details.aspx.cs">
       <DependentUpon>Details.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -152,6 +170,8 @@
     <Compile Include="Events.aspx.designer.cs">
       <DependentUpon>Events.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Event_count.cs" />
+    <Compile Include="Event_ranking.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -181,6 +201,13 @@
     <Compile Include="ListUsers.aspx.designer.cs">
       <DependentUpon>ListUsers.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ListVolounteers.aspx.cs">
+      <DependentUpon>ListVolounteers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListVolounteers.aspx.designer.cs">
+      <DependentUpon>ListVolounteers.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -202,6 +229,13 @@
     <Compile Include="Modify.aspx.designer.cs">
       <DependentUpon>Modify.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MyAccount.aspx.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyAccount.aspx.designer.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MyActivities.aspx.cs">
       <DependentUpon>MyActivities.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -215,6 +249,13 @@
     </Compile>
     <Compile Include="News.aspx.designer.cs">
       <DependentUpon>News.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Newsletter.aspx.cs">
+      <DependentUpon>Newsletter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Newsletter.aspx.designer.cs">
+      <DependentUpon>Newsletter.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">

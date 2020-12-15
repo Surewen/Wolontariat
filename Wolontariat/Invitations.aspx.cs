@@ -14,7 +14,7 @@ namespace Wolontariat
         StringBuilder html;
         List<Invitation> list_invitations;
         /// <summary>
-        /// Metoda wyświetlająca zaproszenia, które otrzymał użytkownik
+        /// A method that displays the invitations the user has received
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -27,8 +27,7 @@ namespace Wolontariat
                 list_invitations = db.ListInvitations();
                 html = new StringBuilder();
 
-                html.Append("Otrzymane zaproszenia");
-                html.Append("<table border = '1'>");
+                html.Append("<table border = '1' align='center'>");
                 html.Append("<tr>");
                 html.Append("<th>Data wysłania</th><th>Wysłane przez</th><th>Temat</th><th>Zawartość</th>");
                 html.Append("</tr>");

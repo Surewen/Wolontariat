@@ -7,9 +7,9 @@ using System.Web;
 namespace Wolontariat
 {
     /// <summary>
-    /// Klasa odpowiadająca za obiekt Zaproszenie. Atrybuty z bazy danych z tabeli Invitations są 
-    /// równoważne z atrybutami klasy Invitation. Dane pobrane z tabeli Invitations są przechowywane
-    /// w liście obiektów klasy Invitation
+    /// The class responsible for the object. Invitation. Attributes from the database from the Invitations table 
+    /// are equivalent to the attributes of the Invitation class. 
+    /// The data downloaded from the Invitations table is stored in the list of objects of the Invitation class
     /// </summary>
     public class Invitation
     {
